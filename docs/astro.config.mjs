@@ -82,7 +82,7 @@ export default defineConfig({
           tag: "meta",
           attrs: { name: "yandex-verification", content: "5281e40eca9463d2" },
         },
-        // Open Graph images
+        // Facebook Open Graph
         {
           tag: "meta",
           attrs: {
@@ -94,10 +94,54 @@ export default defineConfig({
         { tag: "meta", attrs: { property: "og:image:height", content: "630" } },
         {
           tag: "meta",
+          attrs: { property: "og:image:type", content: "image/png" },
+        },
+        {
+          tag: "meta",
+          attrs: {
+            property: "og:image:alt",
+            content:
+              "CAOS - CA Practice Management Research by Rakesh Waghela",
+          },
+        },
+        {
+          tag: "meta",
+          attrs: {
+            property: "article:author",
+            content: "https://www.linkedin.com/in/rakeshwaghela",
+          },
+        },
+        {
+          tag: "meta",
+          attrs: { property: "article:section", content: "Technology" },
+        },
+        {
+          tag: "meta",
+          attrs: {
+            property: "article:tag",
+            content:
+              "CA Practice Management, Chartered Accountant Software, SaaS, India, CRM, Document Intelligence",
+          },
+        },
+        // Twitter Card
+        {
+          tag: "meta",
           attrs: {
             name: "twitter:image",
             content: "https://javajack.github.io/caos/og-image.png",
           },
+        },
+        {
+          tag: "meta",
+          attrs: {
+            name: "twitter:image:alt",
+            content:
+              "CAOS - CA Practice Management Research by Rakesh Waghela",
+          },
+        },
+        {
+          tag: "meta",
+          attrs: { name: "twitter:creator", content: "@webiyo" },
         },
         // Cloudflare Web Analytics
         {
