@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e1b4b"/>
+      <stop offset="100%" style="stop-color:#312e81"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <text x="80" y="200" font-family="Inter, system-ui, sans-serif" font-size="72" font-weight="700" fill="#c7d2fe">CAOS</text>
+  <text x="80" y="280" font-family="Inter, system-ui, sans-serif" font-size="36" font-weight="400" fill="#a5b4fc">CA Practice Management Research</text>
+  <line x1="80" y1="310" x2="400" y2="310" stroke="#6366f1" stroke-width="3"/>
+  <text x="80" y="380" font-family="Inter, system-ui, sans-serif" font-size="22" fill="#94a3b8">Market Research | Competitive Analysis | Product Strategy</text>
+  <text x="80" y="420" font-family="Inter, system-ui, sans-serif" font-size="22" fill="#94a3b8">26 Competitors | 100K+ CA Firms | INR 141-364 Cr TAM</text>
+  <text x="80" y="540" font-family="Inter, system-ui, sans-serif" font-size="20" fill="#6366f1">javajack.github.io/caos</text>
+  <text x="80" y="575" font-family="Inter, system-ui, sans-serif" font-size="18" fill="#64748b">By Rakesh Waghela — Technology &amp; Product Consultant</text>
+</svg>

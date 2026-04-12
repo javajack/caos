@@ -2,30 +2,108 @@
 > Complete market research, competitive analysis, and product strategy for CA (Chartered Accountant) practice management, CRM, and document intelligence SaaS in India.
 
 ## About
-This documentation contains comprehensive research on building a SaaS platform for Indian Chartered Accountant firms. It covers market analysis, competitive landscape (26+ competitors), product strategy, business model, and go-to-market approach.
+This documentation contains comprehensive research on building a SaaS platform for Indian Chartered Accountant firms. It covers market analysis (407,629 ICAI members, 100,138 registered firms), competitive landscape (26 competitors analyzed), product strategy, business model, and go-to-market approach.
 
 ## Key Topics
-- Indian CA profession landscape (380,000+ ICAI members, 130,000+ practicing firms)
-- Practice management software market
+- Indian CA profession landscape (407,629 ICAI members, 159,557 practicing, 100,138 firms)
+- Practice management software market (INR 141-364 Cr TAM, less than 2% penetration)
 - CRM and client management for CA firms
-- Document intelligence and automation
-- Compliance workflow management
+- Document intelligence and automation for tax documents
+- Compliance workflow management (GST, ITR, TDS, ROC)
 - Competitive analysis of 26 products
 - Pricing and business model strategy
 - Go-to-market strategy for Indian CA market
+- Regulatory opportunity (ICAI advertising reform, DPDP Act, Digital Public Infrastructure)
 
 ## Author
 Rakesh Waghela - Technology & Product Consultant
 - LinkedIn: https://www.linkedin.com/in/rakeshwaghela
 - X: https://x.com/webiyo
+- Consultation: https://topmate.io/rakeshwaghela
 
 ## Sections
-- Market Research: Market sizing, CA landscape, seasonality, client segments, pain points
-- Competitor Analysis: Deep dives into 26 competing products with features, pricing, strengths/weaknesses
-- Product Strategy: Vision, USP, wedge, moat, feature prioritization, MVP, roadmap
-- Business Model: Pricing strategy, revenue model, unit economics
-- Go-to-Market: GTM strategy, customer acquisition, growth loops, upsell/cross-sell
-- Features: Detailed feature catalog for practice management, CRM, document intelligence
+
+### Market Research
+Market sizing, CA landscape, seasonality, client segments, pain points, technology adoption.
+- https://javajack.github.io/caos/market/overview/
+- https://javajack.github.io/caos/market/ca-landscape/
+- https://javajack.github.io/caos/market/tam/
+- https://javajack.github.io/caos/market/seasonality/
+- https://javajack.github.io/caos/market/client-segments/
+- https://javajack.github.io/caos/market/pain-points/
+- https://javajack.github.io/caos/market/tech-adoption/
+- https://javajack.github.io/caos/market/ca-firm-economics/
+- https://javajack.github.io/caos/market/regulatory-opportunity/
+
+### Competitor Analysis
+Deep dives into 26 competing products with features, pricing, strengths/weaknesses.
+- https://javajack.github.io/caos/competitors/landscape/
+- https://javajack.github.io/caos/competitors/comparison-matrix/
+- https://javajack.github.io/caos/competitors/feature-gaps/
+- https://javajack.github.io/caos/competitors/simplifypractice/
+- https://javajack.github.io/caos/competitors/jamku/
+- https://javajack.github.io/caos/competitors/qwikca/
+- https://javajack.github.io/caos/competitors/practive/
+- https://javajack.github.io/caos/competitors/zoho-practice/
+- https://javajack.github.io/caos/competitors/taxone/
+- https://javajack.github.io/caos/competitors/karbon-hq/
+- https://javajack.github.io/caos/competitors/masters-india/
+- https://javajack.github.io/caos/competitors/webledger/
+- https://javajack.github.io/caos/competitors/accomation/
+- https://javajack.github.io/caos/competitors/themunim/
+- https://javajack.github.io/caos/competitors/bookkeeper/
+- https://javajack.github.io/caos/competitors/bizalys/
+- https://javajack.github.io/caos/competitors/vouchrit/
+- https://javajack.github.io/caos/competitors/digitaldocsys/
+- https://javajack.github.io/caos/competitors/vidur/
+- https://javajack.github.io/caos/competitors/vaive-ai/
+- https://javajack.github.io/caos/competitors/ai-accountant/
+- https://javajack.github.io/caos/competitors/finsightanalytics/
+- https://javajack.github.io/caos/competitors/mytask/
+- https://javajack.github.io/caos/competitors/turia/
+- https://javajack.github.io/caos/competitors/papilio/
+- https://javajack.github.io/caos/competitors/cadashboard/
+- https://javajack.github.io/caos/competitors/complyrelax/
+- https://javajack.github.io/caos/competitors/finexo/
+- https://javajack.github.io/caos/competitors/practiceguru/
+
+### Product Strategy
+Vision, USP, wedge, moat, feature prioritization, MVP, roadmap.
+- https://javajack.github.io/caos/strategy/vision/
+- https://javajack.github.io/caos/strategy/usp-wedge/
+- https://javajack.github.io/caos/strategy/moat/
+- https://javajack.github.io/caos/strategy/features/
+- https://javajack.github.io/caos/strategy/mvp/
+- https://javajack.github.io/caos/strategy/roadmap/
+- https://javajack.github.io/caos/strategy/competitive-response/
+- https://javajack.github.io/caos/strategy/distribution/
+- https://javajack.github.io/caos/strategy/risk-analysis/
+
+### Business Model
+Pricing strategy, revenue model, unit economics.
+- https://javajack.github.io/caos/business-model/pricing/
+- https://javajack.github.io/caos/business-model/revenue/
+- https://javajack.github.io/caos/business-model/unit-economics/
+
+### Go-to-Market
+GTM strategy, customer acquisition, growth loops, upsell/cross-sell.
+- https://javajack.github.io/caos/gtm/strategy/
+- https://javajack.github.io/caos/gtm/acquisition/
+- https://javajack.github.io/caos/gtm/growth-loops/
+- https://javajack.github.io/caos/gtm/upsell-cross-sell/
+
+### Features
+Detailed feature catalog for practice management, CRM, document intelligence.
+- https://javajack.github.io/caos/features/catalog/
+- https://javajack.github.io/caos/features/workflow/
+- https://javajack.github.io/caos/features/crm/
+- https://javajack.github.io/caos/features/document-intelligence/
+- https://javajack.github.io/caos/features/communication/
+- https://javajack.github.io/caos/features/billing/
+- https://javajack.github.io/caos/features/compliance-calendar/
+- https://javajack.github.io/caos/features/client-portal/
+- https://javajack.github.io/caos/features/analytics/
+- https://javajack.github.io/caos/features/practice-in-a-box/
 
 ## Documentation URL
 https://javajack.github.io/caos/

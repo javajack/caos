@@ -57,12 +57,12 @@ export default defineConfig({
             window.__isGDPRRegion = isGDPR;
           `,
         },
-        // Google Analytics - placeholder GA ID (replace with real one)
+        // Google Analytics
         {
           tag: "script",
           attrs: {
             async: true,
-            src: "https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX",
+            src: "https://www.googletagmanager.com/gtag/js?id=G-G986QLPFZ1",
           },
         },
         {
@@ -71,11 +71,16 @@ export default defineConfig({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-XXXXXXXXXX', {
+            gtag('config', 'G-G986QLPFZ1', {
               'anonymize_ip': true,
               'cookie_flags': 'SameSite=None;Secure'
             });
           `,
+        },
+        // Yandex Webmaster verification
+        {
+          tag: "meta",
+          attrs: { name: "yandex-verification", content: "5281e40eca9463d2" },
         },
         // Open Graph images
         {
@@ -92,6 +97,15 @@ export default defineConfig({
           attrs: {
             name: "twitter:image",
             content: "https://javajack.github.io/caos/og-image.png",
+          },
+        },
+        // Cloudflare Web Analytics
+        {
+          tag: "script",
+          attrs: {
+            defer: true,
+            src: "https://static.cloudflareinsights.com/beacon.min.js",
+            "data-cf-beacon": '{"token": "7ce325bb227e4b42a8406f369ff4e788"}',
           },
         },
         // Cookie Consent Banner
