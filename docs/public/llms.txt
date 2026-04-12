@@ -1,0 +1,31 @@
+# CAOS - CA Practice Management Research
+> Complete market research, competitive analysis, and product strategy for CA (Chartered Accountant) practice management, CRM, and document intelligence SaaS in India.
+
+## About
+This documentation contains comprehensive research on building a SaaS platform for Indian Chartered Accountant firms. It covers market analysis, competitive landscape (26+ competitors), product strategy, business model, and go-to-market approach.
+
+## Key Topics
+- Indian CA profession landscape (380,000+ ICAI members, 130,000+ practicing firms)
+- Practice management software market
+- CRM and client management for CA firms
+- Document intelligence and automation
+- Compliance workflow management
+- Competitive analysis of 26 products
+- Pricing and business model strategy
+- Go-to-market strategy for Indian CA market
+
+## Author
+Rakesh Waghela - Technology & Product Consultant
+- LinkedIn: https://www.linkedin.com/in/rakeshwaghela
+- X: https://x.com/webiyo
+
+## Sections
+- Market Research: Market sizing, CA landscape, seasonality, client segments, pain points
+- Competitor Analysis: Deep dives into 26 competing products with features, pricing, strengths/weaknesses
+- Product Strategy: Vision, USP, wedge, moat, feature prioritization, MVP, roadmap
+- Business Model: Pricing strategy, revenue model, unit economics
+- Go-to-Market: GTM strategy, customer acquisition, growth loops, upsell/cross-sell
+- Features: Detailed feature catalog for practice management, CRM, document intelligence
+
+## Documentation URL
+https://javajack.github.io/caos/

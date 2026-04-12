@@ -1,0 +1,349 @@
+/* CAOS Docs — Custom Starlight Theme */
+/* Adapted from KYC Docs: Inter font, mobile tables, dark mode */
+
+/* Typography: Inter via Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Root: Design tokens */
+:root {
+	--sl-font: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+	--sl-font-system-mono: 'IBM Plex Mono', ui-monospace, 'Cascadia Code', 'Segoe UI Mono', 'Liberation Mono', Menlo, Monaco, Consolas, monospace;
+	--sl-line-height: 1.8;
+	--sl-line-height-headings: 1.25;
+	--sl-content-gap-y: 1.25rem;
+
+	/* Accent: Indigo/Purple (differentiates from KYC blue) */
+	--sl-color-accent-low: #312e81;
+	--sl-color-accent: #6366f1;
+	--sl-color-accent-high: #c7d2fe;
+}
+
+/* Light Mode */
+:root[data-theme='light'] {
+	--sl-color-accent-low: #e0e7ff;
+	--sl-color-accent: #4f46e5;
+	--sl-color-accent-high: #312e81;
+
+	--sl-color-gray-6: hsl(220, 15%, 95%);
+	--sl-color-gray-7: hsl(220, 15%, 98%);
+}
+
+/* Heading typography */
+h1, h2 {
+	font-weight: 700;
+}
+
+h2 {
+	margin-top: 2.5em;
+}
+
+h3 {
+	margin-top: 2em;
+}
+
+/* Tables */
+table thead th {
+	text-transform: none;
+	font-size: 0.813rem;
+	letter-spacing: 0.01em;
+	font-weight: 600;
+}
+
+table tbody tr:nth-child(even) {
+	background: var(--sl-color-gray-7, hsl(220, 15%, 98%));
+}
+
+table td,
+table th {
+	min-width: 4.5rem;
+}
+
+.sl-markdown-content table {
+	display: block;
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+	background:
+		linear-gradient(to right, var(--sl-color-bg, white) 30%, transparent),
+		linear-gradient(to left, var(--sl-color-bg, white) 30%, transparent),
+		linear-gradient(to right, rgba(0,0,0,0.08), transparent 15px),
+		linear-gradient(to left, rgba(0,0,0,0.08), transparent 15px);
+	background-position: left center, right center, left center, right center;
+	background-repeat: no-repeat;
+	background-size: 40px 100%, 40px 100%, 15px 100%, 15px 100%;
+	background-attachment: local, local, scroll, scroll;
+}
+
+table th:first-child,
+table td:first-child {
+	position: sticky;
+	left: 0;
+	z-index: 1;
+	background: var(--sl-color-bg, white);
+}
+
+table tbody tr:nth-child(even) td:first-child {
+	background: var(--sl-color-gray-7, hsl(220, 15%, 98%));
+}
+
+/* Competitor card */
+.competitor-card {
+	border: 1px solid var(--sl-color-gray-5);
+	border-radius: 0.75rem;
+	padding: 1.5rem;
+	margin: 1.5rem 0;
+	background: var(--sl-color-gray-7, var(--sl-color-bg));
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.competitor-card-header {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	margin-bottom: 1rem;
+	padding-bottom: 0.75rem;
+	border-bottom: 2px solid var(--sl-color-accent);
+}
+
+.competitor-card-title {
+	font-size: 1.25rem;
+	font-weight: 700;
+	flex-grow: 1;
+}
+
+/* Pricing badge */
+.pricing-badge {
+	display: inline-block;
+	font-size: 0.7rem;
+	font-weight: 600;
+	padding: 0.15rem 0.5rem;
+	border-radius: 0.25rem;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+}
+
+.pricing-badge-free {
+	background: #dcfce7;
+	color: #166534;
+	border: 1px solid #86efac;
+}
+
+.pricing-badge-paid {
+	background: #dbeafe;
+	color: #1e40af;
+	border: 1px solid #93c5fd;
+}
+
+.pricing-badge-enterprise {
+	background: #fef3c7;
+	color: #92400e;
+	border: 1px solid #fcd34d;
+}
+
+/* Feature tag */
+.feature-tag {
+	display: inline-block;
+	font-size: 0.65rem;
+	font-weight: 600;
+	padding: 0.1rem 0.4rem;
+	border-radius: 0.2rem;
+	text-transform: uppercase;
+	letter-spacing: 0.03em;
+	vertical-align: middle;
+}
+
+.feature-tag-core {
+	background: #dbeafe;
+	color: #1e40af;
+}
+
+.feature-tag-advanced {
+	background: #ede9fe;
+	color: #5b21b6;
+}
+
+.feature-tag-unique {
+	background: #dcfce7;
+	color: #166534;
+}
+
+.feature-tag-missing {
+	background: #fee2e2;
+	color: #991b1b;
+}
+
+/* Score bar */
+.score-bar {
+	display: inline-flex;
+	gap: 2px;
+	vertical-align: middle;
+}
+
+.score-bar-segment {
+	width: 12px;
+	height: 12px;
+	border-radius: 2px;
+	background: var(--sl-color-gray-5);
+}
+
+.score-bar-segment.filled {
+	background: var(--sl-color-accent);
+}
+
+/* Info box */
+.info-box-purple {
+	border-left: 4px solid #8b5cf6;
+	background: #8b5cf60d;
+	padding: 1rem 1.25rem;
+	border-radius: 0 0.5rem 0.5rem 0;
+	margin: 1rem 0;
+}
+
+.info-box-green {
+	border-left: 4px solid #10b981;
+	background: #10b98110;
+	padding: 1rem 1.25rem;
+	border-radius: 0 0.5rem 0.5rem 0;
+	margin: 1rem 0;
+}
+
+/* Dark Mode */
+:root[data-theme='dark'] {
+	--_table-stripe: hsl(220, 15%, 14%);
+}
+
+:root[data-theme='dark'] table tbody tr:nth-child(even) {
+	background: var(--_table-stripe);
+}
+
+:root[data-theme='dark'] table th:first-child,
+:root[data-theme='dark'] table td:first-child {
+	background: var(--sl-color-bg);
+}
+
+:root[data-theme='dark'] table tbody tr:nth-child(even) td:first-child {
+	background: var(--_table-stripe);
+}
+
+:root[data-theme='dark'] .sl-markdown-content table {
+	background:
+		linear-gradient(to right, var(--sl-color-bg) 30%, transparent),
+		linear-gradient(to left, var(--sl-color-bg) 30%, transparent),
+		linear-gradient(to right, rgba(255,255,255,0.06), transparent 15px),
+		linear-gradient(to left, rgba(255,255,255,0.06), transparent 15px);
+	background-position: left center, right center, left center, right center;
+	background-repeat: no-repeat;
+	background-size: 40px 100%, 40px 100%, 15px 100%, 15px 100%;
+	background-attachment: local, local, scroll, scroll;
+}
+
+:root[data-theme='dark'] .feature-tag-core {
+	background: #1e3a5f;
+	color: #93c5fd;
+}
+
+:root[data-theme='dark'] .feature-tag-advanced {
+	background: #3b0764;
+	color: #c4b5fd;
+}
+
+:root[data-theme='dark'] .feature-tag-unique {
+	background: #14532d;
+	color: #86efac;
+}
+
+:root[data-theme='dark'] .feature-tag-missing {
+	background: #450a0a;
+	color: #fca5a5;
+}
+
+:root[data-theme='dark'] .pricing-badge-free {
+	background: #14532d;
+	color: #86efac;
+	border-color: #166534;
+}
+
+:root[data-theme='dark'] .pricing-badge-paid {
+	background: #1e3a5f;
+	color: #93c5fd;
+	border-color: #1e40af;
+}
+
+:root[data-theme='dark'] .pricing-badge-enterprise {
+	background: #78350f;
+	color: #fde68a;
+	border-color: #92400e;
+}
+
+:root[data-theme='dark'] .competitor-card {
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+:root[data-theme='dark'] .info-box-purple {
+	background: #8b5cf615;
+}
+
+:root[data-theme='dark'] .info-box-green {
+	background: #10b98115;
+}
+
+/* Mobile Breakpoints */
+@media (max-width: 768px) {
+	table td,
+	table th {
+		padding: 0.5rem 0.6rem;
+		font-size: 0.813rem;
+	}
+
+	.competitor-card {
+		padding: 1rem;
+	}
+
+	.competitor-card-title {
+		font-size: 1.1rem;
+	}
+}
+
+@media (max-width: 480px) {
+	table td,
+	table th {
+		padding: 0.4rem 0.5rem;
+		font-size: 0.75rem;
+	}
+
+	table thead th {
+		font-size: 0.7rem;
+	}
+
+	.competitor-card {
+		padding: 0.75rem;
+		margin: 1rem 0;
+	}
+}
+
+@media (max-width: 375px) {
+	table td,
+	table th {
+		padding: 0.3rem 0.4rem;
+		font-size: 0.688rem;
+		min-width: 3.5rem;
+	}
+
+	table thead th {
+		font-size: 0.625rem;
+	}
+
+	table code {
+		font-size: 0.625rem;
+		padding: 0.05rem 0.2rem;
+	}
+
+	.feature-tag {
+		font-size: 0.575rem;
+		padding: 0.05rem 0.3rem;
+	}
+
+	.pricing-badge {
+		font-size: 0.575rem;
+		padding: 0.1rem 0.35rem;
+	}
+}
