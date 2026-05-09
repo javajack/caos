@@ -1,84 +1,90 @@
 ---
-title: CAOS - CA Practice Management Research
-description: Complete market research, competitive analysis, and product strategy for CA practice management, CRM, and document intelligence SaaS in India.
+title: CAOS
+description: The document, intelligence, workflow, and compliance fabric for India's financial paperwork. A flywheel-first platform thesis serving CAs, in-house finance teams, auditors, and the counterparty network they all share.
 template: splash
 hero:
-  tagline: Comprehensive market research and product strategy for CA practice management SaaS by <a href="https://www.linkedin.com/in/rakeshwaghela">Rakesh Waghela</a> — Technology & Product Consultant
+  tagline: The document, intelligence, workflow, and compliance fabric for India's financial paperwork — built for CAs first, finance teams second, the whole flywheel from there.
   actions:
-    - text: Market Research
-      link: /caos/market/overview/
+    - text: Read the thesis
+      link: /caos/overview/thesis/
       icon: right-arrow
       variant: primary
-    - text: Competitor Analysis
-      link: /caos/competitors/landscape/
+    - text: See the flywheel
+      link: /caos/flywheel/composite/
       variant: minimal
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import { Aside, Card, CardGrid } from '@astrojs/starlight/components';
 
-Welcome to the CAOS market research documentation. This is a comprehensive analysis of the Indian Chartered Accountant practice management software market -- covering 26 competing products, market sizing, competitive positioning, product strategy, business model, and go-to-market approach.
+CAOS is a platform thesis for the messy edges of Indian compliance — the paperwork, deadlines, reconciliations, notices, audits, and counterparty workflows that ERPs do not own and Excel cannot scale. It works above accounting systems (Tally, SAP, Oracle, Zoho) rather than replacing them, and it serves the same atomic primitives to a Chartered Accountant practising in Pune, a CFO at a ₹400 cr manufacturing company in Chennai, and a Big-6 audit team running a Nifty-500 statutory audit in Mumbai.
 
-## What Is CAOS?
+The platform sits on three load-bearing observations. First, the buyer is unusually homogeneous: **60.8% of all ICAI Chartered Accountants work in industry** as CFOs, controllers, internal auditors and finance heads, which means the in-house finance buyer is statistically often herself a CA — credibility transfer between practitioner and corporate buyer is structurally free. Second, the same 15 [atomic primitives](/caos/product/atomic-primitives/) — document capture, classification, extraction, mapping memory, recurring-deadline calendar, counterparty master, evidence locker, notice lifecycle, reconciliation engine, maker-checker workflow — power both a CA's practice and a corporate finance team's close. Third, India's Digital Public Infrastructure (Account Aggregator, GSP, ERI, DigiLocker, eMudhra DSC) is at near-enterprise scale, with **22.31 million AA consents flowing in March 2026 alone, growing 78.6% year-on-year**, and is the substrate on which the eventual fact graph compounds.
 
-CAOS is a vision for a unified **CA Practice Management + CRM + Document Intelligence** platform for Indian CA firms. It works on a **layer above Tally** -- managing workflow, clients, communication, documents, billing, and intelligence -- without replacing any existing accounting software. If Tally is the engine, CAOS is the cockpit.
+The output is a [composite flywheel](/caos/flywheel/composite/) with four sequenced loops over 60 months — CA-Led practitioner network in Year 1, Vendor-Network fact graph in Year 2, Audit Workspace bridge in Year 3, DPI-powered fact graph in Years 4–5 — each reusing the data and trust accumulated by the previous.
 
-:::tip[Key Insight]
-With 1,00,138 registered CA firms in India and less than 2% using dedicated practice management software, this is a significant greenfield opportunity. The market is deeply underpenetrated despite 20+ competitors, because no single product has cracked the code of combining document intelligence, WhatsApp-native workflow, and practice management in one platform.
-:::
-
-## Who Is This For?
+## Where to start
 
 <CardGrid>
-	<Card title="Product Managers" icon="rocket">
-		Market sizing, competitive landscape, feature prioritization, and MVP definition for CA SaaS products.
-
-		Start: [Market Overview](/caos/market/overview/) → [Feature Gap Analysis](/caos/competitors/feature-gaps/) → [MVP Definition](/caos/strategy/mvp/)
+	<Card title="Founders & investors" icon="rocket">
+		Start with the [thesis](/caos/overview/thesis/) → [TAM sizing](/caos/market/tam-sizing/) → [composite flywheel](/caos/flywheel/composite/) → [60-month sequencing](/caos/gtm/sequencing/) → [seven decisions](/caos/decisions/d1-d7/). About 45 minutes for the strategic spine.
 	</Card>
-	<Card title="Founders & Investors" icon="document">
-		TAM analysis, business model, unit economics, defensibility assessment, and GTM strategy.
-
-		Start: [Market Sizing](/caos/market/tam/) → [Business Model](/caos/business-model/pricing/) → [GTM Strategy](/caos/gtm/strategy/)
+	<Card title="In-house finance teams" icon="document">
+		Start with [in-house finance personas](/caos/stakeholders/in-house-finance/) → [25 use cases](/caos/product/use-cases/) → [Audit Workspace bridge](/caos/flywheel/phase-3-audit-workspace/) → [Business SKU pricing](/caos/business-model/three-skus/). The 11 personas across CFO, Controller, GST and Direct Tax leads, AP / AR, Treasury, Compliance Officer.
 	</Card>
-	<Card title="CA Professionals" icon="list-format">
-		Understand the software landscape, compare tools, and identify what features matter most for your firm.
-
-		Start: [Comparison Matrix](/caos/competitors/comparison-matrix/) → [Feature Catalog](/caos/features/catalog/) → [Pain Points](/caos/market/pain-points/)
+	<Card title="CA practitioners" icon="list-format">
+		Start with [practitioners](/caos/stakeholders/practitioners/) → [Phase 1 — CA-Led network](/caos/flywheel/phase-1-ca-led/) → [Practice SKU](/caos/business-model/three-skus/) → [CA-referral motion](/caos/gtm/ca-referral/). Why your client's vendors and your peer-firm auditors all sit in the same workspace.
 	</Card>
-	<Card title="Competitive Intelligence" icon="puzzle">
-		Deep dives into 26 competing products with features, pricing, strengths, weaknesses, and SaaS metrics.
-
-		Start: [Competitive Landscape](/caos/competitors/landscape/) → Individual deep dives → [USP & Wedge](/caos/strategy/usp-wedge/)
+	<Card title="Audit firms" icon="seti:notebook">
+		Start with [auditors](/caos/stakeholders/auditors/) → [Audit Workspace bridge](/caos/flywheel/phase-3-audit-workspace/) → [audit firm partnerships](/caos/gtm/audit-firm-partnerships/) → [enterprise threats](/caos/competitors/enterprise-threats/). Why mid-tier firms first, Big-4 second; how NFRA pressure becomes a tooling tailwind.
+	</Card>
+	<Card title="Product managers" icon="puzzle">
+		Start with [15 atomic primitives](/caos/product/atomic-primitives/) → [25 use cases + 7 bridges](/caos/product/use-cases/) → [document intelligence pipeline](/caos/product/document-intelligence/) → [architecture](/caos/product/architecture/) → [pre-investments](/caos/decisions/architectural-pre-investments/).
+	</Card>
+	<Card title="Researchers & analysts" icon="information">
+		Start with the [data atlas](/caos/method/data-atlas/) — 31 tables × ~150 cited rows covering ICAI, ICSI, ICMAI, IBBI, GSTN, CBDT, MCA, RBI, Sahamati, NFRA, EPFO. Then the [source quality legend](/caos/method/source-quality-legend/) and [open research questions](/caos/method/open-questions/).
 	</Card>
 </CardGrid>
 
-## Market at a Glance
+## Market at a glance
 
 <CardGrid stagger>
-	<Card title="4,07,629 ICAI Members" icon="rocket">
-		Including 1,59,557 active practitioners and 1,00,138 registered firms. 72% are solo practices. 8,00,000+ CA students in the pipeline.
+	<Card title="4,07,629 ICAI members" icon="rocket">
+		Across 1,00,138 registered firms (72.6% sole-prop). **60.8% (2,48,072) work in industry** as CFOs, controllers, finance heads — the in-house buyer is, statistically, often herself a Chartered Accountant. ([source](https://finance.careers360.com/articles/icai-student-and-member-report-2025))
 	</Card>
-	<Card title="INR 141-364 Cr TAM" icon="document">
-		Practice management software TAM across 128,000+ firms. Adjacent market (CS, CMA, tax practitioners) roughly doubles this.
+	<Card title="18.17 lakh active companies" icon="document">
+		Of 28.05 lakh MCA-registered. Plus **1.51 cr active GST taxpayers** and **7.83 cr Udyam-registered MSMEs** (Feb 2026). The buyer base is two orders of magnitude wider than the practitioner base. ([MCA](https://www.business-standard.com/companies/news/over-2-8-million-companies-registered-in-india-65-active-govt-data-125021800695_1.html), [GSTN](https://a2ztaxcorp.net/gst-8-years-report-released-gstn-highlights-record-revenue-compliance-milestones/), [PIB Udyam](https://www.pib.gov.in/PressReleasePage.aspx?PRID=2246892))
 	</Card>
-	<Card title="26 Competitors Analyzed" icon="puzzle">
-		Spanning practice management, compliance automation, document intelligence, AI research, and accounting tools. No single product fills all gaps.
+	<Card title="22.31 million AA consents/month" icon="puzzle">
+		India's Account Aggregator framework handled **22.31 million consents in March 2026** (+78.6% YoY) across 1,157 ecosystem participants, facilitating ₹1.67 lakh cr of lending in FY25 alone. The substrate for consent-driven finance is operational at scale. ([Sahamati dashboard](https://sahamati.org.in/aa-dashboard/))
 	</Card>
-	<Card title="Less than 2% Penetration" icon="list-format">
-		Leading player (Jamku) has around 10,000 users across 1,700+ firms. The market is deeply underpenetrated despite obvious need, creating a large underserved market.
+	<Card title="100x e-invoice expansion in 5 years" icon="list-format">
+		The e-invoice mandate ratcheted from a ₹500 cr turnover threshold (Oct 2020) to ₹5 cr (Aug 2023). The addressable enterprise base for compliance software grew from a few thousand to **9.92 lakh active e-invoice generators** with **81.88 lakh registered recipients**. ([GSTN](https://a2ztaxcorp.net/gst-8-years-report-released-gstn-highlights-record-revenue-compliance-milestones/), [ClearTax](https://cleartax.in/s/e-invoicing-businesses-above-rs-5-crore-turnover))
+	</Card>
+	<Card title="28K+ Tally partners" icon="setting">
+		140 Master + 18,000+ Secondary partners; Tally itself reports 2.5–2.7 million customers, ₹710 cr revenue FY25. The "layer above Tally" wedge has pre-built distribution rails. ([source](https://tallysolutions.com/about-tally/), [Inc42](https://inc42.com/features/how-tally-strikes-a-balance-between-enabling-ai-adoption-and-growth/))
+	</Card>
+	<Card title="Big-6 own 67% of Nifty 500 audits" icon="approve-check">
+		EY + Deloitte + PwC + KPMG + Grant Thornton + BDO audit 326 of 483 Nifty 500 companies. The Audit Workspace bridge sells to a concentrated buyer: ~15 partnership conversations cover 80% of the listed corporate buyer pool. ([PrimeDatabase](http://www.primedatabasegroup.com/newsroom/BIG_6_CONTINUE_DOMINANCE_OF_INDIAN_AUDIT_LANDSCAPE_2024-25.pdf))
 	</Card>
 </CardGrid>
 
-## Documentation Structure
+## Documentation structure
 
-| Section | What You'll Find |
-|---------|-----------------|
-| **[Market Research](/caos/market/overview/)** | ICAI demographics, market sizing, seasonality, client segments, pain points, technology adoption |
-| **[Competitor Analysis](/caos/competitors/landscape/)** | 26 product deep dives, comparison matrix, feature gap analysis, positioning maps |
-| **[Product Strategy](/caos/strategy/vision/)** | Vision, USP and wedge, moat analysis, feature prioritization, MVP definition, roadmap |
-| **[Business Model](/caos/business-model/pricing/)** | Pricing strategy, revenue model, unit economics |
-| **[Go-to-Market](/caos/gtm/strategy/)** | GTM phases, customer acquisition channels, growth loops, upsell and cross-sell |
-| **[Features](/caos/features/catalog/)** | Complete feature catalog, workflow engine, CRM, document intelligence, communication, billing |
+| Section | What you'll find |
+|---|---|
+| **[Overview](/caos/overview/thesis/)** | The thesis (financial-document fabric), the flywheel in one picture, audience-routed reading paths |
+| **[The Flywheel](/caos/flywheel/composite/)** | The composite flywheel + four candidate designs + four sequenced phases (CA-Led → Vendor-Network → Audit-Workspace → DPI Fact Graph) + minimum viable flywheel + sizing math |
+| **[Stakeholder Atlas](/caos/stakeholders/overview/)** | 14 stakeholder classes with verified populations, 11 in-house finance personas, the 60.8%-in-industry bridge persona, 30+ documents that flow across stakeholder boundaries |
+| **[Market](/caos/market/overview/)** | Verified TAM, regulatory tailwinds (DPI, e-invoice ratchet, BRSR, Sec 194Q, MSME 45-day), workflow volumes (164 cr GST returns, 22M monthly AA consents, 80 lakh MCA filings) |
+| **[Product](/caos/product/overview/)** | 15 atomic primitives shared across CA and finance team, 25 use cases + 7 bridge use cases, document intelligence pipeline, Tally / ERP integration philosophy, architecture |
+| **[Business Model](/caos/business-model/three-skus/)** | Three SKUs (Practice / Business / Enterprise) + pricing architecture (per-entity + per-volume hybrid) + unit economics + revenue path |
+| **[Go-to-Market](/caos/gtm/channel-architecture/)** | Channel architecture, CA-referral, Tally Master partner pilot, audit firm partnerships, DPI ecosystem, 60-month sequencing |
+| **[Competitors](/caos/competitors/landscape/)** | Two-layer competitive landscape (CA-PMS field + enterprise-finance-tech tier) + comparison matrix + feature gaps + enterprise threats + 26 product deep-dives |
+| **[Risks & Decisions](/caos/risks/failure-modes/)** | Five failure modes, six counterfactual scenarios, seven board-level decisions (D1–D7), 18 architectural pre-investments |
+| **[Sources](/caos/method/data-atlas/)** | Data atlas (31 cited tables), source quality legend, open research questions |
 
-:::caution[Living Document]
-Market data, competitor features, and pricing change frequently. The research here reflects publicly available information as of April 2026. Always verify current data before making business decisions.
-:::
+<Aside type="note" title="On the data">
+Every load-bearing quantitative claim on this site is cited inline with a Markdown link to its source — regulator publication (ICAI, GSTN, CBDT, MCA, RBI, SEBI, IBBI, NFRA, Sahamati, PIB, EPFO), industry research (IMARC, IBEF, CRISIL, ICRA, Care Edge), reputed press (Mint, Economic Times, Business Standard, Inc42, Entrackr, The Finance Story), or vendor / public-company disclosure. The [data atlas](/caos/method/data-atlas/) collects all of them in one sortable reference. The [source quality legend](/caos/method/source-quality-legend/) explains the High / Med / Low / Unverified ratings used. Indian financial conventions throughout: ₹ for currency, lakh / crore (not million / billion), FY24-25 not 2024-2025.
+</Aside>
+
+By [Rakesh Waghela](https://www.linkedin.com/in/rakeshwaghela) — Technology &amp; Product Consultant. Updated May 2026.

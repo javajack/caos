@@ -1,0 +1,254 @@
+---
+title: "30+ documents that flow across stakeholders"
+description: "The full document inventory that flows across the 14 stakeholder classes — GST family, IT family, MCA family, Bank/Treasury, Audit, Litigation, Specialty. Every document crosses at least two stakeholder boundaries. The friction in Indian compliance is not document creation but boundary handoffs."
+sidebar:
+  order: 9
+---
+
+import { Aside, Card, CardGrid } from '@astrojs/starlight/components';
+
+This is the **substrate of the flywheel**. Every cell where two stakeholders share a document is a potential bilateral edge in the network graph. Every edge is a friction point today and an opportunity for CAOS to own the handoff tomorrow.
+
+The 30+ documents below are grouped into **seven families** — GST, Income Tax, MCA / corporate law, Bank / Treasury / FEMA, Audit, Litigation, and Specialty. For each document, the table records:
+
+- **Created by** — which stakeholder class produces the document
+- **Consumed by** — which stakeholder class(es) read or reconcile against it
+- **Certified by** — which stakeholder signs / authenticates / attests
+- **Archive owner** — where the canonical copy lives
+- **Cross-stakeholder edges** — the actual handoff path
+
+<Aside type="tip" title="Why this inventory matters">
+demonstrates that the friction in Indian compliance is not document creation — that is the easy part, mostly automated by the GSTN / IT portal / MCA21 / RBI portals already. The friction is the **boundary handoffs** between stakeholder classes. A platform that owns the handoffs owns the workflow. This is the substrate of every [composite flywheel](/caos/flywheel/composite/) candidate.
+</Aside>
+
+## GST family
+
+GST is the densest document family. The combination of e-invoice + e-way bill + GSTR-1 / 2A / 2B / 3B / 9 / 9C creates a tightly-coupled flow that crosses vendor, IRP, GSTN, enterprise, CA, and counterparty CA boundaries — with cross-side reconciliation expected at multiple stages.
+
+| Document | Created by | Consumed by | Certified by | Archive owner | Cross-stakeholder edges |
+|---|---|---|---|---|---|
+| **Tax invoice (B2B)** | S11 (vendor) | S10 (enterprise AP) → S5/S6 (cost), S9 (audit) | S2 / S3 (signatory); IRP for IRN | S10 (Tally / SAP) | Vendor → Enterprise → CA → Auditor |
+| **E-invoice (with IRN)** | S11 + IRP | GSTN, S10 AP, S12 customer | IRP system | GSTN + IRP + S10 | Vendor → IRP → GSTN → CAOS → CA |
+| **Customer invoice (AR)** | S10 (enterprise) | S12 (customer) | S2 / signatory | S10 | Enterprise → Customer → their AP → their CA |
+| **E-way bill (EWB)** | S10 / transporter | GSTN, RTO, S12 customer | EWB portal | GSTN | Enterprise → EWB portal → Transporter → Recipient |
+| **GSTR-1 (outward supplies return)** | S10 / S1 (CA filing for client) | GSTN, S12 customer (auto-flow to 2A/2B) | S1 / S2 | GSTN | Enterprise → CA → GSTN → Counterparty's CA |
+| **GSTR-2A (auto-populated inward)** | GSTN (auto from suppliers' 1) | S10, S1, S2 | GSTN | GSTN | GSTN → CA / Enterprise (reco against PR) |
+| **GSTR-2B (static auto-populated for ITC)** | GSTN (auto monthly) | S10, S1, S2 | GSTN | GSTN | GSTN → CA / Enterprise (reco against PR) |
+| **GSTR-3B (monthly summary return)** | S10 / S1 | GSTN | S1 / S2 | GSTN | Enterprise → CA → GSTN |
+| **GSTR-9 (annual return)** | S10 / S1 | GSTN | S1 / S2 | GSTN | Enterprise → CA → GSTN |
+| **GSTR-9C (reconciliation statement & certification)** | S10 / S1 (CA-certified) | GSTN | S1 (signed with UDIN) + S2 | GSTN | Enterprise → CA → UDIN → GSTN |
+| **RCM (Reverse Charge Mechanism) self-invoice** | S10 (recipient under RCM) | GSTN | S2 | GSTN + S10 | Enterprise → Self-invoice → GST 3B / 9 → CA |
+| **Credit note / Debit note** | S10 / S11 | S10 / S11 (counter side), GSTN | S2 / signatory | GSTN + S10 | Vendor or Customer → Other side → GSTN auto-link |
+
+### GST volumes (verified)
+
+| Workflow | Volume | As of | Source |
+|---|---|---|---|
+| GST returns cumulative since 2017 | **164.43 cr** | Jun 2025 | [GST@8 Report via A2Z Taxcorp](https://a2ztaxcorp.net/gst-8-years-report-released-gstn-highlights-record-revenue-compliance-milestones/) |
+| GST single-day filing peak | 32.65 lakh | per GST@8 | [GST@8 Report via A2Z Taxcorp](https://a2ztaxcorp.net/gst-8-years-report-released-gstn-highlights-record-revenue-compliance-milestones/) |
+| GSTR-1 filers monthly | ~60 lakh (Apr 2022) → 1.2+ cr (May 2025) | growth | [GST@8 Report via A2Z Taxcorp](https://a2ztaxcorp.net/gst-8-years-report-released-gstn-highlights-record-revenue-compliance-milestones/) |
+| GSTR-3B compliance rate | >95% on due dates | 2025 | [GST@8 Report via A2Z Taxcorp](https://a2ztaxcorp.net/gst-8-years-report-released-gstn-highlights-record-revenue-compliance-milestones/) |
+| GST gross collection | **₹22.08 lakh cr (+9.4% YoY)** | FY 2024-25 | [SAG Infotech](https://blog.saginfotech.com/gst-collection-9-4-percent-increase-inr-22-08-lakh-crore-fy-2024-25), [PIB](https://www.pib.gov.in/PressNoteDetails.aspx?id=154789) |
+| E-way bills monthly | 13.84 cr (Dec 2025) | Dec 2025 | [SAG Infotech](https://blog.saginfotech.com/gst-e-way-bill-generation-hits-second-highest-ever-jan-2026) |
+
+## Income Tax family
+
+The IT document family is tightly coupled with TDS and tax-audit. The key cross-stakeholder property: **Form 26AS / AIS / TIS** is consumed by both the taxpayer's CA (for ITR prep) and the recipient (for verifying TDS deducted), creating a natural reconciliation edge.
+
+| Document | Created by | Consumed by | Certified by | Archive owner | Cross-stakeholder edges |
+|---|---|---|---|---|---|
+| **TDS challan (Form 281) + TDS return (24Q/26Q/27Q/27EQ)** | S10 / S1 | TIN-NSDL / CBDT | S1 / S2 | CBDT | Enterprise → CA → CBDT |
+| **Form 16 (salary TDS certificate)** | S10 (employer) | Employee | S1 sign | CBDT + Employee | Enterprise → Employee → ITR → AIS → next year's CA |
+| **Form 16A (non-salary TDS certificate)** | S10 (deductor) | Vendor (S11) | S1 sign | CBDT + Recipient | Enterprise → Vendor → ITR → AIS |
+| **Form 26AS (consolidated TDS / TCS / AT statement)** | CBDT (auto) | Taxpayer + S1 + S2 | — | CBDT | CBDT → CA → Reco against books |
+| **AIS (Annual Information Statement)** | CBDT (auto) | Taxpayer + S1 + S2 | — | CBDT | CBDT → CA → Reco against books / SFT |
+| **TIS (Taxpayer Information Summary)** | CBDT (auto) | Taxpayer + S1 + S2 | — | CBDT | CBDT → CA → Verification |
+| **ITR (Income Tax Return — corporate)** | S10 / S1 (filing) | CBDT, S9 (audit), S14 (lender diligence) | S1 (3CA-CD/3CB-CD) + S2 | CBDT | Enterprise → CA → CBDT → Lender |
+| **ITR (Income Tax Return — individual)** | Individual / S1 | CBDT | S1 (if ERI) | CBDT | Individual → CA → CBDT |
+| **Tax audit report (Form 3CA-CD or 3CB-CD)** | S1 | CBDT, S10 finance | S1 with UDIN | CBDT + UDIN | CA → UDIN → CBDT → Audit committee |
+| **Form 15CA / 15CB (foreign remittance certificate)** | S1 + S10 | RBI (via AD bank), CBDT | S1 (15CB) + S2 | CBDT + AD Bank | Enterprise → CA → AD Bank → RBI |
+| **Form 61A (SFT — Statement of Financial Transactions)** | S10 (specified entities) | CBDT | S2 | CBDT | Enterprise → CBDT → AIS reverse-validate |
+
+### IT volumes (verified)
+
+| Workflow | Volume | As of | Source |
+|---|---|---|---|
+| **ITRs filed (record)** | **7.28 cr by Jul 31, 2024 (AY 24-25)** | Jul 31, 2024 | [PIB](https://www.pib.gov.in/PressReleasePage.aspx?PRID=2040669) |
+| ITRs e-verified | 6.21 cr (5.81 cr via Aadhaar OTP) | Jul 31, 2024 | [PIB](https://www.pib.gov.in/PressReleasePage.aspx?PRID=2040669) |
+| ITRs filed (AY 25-26 by Sep 23) | ~7.57 cr | Sep 2025 | [A2Z Taxcorp](https://a2ztaxcorp.net/govt-extended-itr-ay-2025-26-deadline-but-only-4-56-crore-returns-filed-so-far/) |
+| Tax audit reports filed | **29.5 lakh (3CA-CD/3CB-CD)** | Sep 30, 2023 (AY23-24) | [TaxCorner / CBDT](https://www.taxcorner.co.in/2023/10/cbdt-releases-tax-audit-reports-filing-data-till-30-09-2023.html) |
+| Direct tax refunds | **₹4.76 lakh cr (+26.04% YoY)** | FY 2024-25 | [Business Standard](https://www.business-standard.com/economy/news/direct-tax-mop-up-for-2024-25-fiscal-hits-target-record-refunds-issued-125042501402_1.html) |
+| PAN deactivations (non-Aadhaar linked) | **11.5 cr** | Nov 2023 (CBDT) | [Wikipedia PAN](https://en.wikipedia.org/wiki/Permanent_account_number) |
+
+## MCA / corporate law family
+
+The MCA family is event-driven (filings on a trigger event) and signed by both the CA and the CS jointly. DSCs are the foundation — every MCA21 form requires a director's DSC for submission.
+
+| Document | Created by | Consumed by | Certified by | Archive owner | Cross-stakeholder edges |
+|---|---|---|---|---|---|
+| **AOC-4 (financial statements filing)** | S10 / S3 / S1 | MCA21, public | S2 + S3 | MCA21 | Enterprise → CS → MCA → Public |
+| **MGT-7 (annual return)** | S10 / S3 | MCA21, public | S3 | MCA21 | Enterprise → CS → MCA → Public |
+| **DIR-3 KYC (director KYC)** | Director (S2 / promoter) | MCA21 | DSC + email OTP | MCA21 | Director → DSC CA → MCA |
+| **DIR-12 (director appointment / change)** | S3 / S10 | MCA21 | DSC | MCA21 | Enterprise → CS → MCA |
+| **CHG (charge filings)** | S3 / S10 | MCA21 | DSC | MCA21 | Enterprise → Bank → CS → MCA |
+| **MGT-14 (board/special resolutions)** | S3 | MCA21 | DSC | MCA21 | Board → CS → MCA |
+| **MR-3 (secretarial audit report)** | S3 | MCA21, board | S3 with UDIN | MCA21 + UDIN | CS → UDIN → MCA → Board |
+| **DSC certificate** | DSC CA (S13) | All stakeholders (S1-S10) for filing | DSC CA | DSC CA + holder | DSC CA → Holder → Multiple portals |
+| **Board pack / minutes / resolutions** | S3 / S2 | Directors, S9 | S3 with SS-1 / SS-2 | S10 internal + MCA | CS → Board → Audit committee → External CA |
+| **Insider-trading SDD (PIT Reg 7)** | S3 | SEBI, BSE/NSE | S3 | SEBI + Co | DP / Director → CS → SEBI |
+| **Statutory registers (members, directors, charges, RPT)** | S3 / S10 | Directors, S9, MCA on inspection | S3 | S10 + MCA | CS → Board → Auditor inspection → MCA |
+
+### MCA volumes (verified)
+
+| Workflow | Volume | As of | Source |
+|---|---|---|---|
+| **MCA21 forms filed** | **80.26 lakh in 10 months (Apr 24–Jan 25)** | Jan 2025 | [CAClubIndia](https://www.caclubindia.com/news/mca21-records-80-26-lakh-form-filings-in-fy-2024-25-24515.asp) |
+| MCA21 V3 forms (subset) | 53.08 lakh (same window) | Jan 2025 | [CAClubIndia](https://www.caclubindia.com/news/mca21-records-80-26-lakh-form-filings-in-fy-2024-25-24515.asp) |
+
+## Bank / Treasury / FEMA family
+
+This family becomes most active for groups with FDI/ODI/ECB exposure (37,407 of 41,653 RBI-census respondents have foreign investment per [Business Standard](https://www.business-standard.com/finance/news/us-continues-to-be-largest-source-of-fdi-in-india-rbi-annual-census-124101100905_1.html)). The bank-statement edge is also the gateway for [AA-mediated lender access](/caos/stakeholders/institutional-capital/) in Phase 4.
+
+| Document | Created by | Consumed by | Certified by | Archive owner | Cross-stakeholder edges |
+|---|---|---|---|---|---|
+| **Bank statement** | Bank | S10 treasury, S2 controller, S1 CA | Bank | S10 + Bank | Bank → AA → CAOS → CA / Enterprise |
+| **Bank Reconciliation Statement (BRS)** | S10 / S1 | S2 controller, S9 audit | S2 | S10 | Bank → BRS → Books reconciled → Audit |
+| **FIRC (Foreign Inward Remittance Certificate)** | AD Bank | S10, S1 | AD Bank | RBI + AD Bank | Foreign payer → AD Bank → Enterprise → CA |
+| **FC-GPR (foreign equity issue)** | S10 / S3 | RBI | S3 + Banker | RBI | Enterprise → CS → AD Bank → RBI |
+| **ECB-2 (External Commercial Borrowings monthly)** | S10 / S3 | RBI | S3 + Banker | RBI | Enterprise → CS → AD Bank → RBI |
+| **FLA (Foreign Liabilities & Assets — annual)** | S10 / S3 | RBI | S3 | RBI | Enterprise → CS → RBI |
+| **ODI (Overseas Direct Investment)** | S10 / S3 | RBI | S3 + Banker | RBI | Enterprise → CS → AD Bank → RBI |
+
+### Treasury / FEMA volumes (verified)
+
+| Metric | Value | As of | Source |
+|---|---|---|---|
+| Cos with FDI/ODI (RBI census) | 37,407 of 41,653 respondents | Mar 2024 | [Business Standard / RBI census](https://www.business-standard.com/finance/news/us-continues-to-be-largest-source-of-fdi-in-india-rbi-annual-census-124101100905_1.html) |
+| Indian OFDI | ₹3,25,631 cr / US$37.68 bn | 2024 | [IBEF](https://www.ibef.org/economy/indian-investments-abroad) |
+| ECB outstanding (total) | US$190.4 bn | Sep 2024 | [PIB / RBI](https://www.pib.gov.in/PressReleasePage.aspx?PRID=2096480) |
+| AA cumulative consents fulfilled | **43.11 cr** | Mar 31, 2026 | [Sahamati dashboard](https://sahamati.org.in/aa-dashboard/) |
+
+## Audit family
+
+The audit family is the **bridge surface** for the [Phase 3 Audit Workspace](/caos/flywheel/phase-3-audit-workspace/). Every document below crosses at least three stakeholder boundaries: auditor, in-house liaison, engagement CA. NFRA inspection adds a fourth (regulator) for Big-6 work.
+
+| Document | Created by | Consumed by | Certified by | Archive owner | Cross-stakeholder edges |
+|---|---|---|---|---|---|
+| **Statutory audit report** | S9 | All shareholders, MCA, S14 | S9 partner | MCA21 | Auditor → Board → MCA → Stock exchange |
+| **Tax audit report (3CA-CD / 3CB-CD)** | S1 | CBDT, S10 finance | S1 with UDIN | CBDT + UDIN | CA → UDIN → CBDT → Audit committee |
+| **Working papers (Caseware / firm tool)** | S9 | NFRA on inspection | S9 partner | S9 firm | Auditor → Internal review → NFRA inspection |
+| **PBC (Provided By Client) list & responses** | S9 → S10 (request); S10 → S9 (response) | Auditor, in-house team | S9 + S10 | Auditor's working paper system | Auditor → Liaison → Evidence → Working papers |
+| **IFC / ICFR controls testing log** | S9 / S10 internal audit | Audit committee, S9 statutory | S9 partner | S10 + S9 | Internal audit → External audit → Audit committee |
+| **BRSR / BRSR Core report** | S10 BRSR lead | SEBI, S9 assurance | S9 (Core assurance) | SEBI + Listing Co | Plant → BRSR Lead → CSO → Auditor → SEBI |
+| **RPT register (Sec 188 + IND-AS 24 + SEBI Reg 23)** | S2 / S3 | Audit committee, S9, SEBI | S3 | S10 internal + SEBI | Finance → CS → Audit committee → SEBI |
+
+### Audit / NFRA / UDIN volumes (verified)
+
+| Metric | Value | As of | Source |
+|---|---|---|---|
+| **UDIN cumulative** | **10 cr+** (6.6 cr Mar 2024) | Dec 2025 | [UDIN portal announcement](https://udin.icai.org/ICAI/announcement/6/145/UDIN_20-12-2025) |
+| UDIN annual issuance | ~1.7 cr | FY24 | [UDIN portal](https://udin.icai.org/) |
+| **NFRA disciplinary orders** | **94 cumulative; 19 firms + 84 CAs penalised** | Early 2025 | [TaxGuru on NFRA](https://taxguru.in/company-law/action-nfra-prevent-audit-failure-regulatory-lapses.html) |
+| NFRA inspection reports published | 12 (since Dec 2022) | 2024 | [TaxGuru on NFRA](https://taxguru.in/company-law/action-nfra-prevent-audit-failure-regulatory-lapses.html) |
+| **BRSR mandate (top listed by mcap)** | **Top 1,000** | FY 2022-23 onward | [SEBI BRSR circular](https://www.sebi.gov.in/legal/circulars/jul-2023/brsr-core-framework-for-assurance-and-esg-disclosures-for-value-chain_73854.html), [DataTracks](https://datatracks.com/in/blog/top-1000-listed-companies-to-file-esg-reports-with-sebi/) |
+| BRSR Core glide path | 150 (FY23-24) → 250 (FY24-25) → 500 (FY25-26) → 1,000 (FY26-27) | per SEBI | [Greenplaces summary](https://greenplaces.com/regulation/sebi-business-responsbility-sustainability-report/), [KPMG firstnotes](https://assets.kpmg.com/content/dam/kpmgsites/in/pdf/2025/01/firstnotes-sebi-introduces-certain-key-changes-in-brsr-reporting.pdf.coredownload.inline.pdf) |
+
+## Litigation family
+
+Litigation documents are the most defensible workspace for [evidence-locker primitives (P5)](/caos/product/atomic-primitives/) because they accumulate across many years and survive both CA succession and staff turnover.
+
+| Document | Created by | Consumed by | Certified by | Archive owner | Cross-stakeholder edges |
+|---|---|---|---|---|---|
+| **GST notice (DRC-01 / DRC-01A / ASMT-10 etc.)** | GST officer (govt) | S10 + S1 + S2 | GST officer | GST portal | Govt → Enterprise → CA → Reply → Hearing |
+| **IT notice (143(2) / 142(1) / 148 / 148A)** | AO / faceless | S10 + S1 + S2 | AO | IT portal | Govt → Enterprise → CA → Reply → Order |
+| **Hearing pack / appeal (CIT(A) / ITAT / GSTAT)** | S1 | Tribunal, S10 | S1 / Counsel | Court + CAOS | CA → Tribunal → Order → Next-step |
+| **Order (assessment / demand / refund)** | AO / Tribunal | S10 + S1 | AO / Tribunal member | IT/GST portal | Tribunal → CA → Books reflect → Next year ITR |
+| **Stay application + bank guarantee + bond** | S1 + S10 | Tribunal, AD Bank | S1 / Counsel | Court | CA → Counsel → Tribunal → Bank |
+
+### Litigation volumes (partially verified)
+
+| Metric | Value | As of | Source |
+|---|---|---|---|
+| **GST notices (CBIC, all types)** | **4.2 lakh+ in FY 2022-23** | FY22-23 | [Durity citing CBIC](https://durity.com/en-in/blog/gst-notices-causes-and-solutions/) |
+| GSTAT operationalised | Sep 24, 2025 | Sep 2025 | [TaxGuru on GSTAT](https://taxguru.in/goods-and-service-tax/gstat-operational-complete-guide-gst-appellate-tribunal-appeals.html) |
+| GST refunds | ₹2.12 lakh cr | FY 2024-25 | [ClearTax Advisors](https://cleartaxadvisors.in/gst-refund/) |
+
+<Aside type="note" title="Litigation volumes — verification gap">
+File 14 Part VIII flags that Sec 143(2), 142(1), 148, 148A specific annual notice volumes are not publicly disclosed. Press references are qualitative ("large-scale" notice activity in 2025). The R15 research investigation in [the research queue](/caos/method/research-queue/) targets scraping 100 anonymized GST/IT/MCA notices from public records to build the notice taxonomy + extraction MVP.
+</Aside>
+
+## Specialty family
+
+Specialty documents are produced by specific practitioner classes (Valuer, IP, TP firm, Cost Auditor) and consumed by regulators or courts. Lower volume, higher per-document complexity, higher willingness-to-pay per active engagement.
+
+| Document | Created by | Consumed by | Certified by | Archive owner | Cross-stakeholder edges |
+|---|---|---|---|---|---|
+| **3CEB (Transfer Pricing certification)** | S1 / TP firm | CBDT | S1 with UDIN | CBDT | Enterprise → TP firm → CA → CBDT |
+| **TP master file / local file / CbCR** | S1 / TP firm | CBDT | S1 / TP partner | CBDT | Enterprise → TP firm → CBDT |
+| **Cost audit report (CRA-3 / CRA-4)** | S5 (CMA) | MCA21, S10 | S5 with UDIN | MCA21 + UDIN | CMA → UDIN → MCA |
+| **Valuation report** | S7 (Valuer) | S10, MCA, IT, IBC court | S7 with UDIN | Various | Valuer → UDIN → Authority |
+| **Resolution plan / Information Memorandum (IBC)** | S8 (RP) | Creditors (S14), CoC, NCLT | S8 + Counsel | NCLT + IBBI | RP → CoC → Lender → Court |
+| **Vendor master + KYC** | S10 procurement | S10 AP, S2 controller | S2 | S10 (vendor master) | Vendor → Procurement → AP → All filing systems |
+| **Balance confirmation** | S10 | S11 vendor + S12 customer | S2 + S9 audit | S10 + S9 | Enterprise → Counterparty → Audit |
+
+## EPFO / ESIC family (employer-side compliance)
+
+| Document | Created by | Consumed by | Certified by | Archive owner | Cross-stakeholder edges |
+|---|---|---|---|---|---|
+| **EPFO ECR (Electronic Challan-cum-Return) monthly** | S10 HR | EPFO | S2 / Authorised signatory | EPFO | Enterprise → HR → EPFO |
+| **ESIC monthly contribution return** | S10 HR | ESIC | S2 / Authorised signatory | ESIC | Enterprise → HR → ESIC |
+
+### EPFO / ESIC volumes (verified)
+
+| Metric | Value | As of | Source |
+|---|---|---|---|
+| **EPFO net members added (Jul 2025)** | **21.04 lakh (highest in years)** | Jul 2025 | [EPFO press release](https://www.epfindia.gov.in/site_docs/PDFs/EPFO_PRESS_RELEASES/EPFO_RecordsAdditionOf21.04%20LakhNetMembersDuring%20uly2025.pdf) |
+| ESIC net members (Jul 2024) | 22.53 lakh (+13.32% YoY) | Jul 2024 | [DT Next](https://www.dtnext.in/news/business/1819-lakh-new-workers-added-to-esic-payroll-data-in-jan-827546) |
+
+## The pattern — why boundary handoffs are the moat
+
+Every document above crosses **at least two stakeholder boundaries**. Many cross four or five:
+
+- A **GST tax invoice** is created by the vendor (S11), routed through the IRP (S13) and GSTN, consumed by the recipient enterprise (S10), processed by their AP team, validated against GSTR-2B by their GST Lead (F3), reconciled by their CA (S1), and verified by their auditor (S9) at year-end. **Six stakeholder boundaries crossed by one document.**
+
+- A **statutory audit report** is created by the auditor (S9), based on documents from the in-house team (S2 + S10) and certified work papers from the engagement CA (S1). It is consumed by shareholders, the MCA21 portal (regulator), the audit committee (S2 + board), the lender (S14 for covenant monitoring), and the public (listed-co disclosure). **Five stakeholder boundaries.**
+
+- A **vendor master + KYC** entry crosses the vendor (S11), procurement (S10 ops), AP team (S10 ops), Controller (F2), Direct Tax Lead (F4 for 194Q tracking), AP Manager (F5 for MSME 45-day tracking), AR team of the vendor (S11 again, mirror side), and ultimately the Phase 4 institutional capital pool (S14) for credit underwriting. **Eight stakeholder boundaries** (across both sides of the relationship).
+
+The friction in Indian compliance is not document **creation** — most documents above are auto-generated, auto-routed, auto-stored. The friction is the **boundary handoffs** between stakeholder classes. Every handoff today involves email, WhatsApp, a courier, a portal-login, a download, a re-upload, an Excel template, a confirmation call.
+
+**A platform that owns the handoffs owns the workflow.**
+
+This is the substrate of every flywheel candidate in the [composite flywheel](/caos/flywheel/composite/):
+
+- **Phase 1** owns the CA-to-client handoff (the practitioner client portal)
+- **Phase 2** owns the enterprise-to-vendor handoff (the vendor onboarding + verification flow)
+- **Phase 3** owns the auditor-to-liaison-to-CA handoff (the Audit Workspace shared evidence locker)
+- **Phase 4** owns the entity-to-institutional-consumer handoff (consent-mediated graph access via AA)
+
+Each phase compounds because the handoffs accumulate persistent state: vendor profiles validated once become free verifications for every next enterprise; PBC items resolved once become precedent for next year's audit; consent flows established once become repeat-use lender data feeds.
+
+## Cross-references
+
+<CardGrid stagger>
+ <Card title="The 14 stakeholder classes" icon="document">
+ For who creates / consumes / certifies each document family.
+
+ See [stakeholders overview](/caos/stakeholders/overview/).
+ </Card>
+ <Card title="Atomic primitives" icon="puzzle">
+ For the 15 reusable bricks (P1-P15) that handle every document family above.
+
+ See [atomic primitives](/caos/product/atomic-primitives/).
+ </Card>
+ <Card title="Top 25 use cases" icon="rocket">
+ For how the documents above translate into specific paying-customer use cases.
+
+ See [top 25 use cases](/caos/product/use-cases/).
+ </Card>
+ <Card title="Composite flywheel" icon="approve-check">
+ For how owning the handoffs becomes a four-phase compounding moat.
+
+ See [composite flywheel](/caos/flywheel/composite/).
+ </Card>
+</CardGrid>

@@ -1,0 +1,80 @@
+---
+title: "Product overview — primitives, not features"
+description: "CAOS is a financial-document, intelligence, workflow, and compliance fabric for India. It is not an ERP, not a GL, not a payroll engine, not an accounting system. It works around existing systems on the messy edges they refuse to own."
+sidebar:
+  order: 1
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+<Aside type="note" title="If you're …">
+- **A product manager**: continue to [15 atomic primitives](/caos/product/atomic-primitives/) → [25 use cases + 7 bridges](/caos/product/use-cases/).
+- **A software architect**: jump to [architecture](/caos/product/architecture/) for the data model and tenancy choices.
+- **A CFO or finance team**: jump to [25 use cases](/caos/product/use-cases/) for the finance-team subset and bridge use cases.
+- **An auditor**: jump to [document intelligence pipeline](/caos/product/document-intelligence/) to see how PBC documents and queries flow through the platform.
+</Aside>
+
+The single most important sentence in the entire CAOS planning corpus is the negative one. CAOS is **not** a CA practice management SaaS, **not** a Tally replacement, **not** an ERP, **not** a general ledger, **not** a payroll engine, **not** an IFRS reporting engine, **not** an inventory accounting system. It is the **document, intelligence, workflow, and compliance fabric for Indian financial paperwork** — anchored to PAN/GSTIN/CIN identity, designed for the specific shape of Indian regulation, and tuned to the messy edges that ERPs do not own.
+
+Every product decision in this section flows from that one sentence. If a feature drifts toward replacing the ERP, replacing the GL, computing payroll, or generating IFRS-compliant statements, the feature is mis-scoped. If a feature collects, classifies, extracts, reconciles, or routes a financial document, the feature belongs.
+
+## What CAOS IS — five verbs
+
+The product surface area is exhausted by five verbs. Every screen, every API endpoint, every worker job is one of these.
+
+| # | Verb | What it means in the pipeline | Why ERPs leak this |
+|---|---|---|---|
+| 1 | **Capture** | Pull unstructured documents from any of four channels: web upload, mobile camera, WhatsApp/email forward, OTP-gated public portal | ERPs assume structured input; they do not ingest a PDF screenshot or a WhatsApp-forwarded vendor invoice |
+| 2 | **Classify** | Identify what each document is via 4-stage gate: filename heuristics → content patterns → optional OCR → LLM classification | ERPs do not classify; they require the human to declare doctype on entry |
+| 3 | **Extract** | Pull structured JSON via per-doctype LLM pipelines with cache-aware routing, validation retry, and per-client mapping memory | ERPs do not extract; they expect typed input. Add-ons that try are India-blind. |
+| 4 | **Reconcile** | Match `ledger ↔ external source` (GSTR-2B vs purchase register, 26AS vs books, bank stmt vs Tally, vendor SOA vs AP) with confidence scoring | ERPs do this badly across statutes/portals; ClearTax breaks past 10 GSTINs. |
+| 5 | **Route** | Send the right artefact to the right human / system: queue for CA review, push voucher to Tally with idempotent REMOTEID, dispatch reminder, escalate notice | ERPs assume one-actor workflow; CAOS supports maker-checker, multi-org, multi-channel |
+
+The architecture diagram for the CAOS backend (`/home/rakesh/work/CAOS/.digest/rebuild-knowledge-map.md` §5) is literally these five verbs wired into one Go service: an inbox + 4-stage classifier feeds a doc-intelligence pipeline that emits a ReviewItem; the CA approves; a Tally export job runs; metering rolls up; the loop closes.
+
+## What CAOS is NOT — five disqualifying claims
+
+Every one of these has been rejected at the architectural level. Most are listed as the "Fundamental rearchitecture" set in the [25 finance-team use cases analysis](/caos/product/use-cases/). They sit outside the product surface forever, not just at launch.
+
+| # | What CAOS is NOT | Why we will not build it | What you use instead |
+|---|---|---|---|
+| 1 | **A replacement for Tally / SAP / Oracle / Zoho Books** | The ERP is the GL of record. Re-implementing what Tally does forks from the Tally-XML thesis and destroys the moat. | Keep your existing GL; CAOS plugs in via [Tally / ERP integration](/caos/product/tally-erp-integration/) |
+| 2 | **A general ledger / double-entry posting engine** | No double-entry GL inside CAOS; vouchers are written to Tally with idempotent REMOTEID. Cabuddy holds Tally master mirrors only. | Tally / SAP / Oracle / Zoho holds the books |
+| 3 | **A payroll computation engine** | Only payroll documents are classified (Form 16, salary register). No payroll-run engine, no PT/PF/ESI computation. | greytHR, Zoho Payroll, Keka, RazorpayX Payroll |
+| 4 | **An inventory accounting system** | Tally master mirrors only; no FIFO/LIFO/weighted-avg, no lot/serial transactional engine. | Tally Inventory, Unicommerce, Zoho Inventory |
+| 5 | **An IFRS / IND-AS reporting engine** | No parallel reporting engine, no IND-AS taxonomy, no consolidation eliminations. BS/P&L/CF are T6 OUTPUT classify-only docs. | OneSource, IRIS Carbon (XBRL), HFM (consolidation) |
+
+The exclusion list is also where competitive positioning gets honest. The [TAM in the original CA-only frame](/caos/market/tam/) was capped at ₹141-364 cr; the [verified finance-team-fabric TAM](/caos/flywheel/composite/) is 5-10x larger. But we get to that bigger TAM precisely *because* we refuse to compete with SAP / Oracle / Workday / IBM Cognos. The product position is "the messy edges and the document fabric," not "ERP replacement." Honour that, and the moat compounds; violate it, and you join the graveyard of mid-market Indian ERP wannabes.
+
+## The architecture test for any new feature
+
+Every feature proposal — new module, new doctype, new workflow, new partnership — runs through a six-question gate before it can enter the roadmap. Five of the six come from the [atomic primitives architecture test](/caos/product/atomic-primitives/); the sixth is the "messy edges" check.
+
+:::caution[Architecture test for a new feature]
+1. **Primitive composition.** Does the feature decompose into one or two of the [15 atomic primitives](/caos/product/atomic-primitives/) plus a presentation layer? If no — the primitive list is incomplete or the feature is mis-scoped. Either fix the list (rare) or kill the feature (common).
+2. **Dual-persona test.** Does it serve at least one CA persona AND at least one finance-team persona? If only one — label clearly; check that the single segment is large enough; consider whether the design is accidentally locking in a CA-only assumption (per-client pricing, ICAI ID as identity, "client" as the master noun).
+3. **ERP-non-replacement.** Does it work on top of Tally / SAP / Oracle / Zoho without replacing them? If the feature requires CAOS to become the GL, drop it.
+4. **Architecture cost check.** Does it require new architecture from the "[Fundamental rearchitecture](/caos/product/use-cases/)" list (multi-entity consol, IFRS engine, payroll computation, FX revaluation, real-time GL)? If yes, write a new design decisions and estimate the months of engineering. Most should die at this gate.
+5. **Use-case ranking.** Is it in the [top 25 finance use cases or 7 bridge use cases](/caos/product/use-cases/)? Or is it a CA-must-have in the CAOS plan? If none — why are we building it?
+6. **Messy-edges test.** Would Tally / SAP / Oracle / Zoho own this in 5 years? If yes, we should not build it; that's their core surface and they will compete us out. If no, the moat is durable.
+:::
+
+The test exists because the most common product-strategy failure in Indian B2B fintech is feature-creep into adjacent system territory. The team that built the CA wedge will be tempted, in months 18-24, to ship "just a little payroll" or "just a basic GL" because customers ask for it. Customers always ask for it. Saying yes destroys the moat. The architecture test is the discipline that lets you say no with a reason — not "we ran out of time" but "this fails Question 3 and Question 6."
+
+## How the rest of this section is organised
+
+The remaining product pages walk through what the architecture test allows, in order of increasing specificity.
+
+1. **[The 15 atomic primitives](/caos/product/atomic-primitives/)** — the load-bearing list. Every feature must compose to one or two of these.
+2. **[25 finance-team use cases + 7 bridge use cases](/caos/product/use-cases/)** — what the primitives compose into, ranked by pain × frequency × WTP × competitive whitespace.
+3. **[Document intelligence pipeline](/caos/product/document-intelligence/)** — the capture → classify → extract → review → export flow that powers verbs 1, 2, 3 and 5.
+4. **[Tally / ERP integration](/caos/product/tally-erp-integration/)** — the rules that operationalise "layer, not replace," and why owning Indian ERP integration depth is the moat.
+5. **[Architecture — what's locked, what's open](/caos/product/architecture/)** — the 26 design decisions from the CAOS planning corpus, the 10 file-13 architectural pre-investments, and the 8 file-14 additions; what the architecture commits to permanently and what it deliberately keeps reversible.
+
+## Cross-references
+
+- The composite four-loop business model that depends on these primitives is at [/caos/flywheel/composite/](/caos/flywheel/composite/).
+- The 14 stakeholder classes who consume the same documents through these primitives are at [/caos/stakeholders/](/caos/stakeholders/).
+- The 10 + 8 architectural pre-investments that keep the option open to expand from CA wedge to finance-team fabric are at [/caos/decisions/architectural-pre-investments/](/caos/decisions/architectural-pre-investments/).
+
+The product position summarised in one sentence: CAOS collects, classifies, extracts, reconciles, and routes every Indian financial document; it does not post to the ledger, run payroll, or produce IFRS statements. The primitives that win the CA wedge are the same primitives that win the finance-team layer above the ERP. Build the primitives well, and the use cases compose for free.

@@ -1,0 +1,271 @@
+---
+title: "Architectural pre-investments — 18 no-regret bets"
+description: "Cheap to do now, expensive to fix later. The 10 from the expansion thesis + 8 from the flywheel research that keep the option open without changing CA UX."
+sidebar:
+  order: 2
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+A pre-investment is an engineering bet made *before* the customer pull is observable, on the principle that the cost compounds asymmetrically: cheap now, expensive later, and rarely visible to the user until it is needed. The 18 pre-investments on this page are the load-bearing architectural choices that keep CAOS's [composite flywheel](/caos/flywheel/composite/) options open across all four phases without changing the CA-side user experience in Year 1.
+
+The 10 in the first half come from the original CAOS expansion thesis. The 8 in the second half are additions driven by the verified ecosystem data behind the [stakeholder atlas](/caos/stakeholders/overview/) and the [composite flywheel research](/caos/flywheel/composite/). Each is listed with a one-line *what*, a one-line *why*, the phase it is needed in, and a cost estimate in engineering days or weeks.
+
+## The principle: why pre-investments are no-regret
+
+A pre-investment qualifies as "no-regret" when all four of these are true:
+
+1. **Cheap now.** Each is days-to-weeks of engineering at Phase 0-1 scale. Currency column reservation is a 4-hour migration; entity-as-canonical-noun is a single naming-and-namespace choice; webhook infrastructure is a 5-7 day build.
+2. **Expensive later.** The same change at installed-base scale costs 5-50x. A currency column added after 50,000 client entities are live requires a 2-week migration with downtime risk. A `person` decoupling done after 1,000 firm-staff records are wired into client-contact tables requires multi-month identity-merge engineering.
+3. **Don't change CA UX.** The CA in Year 1 sees "Client" not "Entity," sees ₹ not multi-currency, sees one staff per firm not multi-org-membership. The pre-investments live in the schema and the API contract; they are invisible to the practitioner.
+4. **Keep the future option open.** Each pre-investment unlocks a Year 2-5 product surface (Business SKU, Enterprise SKU, Audit Workspace, DPI graph, lender partnerships) without forcing it. The option to *not* ship that surface remains; what changes is the cost of shipping it.
+
+<Aside type="caution" title="The reverse test">
+For each pre-investment, ask: "if we don't do this now and the customer pull arrives in Year 2, what does it cost to retrofit?" If the answer is "weeks of engineering plus migration risk plus a customer-visible disruption," the pre-investment is justified. If the answer is "days of engineering with no migration risk," defer until the pull is observable. **17 of the 18 pre-investments below pass the reverse test.** The single deferral candidate (eMudhra / NSDL DSC integration) is included only because the partner economics are stable and the integration is fixed-cost.
+</Aside>
+
+## The 10 pre-investments from the expansion thesis
+
+These are the 10 universal pre-investments — they apply regardless of which loop ignites first or which channel converts. Each one is a Phase 0-1 engineering choice that keeps the multi-tenant, multi-entity, multi-currency, multi-staff future open.
+
+### 1. Person decoupled from firm_member / client_contact
+
+**What:** A single `person` identity table with email + phone + ICAI/ICSI/ICMAI member ID, decoupled from `firm_member` and `client_contact` join tables. One person, multi-org membership.
+
+**Why:** The [60.8% of ICAI members in industry](https://finance.careers360.com/articles/icai-student-and-member-report-2025) means the same person is often a CA at one firm, a CFO at another company, and a board member at a third. A naive design (where the user identity is the firm-member record) cannot represent this and forces a rebuild when the Business SKU ships.
+
+**Phase:** Phase 0 (before the first firm onboards).
+
+**Cost estimate:** 5-7 engineering days. The data model is straightforward; the auth flow change is small; the migration risk is zero because there is no installed base.
+
+### 2. `entity` as the canonical noun
+
+**What:** All money-bearing tables key off an `entity` row (PAN/GSTIN/CIN-anchored), not a `client` row. The CA-side UX still says "Client"; the Business / Enterprise UX says "Entity" / "Subsidiary."
+
+**Why:** A `client` is a CA-specific framing. An `entity` is a market-wide framing that supports the [18.17 lakh active MCA companies](https://www.business-standard.com/companies/news/over-2-8-million-companies-registered-in-india-65-active-govt-data-125021800695_1.html) and [1.51 cr active GST taxpayers](https://a2ztaxcorp.net/gst-8-years-report-released-gstn-highlights-record-revenue-compliance-milestones/) regardless of which professional firm serves them.
+
+**Phase:** Phase 0.
+
+**Cost estimate:** 3-5 engineering days. This is a naming + namespace choice; the schema impact is one table rename.
+
+### 3. Currency column reserved on every money-bearing table
+
+**What:** Every `money` column has a paired `currency_code` column with default INR. No FX logic in Year 1; just the column.
+
+**Why:** The [37,407 companies with FDI/ODI](https://www.business-standard.com/economy/news/india-s-fdi-ofdi-cos-cross-37k-mark-rbi-data-125030600598_1.html) and [ECB outstanding US$190B](https://www.business-standard.com/economy/news/india-s-ecb-stock-rises-to-190-2-billion-as-of-march-end-fy25-shows-rbi-data-125052500454_1.html) make multi-currency a Year-3 (per [D6](/caos/decisions/d1-d7/)) requirement. Adding the column at 50K entity scale costs a 2-week migration; reserving it at Phase 0 costs 4 hours.
+
+**Phase:** Phase 0.
+
+**Cost estimate:** 0.5-1 engineering days.
+
+### 4. Doctype catalog namespace reservations
+
+**What:** The doctype catalog reserves namespaces for `AP_*`, `AR_*`, `EXP_*`, `IFC_*`, `NOTICE_*`, `BRSR_*`, `CONTRACT_*`, `FAR_*`, `INTERCOMPANY_*`, `BOARD_*`. Year 1 ships only the CA-side doctypes; the namespaces for Year 2-3 doctypes exist as enum reservations.
+
+**Why:** Doctype catalogs accumulate in real time as customers send new document types. A flat namespace gets cluttered fast; a reserved namespace per business surface keeps Year 2 doctype additions clean.
+
+**Phase:** Phase 0.
+
+**Cost estimate:** 1 engineering day.
+
+### 5. Public REST API contract drafted
+
+**What:** A read-only REST API contract (auth + clients/entities + documents + filings) is drafted and the API key path is enabled even if not externally documented.
+
+**Why:** [Tally's 28K+ partner network](https://tallysolutions.com/about-tally/) and [62 GSPs](https://www.microvistatech.com/blog/gst-suvidha-providers-gsp-list-2025/) are integration partners by Year 2. Each integration request lands as a partner expectation that an API exists; without a drafted contract, each partner asks for a custom integration.
+
+**Phase:** Phase 0-1.
+
+**Cost estimate:** 5-7 engineering days for the contract draft; 3-5 days for the API key path.
+
+### 6. Webhook infrastructure (HMAC-signed events)
+
+**What:** A webhook delivery system (HMAC-signed events) drafted in Phase 0 for internal decoupling. Year 1 ships only internal subscribers; Year 2 exposes external webhook endpoints.
+
+**Why:** Internal services (the doc-intelligence pipeline, the Tally export job, the metering rollup) decouple cleanly when they consume webhooks rather than poll the database. The same infrastructure exposes external webhooks in Year 2 with zero rebuild.
+
+**Phase:** Phase 0-1.
+
+**Cost estimate:** 5-7 engineering days.
+
+### 7. Notice intake doctype + manual triage workflow
+
+**What:** A `NOTICE_*` doctype family with a manual triage workflow (intake + assign + reply). No extraction in Year 1; just intake.
+
+**Why:** [4.2 lakh+ GST notices in FY22-23](https://taxguru.in/goods-and-service-tax/4-lakh-show-cause-notices-issued-fy23-finance-ministry.html) and [large-scale IT notice volumes](https://taxguru.in/income-tax/income-tax-department-key-statistics-fy-2024-25.html) make notice intake a Phase-1 use case. Shipping intake-only first lets the manual triage build the taxonomy that automated extraction needs in Year 2.
+
+**Phase:** Phase 1.
+
+**Cost estimate:** 7-10 engineering days.
+
+### 8. design decision (OTP-only auth) re-opened with successor planned
+
+**What:** design decision (the original OTP-only authentication decision) is re-opened with a successor design decisions planned for Year 2 enterprise SAML/OIDC.
+
+**Why:** Enterprise procurement (per [D1](/caos/decisions/d1-d7/) and [Failure 3 Big-6 procurement gate](/caos/risks/failure-modes/)) requires SAML or OIDC for IdP integration. OTP-only is correct for Year 1 CA SaaS but blocks Year 2 enterprise expansion. Documenting the successor at Phase 0 makes the Year-2 migration a 2-week project rather than a 2-month redesign.
+
+**Phase:** Phase 0 (decision); Year 2 (implementation).
+
+**Cost estimate:** 1 day to re-open and plan; 10-15 days to implement in Year 2.
+
+### 9. DEDICATED tenant model stub
+
+**What:** A `WithTenant` interface with a clear "deferred" path documented. Year 1 runs all customers on the SHARED tenant; the DEDICATED tenant infrastructure is stubbed but not built.
+
+**Why:** BFSI / PSU / Big-6 enterprise customers will ask for VPC-isolated tenancy by Year 2-3. The architectural pattern needs to exist from Phase 0 so that the Year-2 build is an infrastructure project, not a code rewrite.
+
+**Phase:** Phase 0.
+
+**Cost estimate:** 3-5 engineering days for the stub and the documented pattern.
+
+### 10. entity_group table (schema-only)
+
+**What:** A `entity_group` table (parent ↔ subsidiaries) that the CA UX never surfaces but that Business / Enterprise modes use. Schema-only; no UI.
+
+**Why:** Multi-entity grouping is the foundational primitive for Business + Enterprise SKUs (subsidiary consolidation, intercompany flows, group filings). Adding the table at 50K entity scale requires a migration; adding it at Phase 0 is a single CREATE TABLE.
+
+**Phase:** Phase 0.
+
+**Cost estimate:** 0.5 engineering days.
+
+## The 8 pre-investments from the flywheel research
+
+These 8 are loop-specific — they are driven by verified ecosystem data and unlock specific Phase 2-4 surfaces. Each one is independently justified by a named regulator or ecosystem participant.
+
+### 11. Vendor master schema (separate from client/entity)
+
+**What:** A first-class `vendor` entity decoupled from `client` and `entity` semantics. Year 1 ships only the schema and the GSTIN validator; Year 2 ships the vendor invitation + verification flow.
+
+**Why:** The [Phase 2 vendor-network flywheel](/caos/flywheel/composite/) cannot start without a first-class vendor entity. Bolting vendor semantics onto the client/entity table later requires a 4-week migration and breaks the [Sec 194Q](https://cleartax.in/s/an-overview-on-section-194q-of-the-income-tax-act-1961-ita) + [MSME 45-day clock + Sec 43B(h)](https://taxguru.in/income-tax/section-43bh-msme-payment-rules-implications.html) regulatory wedge.
+
+**Phase:** Phase 1 (schema); Phase 2 (full ship).
+
+**Cost estimate:** 3-5 engineering days for schema; 15-20 days for the Phase-2 invitation flow.
+
+### 12. AA TSP / FIU integration architecture
+
+**What:** A provider-interface abstraction for AA reads (analogous to LlamaIndex's provider abstraction). Year 1-2 ships only the abstraction; Year 3 plugs in CAMSFinServ / Anumati / Perfios as concrete providers.
+
+**Why:** [Phase 4](/caos/flywheel/composite/) requires AA reads at scale ([22.31M monthly consents](https://sahamati.org.in/aa-dashboard/), [17 NBFC-AAs](https://sahamati.org.in/account-aggregators-in-india/)). A provider interface lets CAOS switch AA TSPs without code changes when partner economics shift. Per [D7](/caos/decisions/d1-d7/), CAOS becomes an FIU + ASP-first rather than chasing full AA TSP licensing — the provider interface is the architecture that makes this clean.
+
+**Phase:** Phase 3 (architecture); Phase 4 (integration).
+
+**Cost estimate:** 7-10 engineering days for the abstraction.
+
+### 13. Public-graph query API with consent-flow
+
+**What:** A query API for the entity-side fact graph (PAN/GSTIN/CIN attributes + filing status + AA-mediated bank summary), guarded by DPDP-compliant consent tokens.
+
+**Why:** [Phase 4](/caos/flywheel/composite/) monetises institutional consumer access to the consent-mediated graph (1,157 AA participants + 50 large NBFCs + 100 SEBI-registered investment advisors + Big-6 + 50 mid-tier audit firms = 1,500-2,000 institutional consumers). The API + consent-flow is the load-bearing infrastructure for that monetisation.
+
+**Phase:** Pre-built from Phase 1 (schema + auth); fully shipped Phase 4.
+
+**Cost estimate:** 5-7 engineering days for the schema-and-auth foundation; 15-20 days for the full Phase-4 ship.
+
+### 14. eMudhra / NSDL DSC integration
+
+**What:** Integration with eMudhra (₹527 cr revenue, ~40% market share, [3.08M DSCs/yr issued](https://www.business-standard.com/companies/news/emudhra-shares-rally-15-on-q3-results-strong-revenue-growth-124020800321_1.html)) and NSDL Capricorn / Sify partnerships for in-house DSC management at scale.
+
+**Why:** DSC management is the third-most-asked-for feature in mid-tier CA firm interviews (per industry experience). DSC reseller economics give CAOS a revenue-share line and a UX moat (tracking validity + renewal + signing audit-trail in one place). The [3.08M DSCs/yr](https://www.business-standard.com/companies/news/emudhra-shares-rally-15-on-q3-results-strong-revenue-growth-124020800321_1.html) number is verified from eMudhra alone; total market is ~5-7M.
+
+**Phase:** Phase 6 (Year 3) timing — but the partner contract can be signed Phase 1 if commercial terms align.
+
+**Cost estimate:** 7-10 engineering days for the integration; 30-60 days for the partner contract.
+
+### 15. NFRA-compliant audit working-paper schema
+
+**What:** Audit Workspace ships with NFRA-2 compatible structure for working-paper exports. Schema design done in Phase 3; integration ships in Phase 5.
+
+**Why:** [NFRA's 94 disciplinary orders + 12 published inspection reports](https://taxguru.in/company-law/action-nfra-prevent-audit-failure-regulatory-lapses.html) create a regulatory tailwind for audit firms to adopt structured working-paper tools. Big-6 procurement (per [Failure 3](/caos/risks/failure-modes/)) explicitly asks for NFRA-2 export compatibility. Pre-building the schema makes the Big-6 sales conversation a feature demo rather than a roadmap promise.
+
+**Phase:** Phase 5.
+
+**Cost estimate:** 10-15 engineering days for the schema; 5-7 days for the export.
+
+### 16. MSME 45-day watchlist as first-class entity
+
+**What:** A first-class `msme_watchlist` entity that surfaces vendors approaching the [45-day payment deadline](https://taxguru.in/income-tax/section-43bh-msme-payment-rules-implications.html). Not buried in the vendor master; surfaced as a Year-1 dashboard.
+
+**Why:** [Sec 43B(h)](https://taxguru.in/income-tax/section-43bh-msme-payment-rules-implications.html) compliance is a regulatory wedge with measurable deadline pressure. Surfacing it as a first-class entity (rather than a vendor-master attribute) makes it discoverable in the CA UX and creates immediate paying-user pull. This is the single highest-conversion regulatory feature in the Phase 1-2 product surface.
+
+**Phase:** Phase 2.
+
+**Cost estimate:** 7-10 engineering days.
+
+### 17. ESG / BRSR Core taxonomy module
+
+**What:** A `BRSR_*` doctype family with the [BRSR Core taxonomy](https://www.sebi.gov.in/legal/circulars/may-2024/business-responsibility-and-sustainability-report-brsr-and-brsr-core-format_82756.html) (top 250 in FY25-26, top 500 in FY26-27, top 1,000 by FY27). Schema-only in Year 1; full module in Year 3.
+
+**Why:** SEBI's [BRSR Core glide path 150 (FY23-24) → 250 (FY25-26) → 500 (FY26-27) → 1,000 by FY27](https://www.sebi.gov.in/legal/circulars/may-2024/business-responsibility-and-sustainability-report-brsr-and-brsr-core-format_82756.html) makes ESG reporting a regulatory tailwind for the top-mid-cap segment by Year 3. Pre-building the taxonomy keeps CAOS one customisation away from a full BRSR module.
+
+**Phase:** Phase 6 (Year 3).
+
+**Cost estimate:** 5-7 engineering days for the schema; 30-45 days for the full module in Year 3.
+
+### 18. Section 206C(1H) REMOVED from product spec
+
+**What:** Section 206C(1H) (TCS on sale of goods) was use case #8 in the use-case catalog. It was [removed in Budget 2025](https://www.business-standard.com/budget/news/budget-2025-finmin-removes-tcs-on-sale-of-goods-from-april-2025-125020100543_1.html). Remove from product spec immediately.
+
+**Why:** Removing a deprecated use case from the spec is a no-regret bet because keeping it costs ongoing engineering attention (and customer confusion) for zero TAM. The Budget 2025 removal makes Sec 206C(1H) a closed regulatory chapter; the engineering capacity should redirect to the [vendor master schema](#11-vendor-master-schema-separate-from-cliententity) or the [MSME 45-day watchlist](#16-msme-45-day-watchlist-as-first-class-entity).
+
+**Phase:** Immediate (Phase 0 cleanup).
+
+**Cost estimate:** 0.5-1 engineering days.
+
+## Summary table — cost, phase, and cumulative engineering load
+
+| # | Pre-investment | Phase | Cost (engineering days) | Source |
+|---|---|---|---|---|
+| 1 | Person decoupled | Phase 0 | 5-7 | |
+| 2 | `entity` canonical noun | Phase 0 | 3-5 | |
+| 3 | Currency column reserved | Phase 0 | 0.5-1 | |
+| 4 | Doctype namespaces | Phase 0 | 1 | |
+| 5 | Public REST API draft | Phase 0-1 | 8-12 | |
+| 6 | Webhook infrastructure | Phase 0-1 | 5-7 | |
+| 7 | Notice intake doctype | Phase 1 | 7-10 | |
+| 8 | design decision successor planning | Phase 0 | 1 | |
+| 9 | DEDICATED tenant stub | Phase 0 | 3-5 | |
+| 10 | entity_group table | Phase 0 | 0.5 | |
+| 11 | Vendor master schema | Phase 1-2 | 3-5 | |
+| 12 | AA TSP / FIU architecture | Phase 3 | 7-10 | |
+| 13 | Public-graph query API | Phase 1, ship Phase 4 | 5-7 | |
+| 14 | eMudhra / NSDL DSC | Phase 6 | 7-10 | |
+| 15 | NFRA audit-paper schema | Phase 5 | 10-15 | |
+| 16 | MSME 45-day watchlist | Phase 2 | 7-10 | |
+| 17 | BRSR Core taxonomy | Phase 6 | 5-7 | |
+| 18 | Sec 206C(1H) REMOVED | Phase 0 | 0.5-1 | |
+| | **TOTAL Phase 0-1 load** | | **~50-75 days** | |
+| | **TOTAL Phase 0-6 load** | | **~85-115 days** | |
+
+The cumulative Phase 0-1 engineering load — roughly 50-75 days — is the cost of keeping the [composite flywheel](/caos/flywheel/composite/) options open. At a 5-engineer team, this is 10-15 person-days per engineer over the first year. At a 10-engineer team, it's 5-7 days per engineer. The cost is small relative to the option value preserved; not doing them costs 5-50x more later.
+
+<Aside type="caution" title="The design decisions re-open list">
+The 18 pre-investments above map to 8 new design decisions (design decision through design decision) on top of the broader design. Specifically:
+
+- **design decision** Vendor master schema (covers pre-investment #11)
+- **design decision** AA TSP / FIU integration architecture (#12)
+- **design decision** Public-graph query API with consent-flow (#13)
+- **design decision** eMudhra / NSDL DSC integration (#14)
+- **design decision** NFRA-compliant audit working-paper schema (#15)
+- **design decision** MSME 45-day watchlist as first-class entity (#16)
+- **design decision** ESG / BRSR Core taxonomy module (#17)
+- **design decision** Sec 206C(1H) deprecation footnote (#18)
+
+The original listed the existing design decisions to re-open (design decision OTP-only is one of them — covered by pre-investment #8). The 8 new design decisions above codify the file-14 additions. Each design decisions should be drafted, reviewed, and signed off as part of the Phase 0-1 architectural work — not deferred until the Phase 2-4 customer pull arrives.
+</Aside>
+
+## How this page connects to the rest of the corpus
+
+The 18 pre-investments on this page operationalise [decision D4](/caos/decisions/d1-d7/) ("architectural pre-investments — all 10 from earlier research + 8 new from later research"). They are the engineering-day-level distillation of the strategic call, designed so that each one can be assigned, scoped, and tracked.
+
+The pre-investments unlock specific phases of the [composite flywheel](/caos/flywheel/composite/):
+
+- **#1, #2, #3, #4, #8, #9, #10, #18** are universal — they preserve options across all four phases without favouring any one.
+- **#7, #11, #16** are Phase 1-2 specific — they unlock the CA-led practitioner network and the vendor-network flywheel.
+- **#5, #6, #13** support the [Phase 4 DPI fact graph](/caos/flywheel/composite/) by pre-building the API + webhook + query-API surface.
+- **#12** specifically unlocks Phase 4 AA reads at scale.
+- **#14, #15, #17** are Phase 5-6 specific — DSC management, NFRA-grade audit working papers, and BRSR Core taxonomy support the Year 3+ enterprise + audit + ESG product surfaces.
+
+For the [GTM channel implications](/caos/gtm/) of the pre-investments (especially #11 vendor master and #14 eMudhra DSC reseller), see the GTM section. For the [product architecture](/caos/product/architecture/) detail on how the 18 pre-investments compose with the 15 atomic primitives, see the product architecture page. For the broader [risks](/caos/risks/failure-modes/) that the pre-investments hedge against, see the failure modes page — pre-investments #8, #11, #12, #15 and #16 specifically mitigate failure modes 1, 2, 3 and 4.
+
+The discipline of doing all 18 in Phase 0-1 is the discipline of preserving the future. The composite flywheel is not a single bet; it is a sequenced four-loop bet, and each loop's option value depends on the architecture being ready when the loop's customer pull arrives. Cheap now, expensive later — the principle is the same across all 18.

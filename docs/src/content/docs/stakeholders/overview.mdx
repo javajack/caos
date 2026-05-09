@@ -1,0 +1,141 @@
+---
+title: "The 14 stakeholder classes"
+description: "The Indian compliance ecosystem has 14 stakeholder classes that share documents but have no shared workspace. This atlas maps each class to verified populations, primary primitives, and the document flows that connect them."
+sidebar:
+  order: 1
+---
+
+import { Aside, Card, CardGrid } from '@astrojs/starlight/components';
+
+<Aside type="note" title="If you're …">
+- **A CFO or in-house finance team**: jump straight to [in-house finance teams (11 personas)](/caos/stakeholders/in-house-finance/) — that's where you fit.
+- **An auditor or audit-firm partner**: jump to [auditors — Big-4 / Big-6 / mid-tier](/caos/stakeholders/auditors/).
+- **A CA, CS, CMA, Valuer, or IP**: jump to [practitioners](/caos/stakeholders/practitioners/).
+- **A founder or investor**: this whole page is a TAM-by-stakeholder map. Read top-to-bottom, then go to [the bridge persona](/caos/stakeholders/bridge-persona/) for the strongest single number-finding.
+</Aside>
+
+Stakeholders are not "users" — they are **network nodes**. Each one shares documents and workflow with at least two others. That is the substrate of the [composite flywheel](/caos/flywheel/composite/): every entity that joins is simultaneously a buyer, a counterparty to other buyers, a regulated entity to its supervisors, and a data source for institutional consumers downstream.
+
+The original CAOS research treated practitioners as the only relevant stakeholder. The verified-numbers re-pass identifies **14 distinct classes** — each with its own population, its own primary workflows, and its own bilateral edges to the others. Building for one class without designing the bilateral edges to its neighbours is what creates the document handoff friction that Indian compliance is famous for.
+
+<Aside type="tip" title="Why 14, not 7">
+collapses regulators and portals into a "cross-cutting" obligation rather than a stakeholder class. The 14 here are buyer-and-user classes — each one writes, reads, certifies, or archives at least one document on the [document flow map](/caos/stakeholders/document-flows/).
+</Aside>
+
+## Master table — the 14 stakeholder classes
+
+| # | Stakeholder class | Verified population | What they do with documents | Primary primitive(s) |
+|---|---|---|---|---|
+| S1 | **Practising CA (firm)** | 1,59,557 individuals across 1,00,138 firms (72.6% sole-prop) ([ICAI Student & Member Report 2025](https://finance.careers360.com/articles/icai-student-and-member-report-2025), [The Finance Story Oct 2025](https://thefinancestory.com/mid-sized-indian-ca-firms-employing-20-percent-audit-workforce)) | Statutory audit, tax audit, GST/IT/MCA compliance, advisory, transfer pricing, valuation, FEMA, secretarial, vCFO services for clients | P1, P2, P3, P5, P6, P7, P8, P9, P10, P11, P12, P14 |
+| S2 | **In-house CA (industry)** | **2,48,072 (60.8% of ICAI)** working as CFO, Controller, Tax Lead, Internal Audit, Compliance, Treasury ([ICAI Student & Member Report 2025](https://finance.careers360.com/articles/icai-student-and-member-report-2025)) | Run own company's books, compliance, audits; supervise external CAs and auditors | All 15 primitives |
+| S3 | **Practising CS** | 75,000–79,000+ members across 73 chapters ([icsi.edu](https://www.icsi.edu/profile/), [Wikipedia ICSI](https://en.wikipedia.org/wiki/Institute_of_Company_Secretaries_of_India)) | ROC/MCA filings, board governance, secretarial audit (MR-3), DSC, listed-co compliance (LODR, PIT), FEMA, IBC | P3, P6, P11, P13 |
+| S4 | **In-house CS** | Mandatory for cos with paid-up capital ≥ ₹10 cr (subset of 18.17 lakh active cos); estimated tens of thousands | Board calendar, statutory registers, RPT, insider-trading code, BRSR coordination | P3, P5, P6, P11 |
+| S5 | **Practising CMA** | ~98,500 active members across 117 chapters ([Wikipedia ICMAI](https://en.wikipedia.org/wiki/Institute_of_Cost_Accountants_of_India)) | Cost audit (CRA-2/3/4), cost records maintenance, MIS, costing for govt/PSU, VAT/GST, valuation | P1, P3, P14, P15 |
+| S6 | **In-house CMA** | Subset of ~98K | Costing/MIS in manufacturing, plant finance, cost-audit liaison | P1, P9, P15 |
+| S7 | **Registered Valuer (IBBI)** | **6,144** (Aug 2025) across L&B / P&M / SFA ([IBBI service-provider page](https://ibbi.gov.in/service-provider/rvs)) | Valuation under Companies Act, IT Act, FEMA, IBC, SEBI; reports for M&A, IBC, ESOP, share issuance | P1, P5, P14 |
+| S8 | **Insolvency Professional (IBBI)** | **4,527 (only 49% with valid AFA = 2,198)** + 175 IPEs + 3 IPAs ([Business Standard Aug 2025](https://www.business-standard.com/industry/news/ibbi-proposes-assignment-cap-for-insolvency-professionals-to-cut-delays-125081301524_1.html)) | CIRP / Liquidation / Personal Insolvency under IBC; resolution professional role | P1, P5, P6, P11 |
+| S9 | **Big-4 + Big-6 audit firm** | 4 Big-4 + GT Bharat + BDO India + ~20 mid-tier (T R Chadha, Nangia, ASA, RSM, MSKA, Walker Chandiok, etc.); **Big 6 own 326 of 483 Nifty 500 audits (~67%)** ([PrimeDatabase 2024-25 report](http://www.primedatabasegroup.com/newsroom/BIG_6_CONTINUE_DOMINANCE_OF_INDIAN_AUDIT_LANDSCAPE_2024-25.pdf)) | Statutory audit, tax audit, IFC review, internal audit, transaction services, BRSR assurance | P1, P4, P5, P8, P11, P14 |
+| S10 | **Enterprise — operations side** (AP/AR/Procurement/Plant) | Within 18.17 lakh active MCA cos ([Business Standard](https://www.business-standard.com/companies/news/over-2-8-million-companies-registered-in-india-65-active-govt-data-125021800695_1.html)) and 1.51 cr GST taxpayers ([GST@8 Report via A2Z Taxcorp](https://a2ztaxcorp.net/gst-8-years-report-released-gstn-highlights-record-revenue-compliance-milestones/)); tens of millions of staff | Vendor invoice processing, customer billing, e-invoice/e-way bill, expense reports, statutory dues, GRN/3-way match | P1, P2, P7, P8, P9, P10 |
+| S11 | **Counterparty: Vendor** (AP-side) | **9.92 lakh e-invoice generators + 81.88 lakh registered recipients** within the 1.51 cr active GST taxpayer pool ([GST@8 Report via A2Z Taxcorp](https://a2ztaxcorp.net/gst-8-years-report-released-gstn-highlights-record-revenue-compliance-milestones/)) | Issue invoices/credit notes/payment receipts; file own GSTR-1; respond to balance confirms | P1, P2, P10 |
+| S12 | **Counterparty: Customer** (AR-side) | Same 1.51 cr GST taxpayers viewed as buyers of someone else | Receive invoices; deduct TDS; raise disputes; pay; respond to balance confirms | P1, P2, P10 |
+| S13 | **Tech vendor / partner** | 28,000+ Tally partners + 62 GSPs + 17 NBFC-AAs + 1,140 AA FIP/FIU + ~50 ERIs + 6 IRPs + ~9 DSC CAs + 100s of eSign partners ([tallysolutions.com](https://tallysolutions.com/about-tally/), [Microvistatech](https://www.microvistatech.com/blog/gst-suvidha-providers-gsp-list-2025/), [Sahamati](https://sahamati.org.in/fip-fiu-in-account-aggregators-ecosystem/)) | Sell, deploy, integrate compliance/accounting/payment software; data API providers; certifying authorities | P1, P10, P13 |
+| S14 | **Institutional capital** (banks / NBFCs / lenders / investors) | 1,157 AA framework participants + ~12,000 NBFCs + 90+ banks + 1,000s of investors; **₹1.67 lakh cr loans facilitated FY25 alone via AA** ([Sahamati impact report](https://sahamati.org.in/the-credit-reimagined-account-aggregator-aa-impact-report-h2-fy25/)) | Underwrite loans, do diligence, monitor covenants; consume AA + filing data for credit decisions | P1, P11, fact-graph consumption |
+
+**Cross-cutting (not a stakeholder class — an obligatory counterparty):** Government and regulator portals — GSTN, CBDT, MCA21, RBI, EPFO, ESIC, NFRA, IRDAI, IBBI, DGFT — whose APIs, forms, and portals every other stakeholder must speak to.
+
+## How the classes group
+
+<CardGrid stagger>
+ <Card title="Practitioners (S1-S8)" icon="approve-check">
+ The five regulated bodies — ICAI, ICSI, ICMAI, IBBI valuer, IBBI IP — total ~5.95 lakh organised professionals plus ~10 lakh CA students in the pipeline. The CA wedge is the densest and the entry point of the [Phase 1 flywheel](/caos/flywheel/phase-1-ca-led/).
+
+ Detail: [Practitioners — CA, CS, CMA, Valuer, IP](/caos/stakeholders/practitioners/)
+ </Card>
+ <Card title="In-house finance (S2 + S4 + S6 + S10)" icon="document">
+ Eleven canonical personas inside Indian companies (CFO, Controller, GST Lead, Direct Tax Lead, AP/AR Manager, Audit Liaison, Internal Audit, Treasury, Compliance Officer, Group Consol Lead) plus seven less-central but real ones (BRSR, Procurement-Finance, Tax Litigation, TP Lead, SOX/IFC, Plant Finance, Receivables Collection).
+
+ Detail: [In-house finance teams — 11 personas](/caos/stakeholders/in-house-finance/)
+ </Card>
+ <Card title="Counterparties (S11 + S12)" icon="seti:plan">
+ Vendors and customers — the same 1.51 cr GST taxpayer pool viewed from two sides of the invoice. The Phase 2 vendor-network flywheel works because each verification compounds across every enterprise that pays the same vendor.
+
+ Detail: [Counterparties — vendors and customers](/caos/stakeholders/counterparties/)
+ </Card>
+ <Card title="Auditors (S9)" icon="seti:powershell">
+ The Big-6 own 67% of Nifty 500 audits (326 of 483) and 34% of NSE main board (694 of 2,069). Mid-tier firms are ~20 organised players. Audit firms are simultaneously stakeholders (they certify documents that flow across S1, S2, S4, S10) and Phase 3 buyers of the Audit Workspace.
+
+ Detail: [Auditors — Big-4, Big-6, mid-tier](/caos/stakeholders/auditors/)
+ </Card>
+ <Card title="Tech and service partners (S13)" icon="setting">
+ Tally (28K+ partners), 62 GSPs, 17 NBFC-AAs, ~50 ERIs, ~9 DSC CAs, eSign providers, and the corporate payment infrastructure (Razorpay, Cashfree, Perfios, Decentro, M2P, EnKash, Volopay). Integration partners and competitive context simultaneously.
+
+ Detail: [Tech and service partners](/caos/stakeholders/tech-partners/)
+ </Card>
+ <Card title="Institutional capital (S14)" icon="seti:lock">
+ 1,157 AA framework participants — banks, NBFCs, lenders, investors. They consume the fact graph the rest of the network produces. Phase 4 monetises this side of the platform with subscription access to consent-mediated data.
+
+ Detail: [Institutional capital — banks, NBFCs, lenders, investors](/caos/stakeholders/institutional-capital/)
+ </Card>
+ <Card title="The bridge persona" icon="rocket">
+ **2,48,072 ICAI members work in industry** (60.8% of all CAs, vs 1,59,557 with COP). The buyer is genetically the same person as the practitioner — "CA-grade" is structurally free credibility transfer in this market.
+
+ Detail: [The bridge persona — 60.8% of CAs in industry](/caos/stakeholders/bridge-persona/)
+ </Card>
+ <Card title="Document flows" icon="list-format">
+ The 30+ documents that flow across these classes — GST family, IT family, MCA family, Bank/Treasury, Audit, Litigation, Specialty. Every document crosses at least two stakeholder boundaries. Owning the boundary handoffs is the moat.
+
+ Detail: [30+ documents that flow across stakeholders](/caos/stakeholders/document-flows/)
+ </Card>
+</CardGrid>
+
+## The atomic primitives map
+
+Every stakeholder class above uses some subset of the 15 atomic primitives identified in the [strategic thesis](/caos/product/atomic-primitives/). The most expensive moment in B2B SaaS is teaching a buyer how the product maps to their workflow. The atlas exists to short-circuit that mapping — to show that the same primitives serve the CA's tax-audit workflow and the in-house GST Lead's GSTR-2B reconciliation and the audit firm's PBC list and the lender's AA-mediated credit decision.
+
+| Primitive | Powers stakeholders |
+|---|---|
+| P1 — Document ingest + classification + extraction | S1, S2, S5, S6, S7, S9, S10 |
+| P2 — Counterparty master with identity validators | S1, S2, S10, S11, S12 |
+| P3 — Recurring deadline calendar | S1, S2, S3, S4, S5, S10 |
+| P4 — Request-from-counterparty workflow | S1, S2, S7, S9, S10 |
+| P5 — Evidence locker tied to filing/notice/JV | S1, S2, S5, S7, S8, S9 |
+| P6 — Notice / query / appeal lifecycle | S1, S2, S3, S4, S8, S10 |
+| P7 — Reconciliation engine | S1, S2, S6, S9, S10 |
+| P8 — Maker-checker with role-gated approval | S1, S2, S5, S8, S9, S10 |
+| P9 — Mapping memory | S1, S2, S6, S10 |
+| P10 — Channel-routed comms | S1, S2, S3, S4, S10, S11, S12 |
+| P11 — Compliance-grade audit trail | S1, S2, S3, S4, S5, S8, S9, S10, S14 |
+| P12 — Multi-entity / multi-GSTIN / multi-CIN | S1, S2, S5, S9, S10, S14 |
+| P13 — Government portal scraper / fetcher | S1, S2, S3, S4, S5, S10 |
+| P14 — AI extraction over Indian semi-structured forms | S1, S5, S7, S9, S10 |
+| P15 — Schedule generator from raw ledger | S1, S2, S5, S6, S10 |
+
+## Document flows in one glance
+
+Every cell where two stakeholders share a document is a potential bilateral edge in the network graph. The full inventory is on the [document flows page](/caos/stakeholders/document-flows/) — here is the headline map:
+
+| Document family | Created by | Consumed by | Cross-stakeholder edges |
+|---|---|---|---|
+| Tax invoice / e-invoice | S11 (vendor) + IRP | S10 (enterprise AP), S12, S9 audit | Vendor → IRP → GSTN → CAOS → CA |
+| GSTR-1 / 3B / 2B / 9 / 9C | S10 / S1 | GSTN, S12 customer (auto-flow to 2A/2B) | Enterprise → CA → GSTN → Counterparty's CA |
+| Form 26AS / AIS / TIS | CBDT (auto) | Taxpayer + S1 + S2 | CBDT → CA → Reco against books |
+| ITR + tax audit (3CA-CD/3CB-CD) | S10 / S1 | CBDT, S9 audit, S14 lender diligence | Enterprise → CA → CBDT → Lender |
+| Statutory audit report | S9 | Shareholders, MCA, S14 | Auditor → Board → MCA → Stock exchange |
+| AOC-4 / MGT-7 / DIR-3 KYC | S10 / S3 / S1 | MCA21, public | Enterprise → CS → MCA → Public |
+| GST notice / IT notice / hearing pack | Govt | S10 + S1 + S2 | Govt → Enterprise → CA → Reply → Order |
+| Vendor master + KYC | S10 procurement | S10 AP, S2 controller | Vendor → Procurement → AP → All filing systems |
+| Bank statement | Bank | S10 treasury, S2 controller, S1 CA | Bank → AA → CAOS → CA / Enterprise |
+| BRSR / BRSR Core | S10 BRSR lead | SEBI, S9 assurance | Plant → BRSR Lead → CSO → Auditor → SEBI |
+
+**Pattern:** every document above crosses **at least two** stakeholder boundaries. The friction in Indian compliance is not document creation — it is the boundary handoffs. **A platform that owns the handoffs owns the workflow.** This is the substrate of every flywheel candidate in the [composite flywheel](/caos/flywheel/composite/).
+
+## Why this matters for the flywheel
+
+The atlas is not an inventory exercise. It is the proof that the [composite flywheel](/caos/flywheel/composite/) compounds across **all four loops simultaneously** because every entity that joins is a node in every loop:
+
+- A **CA who joins in Phase 1** brings 50-300 client entities — each one is a future S10 (operations side) and a future buyer of the [Business SKU](/caos/business-model/three-skus/).
+- Each **client entity** has 50-200 vendors and customers — Phase 2's vendor-network compounds across the 9.92 lakh e-invoice generators and 81.88 lakh recipients.
+- Each **listed client** is audited by one of the Big-6 (67% of Nifty 500) — Phase 3's Audit Workspace lands at a concentrated 326-logo pool.
+- Every **GSTIN/PAN/CIN** in the system is a candidate AA-linked entity — Phase 4 monetises lender access to the consent-mediated graph through the 1,157 AA participants.
+
+Read each stakeholder page to see the populations, the today's-hack, and the primitive that turns the class into a buyer. Then read the [composite flywheel](/caos/flywheel/composite/) to see how the buyer becomes a node, and the node becomes the moat.

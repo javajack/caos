@@ -1,0 +1,200 @@
+---
+title: "Decisions — the seven choices that shape the platform"
+description: "Expand to enterprise? Brand strategy? Sequencing aggressiveness? Architectural pre-investments? Channel bets? Geography? DPI ecosystem participation? With verified-data recommendations."
+sidebar:
+  order: 1
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+These are the seven decisions only the founder can make. Each has been pressure-tested against the [verified-numbers atlas](/caos/market/overview/), the [composite flywheel](/caos/flywheel/composite/), and the [risk envelope](/caos/risks/failure-modes/). The recommendations below are opinionated. They are also reversible at meaningfully different costs — the page calls out reversibility for each decision so the founder can choose where to be conservative and where to commit.
+
+The decisions are numbered D1-D7 in priority order. D1-D6 carry forward (with revisions) from the original CAOS expansion thesis; D7 is new — it codifies the AA / GSP / ERI participation question that earlier work did not yet have verified data to answer. Every recommendation on this page is anchored to at least one citation from the [verified-numbers atlas](/caos/market/overview/).
+
+<Aside type="caution" title="How to read this page">
+This is structured as a board pack, not as deliberation notes. Each decision opens with the question, lists the options considered, gives the recommendation, lists reversibility, assesses reversibility, and cites the verified anchors that drove the call. Skim the recommendations table at the end if you want only the decisions themselves; read the bodies if you want the why.
+</Aside>
+
+## D1 — Should we expand to enterprise finance teams at all?
+
+**The question:** Should CAOS expand from a CA-practice SaaS into a financial-document fabric serving in-house finance teams, audit firms, vendors, and institutional capital — or stay narrowly focused on the CA practice management wedge?
+
+**Options considered:**
+
+- **Stay CA-only.** Cap TAM at the [estimate of ₹141-364 cr](/caos/business-model/three-skus/), build a narrowly excellent CA SaaS, exit via PE rollup or strategic acquisition by Tally / Zoho.
+- **Expand fully on Day 1.** Architect the multi-tenant, multi-entity, multi-currency, audit-grade platform from Phase 0; sell to CAs and CFOs and audit firms in parallel.
+- **Expand architecturally now, sell sequentially.** Build the [10 file-13 + 8 file-14 architectural pre-investments](/caos/decisions/architectural-pre-investments/) in Phase 0-1 to keep the option open, but sell only to CAs in Year 1, mid-market in Year 2, enterprise + audit firms in Year 3, DPI consumers in Year 4-5.
+
+**Recommendation: YES, with the [composite flywheel](/caos/flywheel/composite/) — and the TAM is bigger than earlier estimate.** Expand architecturally now, sell sequentially.
+
+**What changed from earlier research:** Stronger Yes. File 13 sized the expansion conservatively at "₹141-364 cr CA-only TAM, 10x larger with finance teams." The verified data behind the verified-numbers atlas shows the TAM is actually 10-30x larger. India's accounting software market alone is [₹5,400 cr / US$640M (2024)](https://www.imarcgroup.com/india-accounting-software-market). Add the [22.31 million monthly AA consents](https://sahamati.org.in/aa-dashboard/) growing at [+78.6% YoY](https://www.business-standard.com/finance/news/aa-ecosystem-consent-processing-up-78-in-fy25-shows-sahamati-data-125031301053_1.html), the [Big-6's 67% share of Nifty 500 audits](http://www.primedatabasegroup.com/newsroom/BIG_6_CONTINUE_DOMINANCE_OF_INDIAN_AUDIT_LANDSCAPE_2024-25.pdf) creating concentrated audit-tooling demand, and the [9.92 lakh e-invoice generators / 81.88 lakh recipients](https://a2ztaxcorp.net/gst-8-years-report-released-gstn-highlights-record-revenue-compliance-milestones/) that anchor the vendor-network flywheel, and the verified TAM crosses ₹3,000-5,000 cr addressable.
+
+**Reversibility:** Mostly reversible. Architectural pre-investments are cheap now and pulling back later is fine. The decision that is hard to reverse is *distraction from the CA wedge*; the [hard rule](/caos/risks/failure-modes/) is &lt;20% engineering on enterprise-only features until 1,000 paying CA firms or ₹3 Cr ARR — whichever is earlier.
+
+**Verified anchors:**
+
+- [4,07,629 ICAI members / 1,59,557 COP holders / 2,48,072 in-industry (60.8%)](https://finance.careers360.com/articles/icai-student-and-member-report-2025) — the buyer is, statistically, often herself a CA
+- [18.17 lakh active MCA companies](https://www.business-standard.com/companies/news/over-2-8-million-companies-registered-in-india-65-active-govt-data-125021800695_1.html) — the enterprise universe
+- [1.51 cr active GST taxpayers](https://a2ztaxcorp.net/gst-8-years-report-released-gstn-highlights-record-revenue-compliance-milestones/) — the broader business universe
+- [22.31M monthly AA consents](https://sahamati.org.in/aa-dashboard/) — the DPI substrate at near-enterprise scale
+- [₹1.67 lakh cr loans facilitated FY25 via AA](https://sahamati.org.in/the-credit-reimagined-account-aggregator-aa-impact-report-h2-fy25/) — verified Phase 4 monetisation pull
+
+## D2 — Brand strategy: single brand or dual?
+
+**The question:** Should CAOS use a single brand across CA, mid-market, and enterprise, or operate dual brands (a CA-focused brand and a separate enterprise brand) to avoid mid-market and enterprise prospects perceiving the product as "small business toy"?
+
+**Options considered:**
+
+- **Single brand.** CAOS across all SKUs (Practice / Business / Enterprise). Layered messaging. CA-grade is positioned as a credibility anchor.
+- **Dual brand.** "CAOS" for the CA SKU; a new brand (e.g., "FactGraph" or "EntityBooks") for Business + Enterprise. Decouples the two segments at marketing layer.
+- **Dual brand at ₹500 Cr ARR.** Single brand until ₹500 cr ARR; revisit then if dilution becomes measurable.
+
+**Recommendation: Single brand confirmed.** The new evidence on the bridge persona makes this a stronger same-recommendation than earlier call.
+
+**What changed from earlier research:** Stronger same-recommendation. recommended single brand on "architectural overlap + free CA-referral channel + CA-grade as a positive Indian credibility signal." File 14's [§6 verified data](https://github.com/javajack/caos/tree/main/research/14-stakeholder-flywheel-research.md) shows that [60.8% of all 4,07,629 ICAI members work in industry](https://finance.careers360.com/articles/icai-student-and-member-report-2025) — that is **2,48,072 in-house CAs** sitting as CFOs, controllers, finance heads, and tax leads inside the very enterprises CAOS wants to sell to. The buyer is, statistically, often the same person as the practitioner — same regulatory upbringing, same vocabulary, same trust frame. **"CA-grade" is genetic to the buyer, not a positioning claim.**
+
+**Reversibility:** Reversible at ₹500 Cr ARR. Brand splits are common in B2B SaaS once a single brand becomes a ceiling on enterprise pricing. The decision rule: revisit only if mid-market or enterprise prospects explicitly cite "this is a CA tool" as a buying objection in 5+ named lost deals within a single quarter. Until then, the single brand is the cheaper, more compounding choice.
+
+**Verified anchors:**
+
+- [2,48,072 in-house CAs (60.8% of ICAI)](https://finance.careers360.com/articles/icai-student-and-member-report-2025) — the bridge persona quantified
+- ICAI's [176 India branches and 51 overseas chapters](https://taxguru.in/chartered-accountant/icai-75th-annual-report-celebrating-75-years-excellence.html) — single-brand distribution rails already exist
+- [1.7 cr UDINs/year](https://udin.icai.org/) — proves CAs already use a digital infrastructure under their professional brand
+
+## D3 — Sequencing: how aggressive on the vendor flywheel?
+
+**The question:** When does the [vendor-network flywheel (Phase 2)](/caos/flywheel/composite/) ignite? File 13's plan implied Phase 2 starts in Year 3 after the CA wedge is fully won. Should it pull earlier?
+
+**Options considered:**
+
+- **File 13 plan: vendor flywheel Year 3.** Win CA wedge fully (1,000 paying firms) in Year 1-2, then pull vendor flywheel as a Year 3 expansion.
+- **Pull vendor flywheel to Year 2.** Build the vendor-master schema and one-click vendor onboarding feature in Q4 of Year 1, ignite Phase 2 in Q1 of Year 2 the moment Phase 1's threshold conditions ([500 firms + 25K entities + 40% portal adoption + 100 organic vendor invites](/caos/flywheel/composite/)) are met.
+- **Run vendor flywheel from Year 1.** Build vendor onboarding in parallel with the CA wedge from Phase 0.
+
+**Recommendation: CA-led Year 1 (1,000 firms target) + Vendor-Network on top in Year 2.** Pull the vendor flywheel from Year 3 to Year 2.
+
+**What changed from earlier research:** More aggressive — the vendor flywheel is pulled from Year 3 to Year 2. File 13 did not formally include the vendor network as a Phase 2 ignition; the verified data behind the verified-numbers atlas shows the [9.92 lakh e-invoice generators + 81.88 lakh recipients](https://a2ztaxcorp.net/gst-8-years-report-released-gstn-highlights-record-revenue-compliance-milestones/) make the vendor-network TAM independently large enough to justify Phase 2 ignition before the CA wedge is fully saturated. The [Sec 194Q (TDS on purchases)](https://cleartax.in/s/an-overview-on-section-194q-of-the-income-tax-act-1961-ita) + [MSME 45-day clock + Sec 43B(h)](https://taxguru.in/income-tax/section-43bh-msme-payment-rules-implications.html) regulatory pull on vendor-master accuracy is already active and intensifying. Waiting until Year 3 leaves the vendor-network ignition to Tally + Vyapar (post-Suvit) — which is exactly the [Scenario A counterfactual risk](/caos/risks/counterfactual/).
+
+**Reversibility:** Hard to undo distraction. If Phase 2 ignites prematurely (before the 500 CA firms + 25K entities threshold is met), the vendor onboarding feature lands in a vacuum and burns engineering capacity that should have been on Phase 1 deepening. The discipline is to ignite Phase 2 only when all four ignition triggers are observably true, not on a calendar date.
+
+**Verified anchors:**
+
+- [9.92 lakh e-invoice generators + 81.88 lakh recipients](https://a2ztaxcorp.net/gst-8-years-report-released-gstn-highlights-record-revenue-compliance-milestones/) — the vendor-network TAM
+- [Sec 194Q live; turnover > ₹10 cr trigger](https://cleartax.in/s/an-overview-on-section-194q-of-the-income-tax-act-1961-ita) — regulatory pull on vendor master
+- [MSME 45-day clock + Sec 43B(h)](https://taxguru.in/income-tax/section-43bh-msme-payment-rules-implications.html) — additional regulatory pull
+- [Vyapar's Suvit acquisition (Nov 2024)](https://entrackr.com/2024/12/vyapar-acquires-ai-startup-suvit-for-undisclosed-amount) — a specific competitive forcing function
+
+## D4 — Architectural pre-investments: do them now or wait?
+
+**The question:** Should the [10 file-13 architectural pre-investments](/caos/decisions/architectural-pre-investments/) and the [8 additional file-14 pre-investments](/caos/decisions/architectural-pre-investments/) be done in Phase 0-3, or deferred until each is justified by an actual customer ask?
+
+**Options considered:**
+
+- **Wait for customer ask.** Build only what the next paying customer needs; refactor when the pull is real.
+- **Do all 18 now.** Each pre-investment is days-to-weeks of engineering now versus weeks-to-months of refactoring later. Currency column reservation alone saves a 2-week migration.
+- **Do the original 10 now; defer the verified-numbers atlas's 8 until Phase 2.** The original 10 are universal; the new 8 are loop-specific.
+
+**Recommendation: All 10 from earlier research + all 8 from later research, sequenced to phase but committed now.** The architectural pre-investments page lists each one with cost, timing, and rationale.
+
+**What changed from earlier research:** Expanded list. listed 10 pre-investments. added 8 more, driven by verified ecosystem data — vendor master schema, AA TSP / FIU integration architecture, public-graph query API, eMudhra / NSDL DSC integration, NFRA-compliant audit working-paper schema, MSME 45-day watchlist as first-class entity, ESG/BRSR Core taxonomy module, and the removal of Sec 206C(1H) from the product spec (it was use case #8 in earlier work; it was [removed in Budget 2025](https://www.business-standard.com/budget/news/budget-2025-finmin-removes-tcs-on-sale-of-goods-from-april-2025-125020100543_1.html)).
+
+**Reversibility:** Once shipped, harder to refactor. This is the most one-way of all seven decisions. Each pre-investment is cheap now and expensive later; not doing them is the costly reversible choice (you can always add them, but the cost compounds with installed-base size). Do all 18.
+
+**Verified anchors:**
+
+- [Sec 206C(1H) removed Budget 2025](https://www.business-standard.com/budget/news/budget-2025-finmin-removes-tcs-on-sale-of-goods-from-april-2025-125020100543_1.html) — earlier work use case #8 needs footnote removal
+- [eMudhra ₹527 cr revenue, ~40% DSC market share](https://www.business-standard.com/companies/news/emudhra-shares-rally-15-on-q3-results-strong-revenue-growth-124020800321_1.html) — DSC reseller economics
+- [3.08M DSCs/yr issued by eMudhra](https://www.business-standard.com/companies/news/emudhra-shares-rally-15-on-q3-results-strong-revenue-growth-124020800321_1.html) — DSC integration TAM
+- [BRSR Core glide path 150 (FY23-24) → 1,000 (FY26-27)](https://www.sebi.gov.in/legal/circulars/may-2024/business-responsibility-and-sustainability-report-brsr-and-brsr-core-format_82756.html) — ESG taxonomy module timing
+
+## D5 — Channel bets: which channels at which phase?
+
+**The question:** Which distribution channels does CAOS commit to in Year 1, Year 2, and Year 3? File 13 sized the CA-referral engine and Big-4 partnership as the headline bets; the verified data behind the verified-numbers atlas surfaces additional channels (Tally Master partner, ICAI branch MOUs, mid-tier audit firms, AA / lender partnerships).
+
+**Options considered:**
+
+- **CA-referral only Year 1 + Big-4 partnership Year 2.** File 13's original plan.
+- **Multi-channel Year 1 + sequenced expansion.** CA-referral + Tally Master partner + ICAI branch MOU all in Year 1; mid-tier audit + AA / lender partnerships in Year 2-3.
+- **Defer all channel bets until product-market fit.** Build product first, channels later.
+
+**Recommendation: CA-referral Y1 + Tally Master-partner pilot Y1 + ICAI branch (not apex) MOU Y1 + mid-tier audit firms Y2 + Big-4 Y3 + lender partnerships Y3.** More specific, more parallel, more channels than earlier work's original plan.
+
+**What changed from earlier research:** More specific channels and an explicit shift from apex ICAI MOU to branch-level MOU. sized the CA-referral engine and named Big-4 partnership as the Year-2 enterprise lever. verified that ICAI's apex MOU process is slow and politicised (6+ vendors already have MOUs without commensurate adoption uplift), and that branch-level wins (WIRC has [85,000 members](https://www.wirc-icai.org/), NIRC and SIRC are similar) ship in weeks not months. Tally has [28,000+ partners with 140 Master partners](https://tallysolutions.com/about-tally/) — the Master-partner cluster is organisable as a Year-1 reseller pilot. Mid-tier audit firms (Grant Thornton, BDO, T R Chadha, RSM, MSKA, Walker Chandiok, Nangia, ASA — roughly 20 organised players) have a 6-month adoption cycle versus Big-4's 12-18 months; they are the lighthouse path to Big-4 reference, not a separate segment.
+
+**Reversibility:** Reversible. Channel bets can be paused, reduced, or expanded quarter-by-quarter based on observed conversion. The discipline is to instrument each channel from Day 1 (CAC, time-to-first-paid, retained customer ARPU) so the founder can re-balance allocations every 90 days.
+
+**Verified anchors:**
+
+- [28,000+ Tally partners; 140 Master + 18,000+ Secondary](https://tallysolutions.com/about-tally/) — Tally Master partner pilot sizing
+- [ICAI 176 India branches; 51 overseas chapters](https://taxguru.in/chartered-accountant/icai-75th-annual-report-celebrating-75-years-excellence.html) — branch-MOU rail
+- [WIRC 85,000 members](https://www.wirc-icai.org/) — branch-level MOU TAM
+- [NFRA 94 disciplinary orders + 12 inspection reports](https://taxguru.in/company-law/action-nfra-prevent-audit-failure-regulatory-lapses.html) — audit-firm tooling demand pull
+- [₹1.67 lakh cr lending facilitated FY25 via AA](https://sahamati.org.in/the-credit-reimagined-account-aggregator-aa-impact-report-h2-fy25/) — lender partnership economics
+
+## D6 — Geographic scope: India-only or India-plus-foreign-subs?
+
+**The question:** Should CAOS support India-headquartered groups with foreign subsidiaries from Day 1, or stay India-only for Year 1-2 and add foreign-sub support in Year 3?
+
+**Options considered:**
+
+- **India-only Y1-3.** Defer all foreign-sub features until proven domestic dominance.
+- **India-only Y1-2; foreign-sub support Y3.** Add multi-currency, FX revaluation, and IFRS taxonomy support in Year 3 once 50+ enterprise customers have asked.
+- **Multi-country from Day 1.** Architect for Singapore, UAE, US, UK simultaneously; serve Indian groups with foreign subs as the first segment.
+
+**Recommendation: India-only Y1-3; foreign sub support Y3.** Foreign sub is pulled in by 1 year compared to earlier work's "Y1-2 India-only, Y3 onward foreign sub" recommendation.
+
+**What changed from earlier research:** Foreign-sub pulled in by 1 year. D6 recommended India-only Year 1-2 with foreign-sub support starting Year 3. The verified data shows [37,407 companies with FDI/ODI activity](https://www.business-standard.com/economy/news/india-s-fdi-ofdi-cos-cross-37k-mark-rbi-data-125030600598_1.html) is a real pull — these are Indian-headquartered groups with foreign subsidiaries, and many of them have CFO buyers who would adopt CAOS if multi-entity multi-currency consolidation is supported. The [ECB outstanding US$190B](https://www.business-standard.com/economy/news/india-s-ecb-stock-rises-to-190-2-billion-as-of-march-end-fy25-shows-rbi-data-125052500454_1.html) and [OFDI ₹3.25 lakh cr/yr](https://www.business-standard.com/economy/news/india-s-fdi-ofdi-cos-cross-37k-mark-rbi-data-125030600598_1.html) confirm the segment is large and active. The architectural pre-investment of "currency column reserved on every money-bearing table" makes the Year-3 ship cheap.
+
+**Reversibility:** Reversible. Foreign-sub support is additive; pulling it back if the segment is smaller than projected costs nothing structural. The discipline is to validate the Year-3 demand with 10-15 named CFO interviews in Year 2.
+
+**Verified anchors:**
+
+- [37,407 companies with FDI/ODI](https://www.business-standard.com/economy/news/india-s-fdi-ofdi-cos-cross-37k-mark-rbi-data-125030600598_1.html) — foreign-sub TAM
+- [ECB outstanding US$190B](https://www.business-standard.com/economy/news/india-s-ecb-stock-rises-to-190-2-billion-as-of-march-end-fy25-shows-rbi-data-125052500454_1.html) — capital flow scale
+- [OFDI ₹3.25 lakh cr/yr](https://www.business-standard.com/economy/news/india-s-fdi-ofdi-cos-cross-37k-mark-rbi-data-125030600598_1.html) — outbound investment scale
+
+## D7 — AA / GSP / ERI participation: become an FIU / TSP / Type 2 ERI?
+
+**The question (NEW from later research):** Should CAOS participate in the AA, GSP, and ERI ecosystems as a registered FIU, AA TSP, and ERI Type 2 entity — or stay as a downstream consumer integrating via partner FIUs / GSPs / ERIs?
+
+**Options considered:**
+
+- **No regulatory participation.** Integrate via existing FIUs (CAMSFinServ, Anumati, Perfios), existing GSPs (Cygnet, IRIS, Masters India), and existing ERIs. Stay as a downstream consumer.
+- **Full participation.** Pursue FIU + AA TSP + GSP + ERI Type 2 status from Phase 0. Own the full regulatory stack.
+- **Phased participation.** Become an FIU + ASP-first (not full GSP) in Phase 2; pursue ERI Type 2 in Year 3 once Phase 3 audit-workspace credibility is established.
+
+**Recommendation: Yes, become an FIU + ASP-first (not full GSP); Type 2 ERI in Year 3.**
+
+**What changed from earlier research:** This is a new decision. File 13 did not surface the AA / GSP / ERI participation question because it predated the verified data on the ecosystem. documents the verified counts: [17 NBFC-AAs](https://sahamati.org.in/account-aggregators-in-india/), [62 GSPs](https://www.microvistatech.com/blog/gst-suvidha-providers-gsp-list-2025/), [50+ ERIs](https://cleartax.in/s/e-return-intermediary-eri-income-tax). FIU registration is light (compared to AA TSP licensing); ASP under an existing GSP is faster than direct GSP licensing; ERI Type 2 status carries a credibility footprint that benefits Phase 4 monetisation but is best pursued after Phase 3 audit-workspace logos provide the underlying credibility.
+
+**Reversibility:** Reversible at the entity-level (FIU registration can be relinquished; ASP partnership can be moved across GSPs). The Type 2 ERI decision in Year 3 is more committed because the certification cost is higher; defer until Phase 3 economics are clear.
+
+**Verified anchors:**
+
+- [17 NBFC-AAs operational](https://sahamati.org.in/account-aggregators-in-india/) — partner pool
+- [62 empanelled GSPs](https://www.microvistatech.com/blog/gst-suvidha-providers-gsp-list-2025/) — ASP-under-GSP path
+- [22.31M monthly AA consents (Mar 2026)](https://sahamati.org.in/aa-dashboard/) — ecosystem scale
+- [1,157 AA framework participants](https://sahamati.org.in/fip-fiu-in-account-aggregators-ecosystem/) — Phase 4 institutional consumer base
+- [DPDP Act enforcement window May 2027](https://www.meity.gov.in/) — consent-driven sharing becomes legal default
+
+## The decisions matrix at a glance
+
+| # | Decision | Recommendation | What changed from earlier research | Reversibility |
+|---|---|---|---|---|
+| **D1** | Expand to enterprise finance? | **YES, with composite flywheel — TAM 10-30x earlier work** | Stronger Yes (verified TAM is bigger) | Mostly reversible; distraction is hard to undo |
+| **D2** | Brand strategy: single vs dual? | **Single brand confirmed** | Stronger same-recommendation (60.8% in-house CA) | Reversible at ₹500 cr ARR |
+| **D3** | Sequencing aggressiveness? | **Pull vendor flywheel from Y3 to Y2** | More aggressive | Hard to undo distraction |
+| **D4** | Architectural pre-investments? | **All 10 from earlier research + 8 new from later research** | Expanded list | One-way; do all now |
+| **D5** | Channel bets? | **CA-referral Y1 + Tally Master Y1 + ICAI branch Y1 + mid-tier audit Y2 + Big-4 Y3 + lender Y3** | More specific channels | Reversible quarter-by-quarter |
+| **D6** | Geographic scope? | **India-only Y1-3; foreign sub Y3** | Foreign sub pulled in by 1 year | Reversible |
+| **D7** | AA / GSP / ERI participation? | **FIU + ASP-first; Type 2 ERI Y3** | NEW — not in earlier work | Mostly reversible; Type 2 ERI more committed |
+
+<Aside type="caution" title="The board-pack version">
+If the founder has 60 seconds to commit: D1 Yes, D2 Single, D3 Pull-vendor-to-Y2, D4 All-18-now, D5 Multi-channel-Y1, D6 India-Y1-to-3, D7 FIU+ASP-first. The architectural pre-investments (D4) are the most consequential decision because they are the most one-way; the rest can be re-balanced quarter-by-quarter as data comes in.
+</Aside>
+
+## How these seven decisions connect to the rest of the corpus
+
+The seven decisions on this page are the operational distillation of the [composite flywheel](/caos/flywheel/composite/), the [verified-numbers atlas](/caos/market/overview/), and the [risk envelope](/caos/risks/failure-modes/). They are committed product/GTM choices, not deliberation notes. The [architectural pre-investments page](/caos/decisions/architectural-pre-investments/) lists the 18 specific engineering bets that operationalise D4. The [GTM section](/caos/gtm/) covers the channel architecture for D5. The [product architecture page](/caos/product/architecture/) covers the multi-tenant, multi-entity, multi-currency design that D6 and D7 depend on.
+
+Each decision should be revisited annually (or sooner if a counterfactual scenario from the [risks counterfactual page](/caos/risks/counterfactual/) materially changes the assumptions). The annual review should produce a delta document — a one-pager listing what verified data has changed since the last decision and whether any of the seven recommendations should flip. The discipline of an explicit, dated, signed-off decision pack is the antidote to drift.

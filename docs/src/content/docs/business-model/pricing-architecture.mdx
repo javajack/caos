@@ -1,0 +1,143 @@
+---
+title: "Pricing architecture — the hybrid Indian finance teams actually buy"
+description: "Why per-volume + per-entity beats per-seat in a compliance product, what the hybrid model looks like, and how it benchmarks against verified Indian SaaS comparables (Tally ₹18K/yr base, ClearTax various, Vyapar ₹2K-3K/month tiers)."
+sidebar:
+  order: 2
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+The pricing question is not "what should we charge?" — it is "what is the buyer used to budgeting against?" In Indian finance teams, the answer is **per-entity (CIN) + per-module + per-volume**, not per-seat. Per-seat pricing makes the buyer ration access — and rationing access in a compliance product is the worst possible failure mode (the auditor, the GST officer, the senior leader all need read access on demand). The pricing model is therefore a hybrid: per-entity for the base, per-volume for the AI cost driver, per-seat only above a generous default.
+
+The CA SKU is the exception. Per-firm + per-staff seat matches the CA mental model — it is how CA firms already benchmark engagement profitability and how they think about software like [Tally](https://tallysolutions.com/about-tally/) and [Vyapar](https://vyaparapp.in/desktop-pricing). Keep the existing pricing model for [CAOS for Practice](/caos/business-model/three-skus/#sku-1--CAOS-for-practice); apply the new hybrid only to Business and Enterprise.
+
+<Aside type="note" title="The seat-pricing trap">
+Seat pricing in compliance software is structurally wrong. The auditor needs read access during the audit window — but only then. The GST officer needs read access when responding to a notice — but only then. The CFO wants real-time dashboard read access — but only logs in twice a month. Charging per-seat forces the controller to either pay for 30 seats they use 3 days a year, or to ration access and break the workflow at the worst possible moment.
+</Aside>
+
+## The five pricing levers
+
+Every CAOS contract is a stack of five levers. Each lever has a verified Indian comparable and a recommended default.
+
+| Lever | What it prices | Verified comparable | CAOS default |
+|---|---|---|---|
+| **Base — per legal entity** | Compliance per CIN | [Tally per-license ₹18K/yr](https://tallysolutions.com/about-tally/); [IRIS Business Services per-entity per-module](https://www.irisbusiness.com/) | ₹15-40K/month/entity (Business); ₹10-25K/month/entity slabbed (Enterprise) |
+| **Module add-ons — per month per entity** | Optional module activation | [ClearTax](https://www.clear.in/s/about-us) module-based; [Webtel](https://www.webtel.in/) per-product | ₹5-15K/module/month/entity |
+| **AI extraction — bucket per month with overage** | Document-AI pages processed | [Avalara India](https://www.avalara.com/in/en/index.html) per-transaction; [Cygnet](https://cygnet.one/) per-IRN | 5K-50K pages included; ₹1-3/page overage |
+| **Seats — generous default, then per-seat** | Concurrent or named users | [Tally per-license](https://tallysolutions.com/about-tally/); legacy SaaS seat pricing | 10-15 seats included; ₹500-1K/seat/month above |
+| **Channel volume — WhatsApp + email bucketed** | Customer-facing comms | WhatsApp Cloud API per-conversation pricing; email per-1000 sends | 10K WhatsApp + 50K email included; ₹0.50-2/msg overage |
+
+Storage is generous-default-with-overage charged at S3+margin. Most contracts never cross the storage threshold; the overage exists to handle the long-tail enterprise that ingests every scanned voucher for 7 years.
+
+## Why per-entity is the right base
+
+Indian companies think one CIN = one cost-center for compliance software. The CFO's compliance budget is allocated per legal entity in the group structure. Adding a subsidiary triggers a new line item; closing one removes it. Per-entity aligns the SaaS bill with the way the buyer already plans the budget — there is no translation friction in procurement.
+
+Per-entity also aligns with the **regulatory unit**. Every compliance flow CAOS serves — GST registration is per-GSTIN (1.51 cr [active GST taxpayers](https://a2ztaxcorp.net/gst-8-years-report-released-gstn-highlights-record-revenue-compliance-milestones/)), MCA filings are per-CIN ([18.17 lakh active companies](https://www.newkerala.com/news/o/number-active-companies-registered-india-crosses-1817-lakh-jan-297)), TDS is per-TAN ([3.71 lakh TDS deductors](https://a2ztaxcorp.net/gst-8-years-report-released-gstn-highlights-record-revenue-compliance-milestones/)), e-invoice is per-AATO ([9.92 lakh generators](https://a2ztaxcorp.net/gst-8-years-report-released-gstn-highlights-record-revenue-compliance-milestones/)) — operates at the entity level. The product price following the regulatory unit is the right shape.
+
+The third reason is **per-entity scales with the buyer**. A ₹50 cr single-entity company pays for one entity; a ₹500 cr group with 12 subsidiaries pays for 12. The per-entity structure with slabs (₹25K for first 5, ₹15K for next 10, ₹10K thereafter) lets the same SKU cover the full mid-market-to-enterprise spectrum without renegotiation — the buyer adds entities as the business grows; the bill scales smoothly.
+
+## Why per-volume is the right cost driver
+
+The AI cost is the variable that scales unpredictably with usage. A single Big-6 audit can ingest 10,000+ source documents in a 4-week window; a quiet quarter at a ₹100 cr company might process 500. Pricing AI extraction per-bucket-per-month with overage:
+
+- **Aligns to the actual cost driver.** Each LLM call costs CAOS money; the bucket-with-overage shape lets the contract margin protect against runaway spend on a single big engagement.
+- **Lets the buyer plan capacity.** The bucket size is selected at contract sign; overage is opt-in. The CFO knows the worst-case bill before approving the spend.
+- **Encourages the right behavior.** Buyers who would otherwise OCR-and-discard "just in case" only ingest documents they actually need processed.
+
+The bucket sizes (5K-50K pages depending on tier) are sized to cover 95% of normal-quarter usage; overage exists for the audit-season spike and the year-end close.
+
+## Why per-seat must be the floor, not the cap
+
+The two failure modes seat pricing creates in compliance software:
+
+1. **Read-access rationing during audit windows.** When the Big-6 partner asks for evidence access on the 18th day of a 30-day audit, the controller has to choose: buy 5 more seats that month for the auditor's team (margin gone), or share a login (compliance audit fail). Both are bad.
+2. **Senior-leader exclusion from compliance dashboards.** The CFO and the audit-committee chair want real-time read access — but only log in when something is broken. Per-seat pricing makes this expensive; the result is they don't get access, and CAOS stops being the trustworthy single source of compliance status it claims to be.
+
+The hybrid solution: **10-15 seats included** in the base (covers a typical 6-15-person finance team for the lower-mid band), with per-seat overage at **₹500-1,000/seat/month** above the cap. This makes the marginal seat cheap enough that nobody rations access, while keeping the base price honest about the team size the buyer is bringing.
+
+## Verified Indian comparables — what the market already prices
+
+Pricing only holds if the buyer can compare it to something they already pay for. The four most-cited comparables and what they teach:
+
+### Tally — per-license + ecosystem
+
+[Tally Solutions FY25 revenue ₹710 cr](https://inc42.com/features/how-tally-strikes-a-balance-between-enabling-ai-adoption-and-growth/), [2.5-2.7 million customers](https://tallysolutions.com/about-tally/), 99% from TallyPrime. Pricing: per-license, **₹18K-22.5K/year for single user**, ₹54K-67.5K for multi-user (silver/gold), distributed via [28,000+ partners](https://tallysolutions.com/about-tally/) (140 Master + 18,000 Secondary). Tally trains the Indian SMB market to budget per-license per-year; CAOS's per-entity base (₹15-40K/month for Business) sits at 2-25x of Tally's annual price — defensible because Tally is GL-only and CAOS is GL-plus-document-fabric-plus-compliance. See [Tally Master partner pilot](/caos/gtm/tally-partners/) for distribution leverage.
+
+### ClearTax — module-based, mid-market to enterprise
+
+[ClearTax (Clear) — 1.5M+ customers, $141M cumulative funding](https://www.clear.in/s/about-us), per [Salesforce case study](https://www.salesforce.com/in/resources/customer-stories/clear/) **100,000+ tax practitioners + 4,000+ enterprises + 5M+ taxpayers**. Pricing model: per-module (Tax Cloud, GST Cloud, e-Invoicing, e-Way Bill, ClearOne) with enterprise pricing on application. Teaches the market that compliance software is module-bought; CAOS's per-module add-on layer (₹5-15K/module/month) is structurally identical and benchmarks well.
+
+### Vyapar — tiered SMB
+
+[Vyapar — 1 cr+ customers, ₹130 cr ARR, 27,000+ partners, $35.9M cumulative](https://m.thewire.in/article/ptiprnews/1-cr-businesses-27000-partners-and-growing-how-vyapar-is-powering-indias-msme-revolution), [acquired Suvit Nov 2025](https://inc42.com/buzz/vyapar-acquires-suvit-to-boost-ai-led-accounting-automation-for-msmes/). Pricing: **₹2,000-3,000/month tiers** (Silver/Gold/Diamond/Premium) for Indian SMBs. Defines the floor — no Indian SMB pays less than ₹2K/month for accounting. CAOS for Business sits 5-20x above this; defensible because Vyapar is invoicing + GL and CAOS is the layer above Tally/SAP/Oracle that the controller buys.
+
+### eMudhra — per-DSC + enterprise services
+
+[eMudhra — ₹527.8 cr revenue FY25, ~40% market share, 3.08 million DSCs FY24](https://www.icra.in/Rating/GetRationalReportFilePdf?id=128000). Pricing: per-DSC (₹500-3,000 per certificate depending on validity and class) + enterprise services. Teaches the market to bundle a per-unit certificate with a service layer; CAOS can add eMudhra DSC reseller economics into the pricing stack — see [DPI ecosystem partnerships](/caos/gtm/dpi-ecosystem/).
+
+## The CA SKU exception — why it stays per-firm + per-seat
+
+[CAOS for Practice](/caos/business-model/three-skus/#sku-1--CAOS-for-practice) keeps per-firm + per-staff seat (₹500-1,500/seat/month, 5-seat min). Three reasons the per-entity hybrid does not fit:
+
+1. **CAs price client engagements per-seat-per-staff already.** A solo CA serving 100 clients with 1 article-clerk thinks of profitability as "fee per client / hours per staff." The per-seat SaaS bill maps cleanly onto the firm's own per-staff economics.
+2. **The CA's "entity count" is the client count, not the firm count** — and client counts vary 50-2,000 within the same firm size. Per-entity pricing on the CA side would either undersell the mid-firm or overprice the solo. Per-firm + per-seat handles both.
+3. **CA mental model is shaped by [Tally](https://tallysolutions.com/about-tally/), [Vyapar](https://vyaparapp.in/desktop-pricing), and [QwikCA](https://qwikca.com/) — all per-firm or per-seat priced.** Departing from this in the CA SKU adds friction without unlocking new buyer behavior.
+
+The CA SKU therefore stays on the legacy per-firm + per-seat model. The Business and Enterprise SKUs use the per-entity + per-module + per-volume hybrid. Add-ons are mostly common across SKUs (WhatsApp volume, document-AI volume, storage).
+
+## Hybrid model worked example — a ₹250 cr lower-mid manufacturer
+
+A representative Business SKU contract:
+
+| Lever | Selection | Monthly cost |
+|---|---|---|
+| Base — 4 entities (1 mfg co + 3 subs) | ₹25K × 1 + ₹20K × 3 (slab) = ₹85K | ₹85,000 |
+| Module: GSTR-2B Reco Multi-GSTIN (4 GSTINs) | ₹15K | ₹15,000 |
+| Module: Vendor Onboarding + KYC + MSME | ₹10K | ₹10,000 |
+| Module: Notice Inbox | ₹8K | ₹8,000 |
+| Module: AP Workflow | ₹12K | ₹12,000 |
+| Module: TDS Reco + Sec 194Q | ₹10K | ₹10,000 |
+| AI extraction — 30K pages bucket | included to 25K, +5K × ₹2 | ₹10,000 |
+| Seats — 18 users (10 included + 8 above) | ₹750 × 8 | ₹6,000 |
+| WhatsApp messaging — 15K messages | included to 10K, +5K × ₹1 | ₹5,000 |
+| Storage — 80GB | included to 50GB, +30GB × ₹100/GB | ₹3,000 |
+| **Total monthly** | | **₹1,64,000** |
+| **Annual** | | **₹19.7 lakh** |
+
+Sits within the (/caos/stakeholders/in-house-finance/) lower-mid band of ₹50K-1.5L/month, within the upper-mid band of ₹1-3L/month, and well within the ₹2-10 lakh/year compliance-software budget current spend at this revenue band. The CFO can rationalize the bill against three line items (compliance software, AP automation, audit-readiness tooling) currently spread across 4-7 vendors — single-vendor consolidation is a defensible value-prop.
+
+## Hybrid model worked example — a ₹2,000 cr listed enterprise
+
+A representative Enterprise SKU contract:
+
+| Lever | Selection | Monthly cost |
+|---|---|---|
+| Base — 18 entities (slab: 5×₹25K + 10×₹15K + 3×₹10K) | ₹125K + ₹150K + ₹30K = ₹305K | ₹3,05,000 |
+| Audit Workspace module (with Big-6 integration) | ₹50K | ₹50,000 |
+| BRSR Core Data Collection | ₹40K | ₹40,000 |
+| IFC Controls + Group Consol | ₹35K | ₹35,000 |
+| Hearing Prep + TP Doc Pack | ₹30K | ₹30,000 |
+| RPT Tracker + ROC Events + FEMA | ₹25K | ₹25,000 |
+| GSTR-2B + Vendor Onboarding + AP + Notice + TDS bundle | ₹50K | ₹50,000 |
+| AI extraction — 100K pages bucket included | included | ₹0 |
+| Seats — 60 users (15 included, 45 above) | ₹500 × 45 | ₹22,500 |
+| WhatsApp + email + storage at default | included | ₹0 |
+| **Total monthly** | | **₹5,57,500** |
+| **Annual** | | **₹66.9 lakh** |
+| **Plus implementation fee** (one-time, Y1) | | **₹5,00,000** |
+
+Sits within the (/caos/stakeholders/in-house-finance/) lower-large band of ₹3-15L/month. Within budget shadow of [Big-6 audit fees ₹130-135 cr per firm for ~140-180 listed clients = ~₹70L-₹1 cr per audit](/caos/stakeholders/auditors/) — the CFO can defend the SaaS spend as 5-10% of the assurance budget, a proportion enterprise procurement is comfortable with.
+
+## What the published pricing page should look like
+
+Hard rule from (/caos/decisions/d3-sequencing/): **publish all SKUs and add-on prices on the website**. No "enterprise: contact sales" model — Indian buyers hate it, and it kills PLG conversion at the lower-mid band where the controller is qualifying vendors before triggering an MSA.
+
+The published pricing matrix has four columns (Practice / Business / Enterprise / Add-ons), each with the headline number, the included quantities, and the overage price. Procurement can do its own comparison without a sales call. The sales call comes later, only for solutioning the specific module mix.
+
+## Cross-references
+
+- [Three SKUs](/caos/business-model/three-skus/) — Practice / Business / Enterprise feature catalogs and module breakdowns.
+- [Unit economics](/caos/business-model/unit-economics/) — how the pricing rolls up into per-deal margin and LTV/CAC math.
+- [Revenue path](/caos/business-model/revenue-path/) — phase-by-phase ARR projection with SKU mix assumptions.
+- [Decision D5 — channel mix](/caos/decisions/d5-channels/) — pricing model affects channel economics; CA-referral commission interacts with per-seat vs per-entity base.

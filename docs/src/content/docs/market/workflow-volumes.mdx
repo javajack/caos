@@ -1,0 +1,213 @@
+---
+title: "Workflow volumes — the document factory by the numbers"
+description: "164 cr GST returns since 2017 / 7.28 cr ITRs / 80 lakh MCA filings in 10 months / 22 million monthly AA consents — the verified throughput of India's compliance pipes."
+sidebar:
+  order: 4
+---
+
+import { Aside, Card, CardGrid } from '@astrojs/starlight/components';
+
+The [market overview](/caos/market/overview/) sized the *population* of buyers; the [TAM sizing](/caos/market/tam-sizing/) sized the *addressable spend*; the [regulatory tailwinds](/caos/market/regulatory-tailwinds/) sized the *demand-creation rate*. This page sizes the **throughput** — the volume of documents, returns, notices, consents, and filings that flow through India's compliance pipes every year.
+
+Throughput is the load-bearing input for CAOS's per-volume pricing model and for the AI-extraction cost economics ([P1 + P14 primitives](/caos/product/atomic-primitives/)). At 22.31 million AA consents per month, 13.84 cr e-way bills per month, 1.2 cr GSTR-1 filers per month, and ~1.7 cr UDINs per year, the per-document unit economics dominate the per-firm subscription economics on the [composite flywheel](/caos/flywheel/composite/) Phase 4 ceiling.
+
+Every number on this page is cited to a regulator, regulator-published dashboard, named industry body, or named press citing one.
+
+## GST — the highest-volume pipe
+
+Goods and Services Tax has been live since July 2017 and is now the largest single document-flow surface in Indian compliance.
+
+| Metric | Value | As of | Source |
+|---|---|---|---|
+| **GST returns cumulative since 2017** | **164.43 cr** | Jun 2025 | [GSTN GST@8 / A2Z](https://a2ztaxcorp.net/gst-8-years-report-released-gstn-highlights-record-revenue-compliance-milestones/) |
+| GST single-day filing peak | 32.65 lakh returns | per GST@8 | (same) |
+| GSTR-1 filers monthly | ~60 lakh (Apr 2022) → **1.2+ cr (May 2025)** | growth | (same) |
+| GSTR-3B compliance rate | **>95% on due dates** | 2025 | (same) |
+| **Active GST taxpayers** | **1,53,56,323 (~1.51 cr)** | Jun 2025 | (same) |
+| Normal/regular taxpayers | 1.34 cr | Jun 2025 | (same) |
+| Composition scheme | 14.80 lakh | Jun 2025 | (same) |
+| TDS-deductors registered | 3.71 lakh | Jun 2025 | (same) |
+| **GST gross collection** | **₹22.08 lakh cr (+9.4% YoY)** | FY 2024-25 | [SAG Infotech](https://blog.saginfotech.com/gst-collection-9-4-percent-increase-inr-22-08-lakh-crore-fy-2024-25), [PIB](https://www.pib.gov.in/PressNoteDetails.aspx?id=154789) |
+| GST monthly collection (peak) | ₹2.37 lakh cr | Apr 2025 | [TheMunim](https://themunim.com/gst-collection-april-2025/) |
+| **GST refunds** | **₹2.12 lakh cr** | FY 2024-25 | [ClearTax Advisors](https://cleartaxadvisors.in/gst-refund/) |
+| **GST notices (CBIC, all types)** | **4.2 lakh+ in FY 2022-23** | FY22-23 | [Durity citing CBIC](https://durity.com/en-in/blog/gst-notices-causes-and-solutions/) |
+| **GSTAT operationalised** | **Sep 24, 2025** | Sep 2025 | [TaxGuru](https://taxguru.in/goods-and-service-tax/gstat-operational-complete-guide-gst-appellate-tribunal-appeals.html) |
+
+### What this means for CAOS
+
+- **1.2+ cr GSTR-1 filers/month × 12** = ~14.4 cr GSTR-1 returns per year, plus matched GSTR-3B and 2B. That is the throughput of the [P7 reconciliation engine](/caos/product/atomic-primitives/) at scale.
+- **4.2 lakh+ notices/year** is the demand surface for the [P6 notice-lifecycle primitive](/caos/product/atomic-primitives/). At an average ₹15-50K/notice for representation and reply, this is a ₹600-2,000 cr legal-services market that CAOS slot into as the tooling layer.
+- **₹22.08 lakh cr in GST collection** is the financial-flow scale of the verified-active business population. Even routing 0.01% of that flow through CAOS as decision-quality data = ₹2,200 cr touched.
+- **GSTAT operational from Sep 2025** means appeals can finally move; the backlog of disputed assessments is now active demand for [P5 (evidence locker) + P6 (notice lifecycle)](/caos/product/atomic-primitives/).
+
+## Income tax — the second-highest pipe
+
+| Metric | Value | As of | Source |
+|---|---|---|---|
+| **ITRs filed (record)** | **7.28 cr by Jul 31, 2024 (AY 24-25)** | Jul 31, 2024 | [PIB](https://www.pib.gov.in/PressReleasePage.aspx?PRID=2040669) |
+| ITRs e-verified | 6.21 cr (5.81 cr via Aadhaar OTP) | Jul 31, 2024 | (same) |
+| ITRs filed (AY 25-26 by Sep 23) | ~7.57 cr | Sep 2025 | [A2Z Taxcorp](https://a2ztaxcorp.net/govt-extended-itr-ay-2025-26-deadline-but-only-4-56-crore-returns-filed-so-far/) |
+| **Tax audit reports filed** | **29.5 lakh** (3CA-CD/3CB-CD) | Sep 30, 2023 (AY23-24) | [TaxCorner / CBDT](https://www.taxcorner.co.in/2023/10/cbdt-releases-tax-audit-reports-filing-data-till-30-09-2023.html) |
+| **Direct tax refunds** | **₹4.76 lakh cr (+26.04% YoY)** | FY 2024-25 | [Business Standard](https://www.business-standard.com/economy/news/direct-tax-mop-up-for-2024-25-fiscal-hits-target-record-refunds-issued-125042501402_1.html) |
+| Net direct tax collection | ₹22.26 lakh cr | FY 2024-25 | [The Print](https://theprint.in/economy/net-direct-tax-collection-rises-5-pc-to-rs-23-40-lakh-cr-in-fy26-misses-revised-budget-target/) |
+| **PAN deactivations (non-Aadhaar linked)** | **11.5 cr** | Nov 2023 (CBDT) | [Wikipedia PAN](https://en.wikipedia.org/wiki/Permanent_account_number) |
+
+### What this means for CAOS
+
+- **29.5 lakh tax audit reports** is the upper-bound on Form 3CA-CD / 3CB-CD volume. At 1,59,557 COP-holding CAs, that's ~18 audits per CA per year on average — a meaningful fraction of practitioner billable time and the throughput of the [P14 AI-extraction-over-Indian-semi-structured-forms primitive](/caos/product/atomic-primitives/).
+- **7.28 cr ITRs** is the throughput of the [P15 schedule generator](/caos/product/atomic-primitives/) at the upper bound. CAOS sells the *enterprise / corporate* slice of this, not retail ITR — but the CBDT infrastructure (Form 26AS, AIS, TIS feeds) that CAOS reads is the same.
+- **₹4.76 lakh cr in refunds** is the working-capital scale of refund-tracking workflows. Faster refund tracking (P5 + P15) is a discrete value proposition for in-house tax leads.
+
+## MCA21 — the corporate-filing pipe
+
+| Metric | Value | As of | Source |
+|---|---|---|---|
+| **MCA21 forms filed** | **80.26 lakh in 10 months (Apr 24–Jan 25)** | Jan 2025 | [CAClubIndia](https://www.caclubindia.com/news/mca21-records-80-26-lakh-form-filings-in-fy-2024-25-24515.asp) |
+| MCA21 V3 forms (subset) | 53.08 lakh (same window) | Jan 2025 | (same) |
+| **Active MCA companies** | **18,17,222** | Jan 31, 2025 | [NewKerala / MCA](https://www.newkerala.com/news/o/number-active-companies-registered-india-crosses-1817-lakh-jan-297) |
+| Total MCA-registered companies | 28,05,354 (~28.05 lakh) | Jan 31, 2025 | [Business Standard](https://www.business-standard.com/companies/news/over-2-8-million-companies-registered-in-india-65-active-govt-data-125021800695_1.html) |
+| Net active growth | +1.62 lakh in FY25 | FY25 | [DT Next](https://www.dtnext.in/news/business/active-companies-in-india-up-by-over-162-lakh-in-fy25-830559) |
+
+### What this means for CAOS
+
+- **80.26 lakh forms in 10 months** = ~96 lakh forms per year. That includes AOC-4, MGT-7, DIR-3 KYC, DIR-12, MGT-14, CHG-1/4, INC-22, etc. Each form requires data assembly + DSC signing + filing + tracking — the throughput of the [P3 calendar + P6 notice lifecycle](/caos/product/atomic-primitives/) when XBRL queries come back.
+- **18.17 lakh active cos × ~5 routine annual filings each** = ~91 lakh routine filings, matching the verified 96 lakh observation. CAOS's ROC/secretarial module pricing is sized against this throughput.
+- The 53.08 lakh V3 subset (vs total 80.26 lakh) shows MCA's V3 migration is at ~66% adoption — meaningful API-stable surface for CAOS's [P13 government portal scraper / fetcher](/caos/product/atomic-primitives/).
+
+## Account Aggregator — the DPI pipe
+
+| Metric | Value | As of | Source |
+|---|---|---|---|
+| **AA cumulative accounts linked** | **28.46 cr (284.565 million)** | Mar 31, 2026 | [Sahamati dashboard](https://sahamati.org.in/aa-dashboard/) |
+| **AA cumulative consents fulfilled** | **43.11 cr (431.072 million)** | Mar 31, 2026 | (same) |
+| **AA monthly consents (Mar 2026)** | **22.31 million** | Mar 2026 | (same) |
+| AA monthly data delivery (Mar 2026) | **276.22 million data points** | Mar 2026 | (same) |
+| AA daily consent rate (FY25 avg) | **2.84 lakh/day vs 1.59 lakh FY24 = +78.6% YoY** | FY25 | [Business Standard / Sahamati](https://www.business-standard.com/finance/news/aa-ecosystem-consent-processing-up-78-in-fy25-shows-sahamati-data-125031301053_1.html) |
+| AA loans facilitated cumulative | ₹42,300 cr / 4.2M loans (end FY24) → **₹1.67 lakh cr / 1.89 cr loan accounts (FY25 alone)** | FY25 | [Sahamati impact report H2 FY25](https://sahamati.org.in/the-credit-reimagined-account-aggregator-aa-impact-report-h2-fy25/) |
+| **AA total ecosystem participants** | **1,157 (Mar 2026)** | Mar 2026 | [Sahamati FIP-FIU page](https://sahamati.org.in/fip-fiu-in-account-aggregators-ecosystem/) |
+| AA RBI-licensed AAs (NBFC-AAs) | **17** | Mar 2026 | [Sahamati AAs page](https://sahamati.org.in/account-aggregators-in-india/) |
+
+### What this means for CAOS
+
+- **22.31M monthly consents (Mar 2026), growing 78.6% YoY** = projected 60-80M monthly by 2028. CAOS's Phase 4 ([composite flywheel](/caos/flywheel/composite/)) targets capturing the entity-side of 1-2% of consent-flowing entities = ~5-10 lakh entities with active AA flows.
+- **₹1.67 lakh cr loans/year via AA** is the lender-side flow CAOS plugs into. Even 0.5% capture = ₹835 cr in directed lending, supporting graph-access subscription pricing of ₹50K-5L/consumer/month.
+- **1,157 ecosystem participants** is the institutional consumer count for fact-graph subscriptions — banks, NBFCs, lenders, advisory firms wanting underwriting-ready entity data.
+
+## DigiLocker — the document-custody pipe
+
+| Metric | Value | As of | Source |
+|---|---|---|---|
+| **DigiLocker registered users** | **62 cr+ (620 million)** | May 2026 | [DigiLocker home](https://www.digilocker.gov.in/) |
+| **Documents issued (cumulative)** | **950 cr+ (9.5 billion)** | May 2026 | (same) |
+| **Active issuers** | **1,936** | Mar 2025 | [NeGD-published research](https://negd.gov.in/wp-content/uploads/2025/10/Charru-Malhotra-DIgilocker-the-digital-Vault-of-India.pdf) |
+| Active requesters | 2,407 | Mar 2025 | (same) |
+
+DigiLocker proves the consent-driven document custody pattern works at India scale (62 cr users = ~45% of population). For CAOS, DigiLocker is *both* a competitor for document custody mind-share and a potential *integration partner*: the CAOS evidence locker can link to DigiLocker-stored verified documents (PAN, GSTIN, IT returns) without re-uploading.
+
+## UDIN — the practitioner-side throughput
+
+| Metric | Value | As of | Source |
+|---|---|---|---|
+| **UDIN cumulative** | **10 cr+ (Dec 2025); 6.6 cr (Mar 2024)** | Dec 2025 | [UDIN portal announcement](https://udin.icai.org/ICAI/announcement/6/145/UDIN_20-12-2025) |
+| UDIN annual issuance | **~1.7 cr** | FY24 | [UDIN portal](https://udin.icai.org/) |
+
+At 1.7 cr UDINs/year and 1,59,557 COP-holding CAs = roughly **107 UDINs per practising CA per year**. This is roughly one UDIN per 2 working days, validating that CAs have adopted digital-authentication infrastructure at high cadence — and that any CAOS artefact that needs UDIN can be embedded in an existing daily habit.
+
+## EPFO + ESIC — the labour pipe
+
+| Metric | Value | As of | Source |
+|---|---|---|---|
+| **EPFO net members added (Jul 2025)** | **21.04 lakh (highest in years)** | Jul 2025 | [EPFO press release](https://www.epfindia.gov.in/site_docs/PDFs/EPFO_PRESS_RELEASES/EPFO_RecordsAdditionOf21.04%20LakhNetMembersDuring%20uly2025.pdf) |
+| EPFO monthly range | 19-22 lakh net adds | 2024-25 | per EPFO PIB releases |
+| ESIC net members (Jul 2024) | 22.53 lakh (+13.32% YoY) | Jul 2024 | [DT Next](https://www.dtnext.in/news/business/1819-lakh-new-workers-added-to-esic-payroll-data-in-jan-827546) |
+
+Net 19-22 lakh new EPFO members per month + similar ESIC = roughly 25 lakh new payroll-active employees per month, indicating a continuous flow of ECR (Electronic Challan-cum-Return) and ESIC monthly returns at high cadence. The throughput of CAOS's payroll-statutory module ([P3 calendar + P13 portal scraper](/caos/product/atomic-primitives/)) is sized against this.
+
+## IBBI — the insolvency pipe
+
+| Metric | Value | As of | Source |
+|---|---|---|---|
+| **IBBI CIRPs admitted (cumulative)** | **8,175 (1,983 ongoing)** | Dec 31, 2024 | [IBClaw](https://ibclaw.in/analysis-of-insolvency-cases-under-ibc-as-on-31-12-2024-cirp-initiation-closures-recovery-and-yield-from-resolution-plan-and-liquidation/) |
+| **IBBI pre-admission settlements** | **30,000+ cases / ₹13.78 trillion** | May 2025 | [Business Standard](https://www.business-standard.com/finance/news/over-30k-ibc-cases-settled-pre-admission-covering-13-78-trillion-ibbi-125051000749_1.html) |
+| IBBI Registered Valuers | 6,144 | Aug 2025 | [IBBI service-provider page](https://ibbi.gov.in/service-provider/rvs) |
+| IBBI Insolvency Professionals | **4,527 (only 49% with valid AFA)** | Mar 31, 2025 | [Business Standard](https://www.business-standard.com/industry/news/ibbi-proposes-assignment-cap-for-insolvency-professionals-to-cut-delays-125081301524_1.html) |
+| IBBI IPEs | 175 | Feb 2026 | [Wikipedia IBBI](https://en.wikipedia.org/wiki/Insolvency_and_Bankruptcy_Board_of_India) |
+
+The IBBI segment is narrower (4,527 IPs + 6,144 valuers) but has a discrete document workflow — Resolution Plans, Information Memoranda, claim verification, voting tracking — and ₹13.78 trillion in pre-admission settlements alone signals serious financial scale. CAOS's [P5 evidence locker + P8 maker-checker workflow](/caos/product/atomic-primitives/) primitives serve the IP workspace as a discrete adjacent-segment SKU (covered on the [TAM sizing page](/caos/market/tam-sizing/) under adjacent segments).
+
+## NFRA — the audit-quality pipe
+
+| Metric | Value | As of | Source |
+|---|---|---|---|
+| **NFRA disciplinary orders** | **94 cumulative; 19 firms + 84 CAs penalised** | Early 2025 | [TaxGuru on NFRA](https://taxguru.in/company-law/action-nfra-prevent-audit-failure-regulatory-lapses.html) |
+| NFRA inspection reports published | 12 (since Dec 2022) | 2024 | (same) |
+| Big-6 share of Nifty 500 audits | **326 of 483 (~67%)** | FY25 | [PrimeDatabase](http://www.primedatabasegroup.com/newsroom/BIG_6_CONTINUE_DOMINANCE_OF_INDIAN_AUDIT_LANDSCAPE_2024-25.pdf) |
+| Big-6 share NSE main board | 694 of 2,069 (~34%) | FY25 | (same) |
+| Statutory audit cap per partner | **20 audits per partner** (Sec 141(3) Companies Act 2013) | — | [Ebizfiling](https://ebizfiling.com/blog/company-audit-ceiling-limit-under-the-companies-act-2013/) |
+
+NFRA's 94 disciplinary orders + 12 published inspection reports represent the regulatory pressure that drives Big-6 demand for **structured audit working-paper management**. This is the demand engine for the [Phase 3 Audit Workspace](/caos/flywheel/composite/) on the composite flywheel.
+
+## E-way bill + IRP — the in-flight transaction pipe
+
+| Metric | Value | As of | Source |
+|---|---|---|---|
+| **E-invoice generators (active)** | **9.92 lakh** | Jun 2025 | [GSTN GST@8 / PIB](https://www.pib.gov.in/PressNoteDetails.aspx?id=154789) |
+| **E-invoice recipients (registered)** | **81.88 lakh** | Jun 2025 | (same) |
+| E-way bill registered users | 55.23 lakh | Jun 2025 | (same) |
+| **E-way bills monthly (peak)** | **13.84 cr (Dec 2025)** | Dec 2025 | [SAG Infotech](https://blog.saginfotech.com/gst-e-way-bill-generation-hits-second-highest-ever-jan-2026) |
+| Cygnet.One first ASP-GSP live with IMS | First | Oct 12, 2024 | [CXOToday](https://cxotoday.com/press-release/cygnet-one-the-first-asp-gsp-platform-to-go-live-with-invoice-management-system-under-the-gst-regime/) |
+
+13.84 cr e-way bills *per month* is roughly 166 cr per year — at this scale, even sub-cent per-document costs are non-trivial. CAOS's per-volume pricing model (covered on [three SKUs](/caos/business-model/three-skus/)) factors in the per-IRN / per-EWB / per-AA-consent unit economics.
+
+## DSC issuance — the authentication pipe
+
+| Vendor | Metric | Value | As of | Source |
+|---|---|---|---|---|
+| **eMudhra** | DSC market share | **~40%** (largest CA in India) | FY24 | [ICRA rating rationale](https://www.icra.in/Rating/GetRationalReportFilePdf?id=128000) |
+| eMudhra | **DSCs issued** | **3.08 million (FY24)** | FY24 | (same) |
+| eMudhra | Consolidated revenue | **₹527.8 cr** | FY25 | [Equitymaster](https://www.equitymaster.com/research-it/annual-results-analysis/EMUDH/EMUDHRA-2024-25-Annual-Report-Analysis/12159) |
+| Other DSC CAs | Sify, Capricorn, Verasys, (n)Code, NSDL/Protean, NIC, CDAC, IDRBT — volumes not publicly disclosed | various | — | [99digitalsignature](https://www.99digitalsignature.com/digital-signature-certificate-authority-in-india.php) |
+
+eMudhra alone issues ~3M DSCs per year at ~40% market share, implying total industry DSC issuance of ~7-8 million per year. Every MCA21 filing, every IT e-verification (alternate to Aadhaar OTP), every customs filing requires DSC — making DSC management a load-bearing P10 + P13 surface that CAOS can integrate as a reseller (per [GTM update](/caos/method/data-atlas/)).
+
+## Summary — the throughput one-screen reference
+
+| Pipe | Annual / monthly throughput | What CAOS plugs into |
+|---|---|---|
+| GST (returns) | 14.4+ cr GSTR-1/year + matched 3B + 2B | P1 + P7 + P9 + P13 |
+| GST (notices) | 4.2 lakh+/year | P6 + P5 |
+| IT (ITRs) | 7.28 cr/year (AY24-25) | P14 + P15 + P13 |
+| IT (tax audits) | 29.5 lakh/year (AY23-24) | P14 + P5 + P11 |
+| MCA21 (forms) | ~96 lakh/year | P3 + P13 |
+| AA (consents) | 22.31M/month → projected 60-80M by 2028 | P1 + P7 (data layer) |
+| AA (loans facilitated) | ₹1.67 lakh cr/year | P5 + lender API |
+| DigiLocker (cumulative docs) | 950 cr+ | P5 (integration) |
+| UDIN (annual) | 1.7 cr/year | P11 (audit trail) |
+| EPFO + ESIC (net adds) | 25 lakh new/month | P3 + P13 |
+| IBBI (CIRPs cumulative) | 8,175 + 30K pre-admission settlements (₹13.78 trillion) | P5 + P8 |
+| NFRA (orders + inspections) | 94 orders + 12 reports cumulative | P11 (working-paper schema) |
+| E-way bills (monthly) | 13.84 cr | P1 + per-volume billing |
+| DSC issuance (annual, market) | ~7-8 million | DSC reseller layer |
+
+This is the document factory CAOS connects to. The total surface — GST + IT + MCA + AA + DigiLocker + UDIN + EPFO/ESIC + e-way bills + DSCs — is in the **billions of digital artefacts per year**, growing at 30-80% YoY across multiple pipes.
+
+Three implications:
+
+1. **Per-document unit economics dominate at scale.** CAOS's pricing model needs both subscription and per-volume tiers; full per-volume on the AI extraction side ([P1 + P14](/caos/product/atomic-primitives/)) is the only way to keep gross margins > 60% as the throughput grows 30-80% YoY.
+
+2. **The DPI pipes (AA + DigiLocker + UDIN) are the fastest-growing.** AA at +78.6% YoY consent growth is the single fastest signal in the entire compliance economy — the [Phase 4 DPI fact-graph](/caos/flywheel/composite/) is sized against this growth curve.
+
+3. **The throughput is enough to support multiple winners.** No single platform — including Tally (₹710 cr FY25), ClearTax (~₹165 cr revenue), Vyapar (₹130 cr ARR), or any Big-4 — touches more than a small fraction of this throughput today. The market is structurally underbuilt; CAOS's flywheel is sized to capture a meaningful share, not all of it.
+
+:::tip[The throughput one-liner]
+**164 cr GST returns, 7.28 cr ITRs, 96 lakh MCA filings, 22M monthly AA consents, 13.84 cr monthly e-way bills, 1.7 cr UDINs/year, 25 lakh new EPFO/ESIC members/month — this is the throughput CAOS connects to. The compliance economy is at billions of artefacts/year and growing 30-80% YoY across multiple pipes.**
+:::
+
+## What's next
+
+- **[Market overview →](/caos/market/overview/)** — the layered population stack the throughput operates on.
+- **[TAM sizing →](/caos/market/tam-sizing/)** — the addressable spend the throughput drives.
+- **[Regulatory tailwinds →](/caos/market/regulatory-tailwinds/)** — the five forces growing the throughput faster than any sales motion can.
+- **[Composite flywheel →](/caos/flywheel/composite/)** — how CAOS sequences four loops to capture the throughput as ARR.
+- **[Atomic primitives →](/caos/product/atomic-primitives/)** — the 15 primitives that process the throughput.
+- **[Stakeholders →](/caos/stakeholders/practitioners/)** — the buyer personas the throughput passes through.

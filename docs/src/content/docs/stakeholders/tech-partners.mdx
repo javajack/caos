@@ -1,0 +1,164 @@
+---
+title: "Tech and service partners"
+description: "Tally (28K+ partners, 2.5-2.7M customers), 62 GSPs, 17 NBFC-AAs, ~50 ERIs, ~9 DSC Certifying Authorities (eMudhra ~40% share), eSign providers, and the corporate payment infrastructure (Razorpay, Cashfree, Perfios, Decentro, EnKash, Volopay). Integration partners and competitive context simultaneously."
+sidebar:
+  order: 6
+---
+
+import { Aside, Card, CardGrid } from '@astrojs/starlight/components';
+
+The Indian financial-document fabric does not exist in a vacuum. It runs on top of a **dense layer of tech and service partners** — accounting software incumbents, GSP/IRP/ERI government-portal aggregators, certificate authorities, eSign providers, and corporate payment platforms. Most of these are **integration partners** for CAOS (the wedge is "layer above Tally + plug into ERPs + connect to GSPs"); a few are **competitive context** in adjacent segments.
+
+This page maps the tech-partner ecosystem with verified populations and revenue, organised by the role each plays in the [composite flywheel](/caos/flywheel/composite/) substrate.
+
+<Aside type="tip" title="Why tech partners are stakeholder S13">
+elevates the tech-vendor-partner pool to S13 because a CAOS entity that does not speak Tally / GSTN-via-GSP / DSC-via-CA / eSign-via-Signzy-or-Leegality / payment-via-Razorpay-or-Cashfree is functionally inoperative in Indian compliance. They are obligatory integration counterparties — and their commercial roadmaps shape what CAOS can ship.
+</Aside>
+
+## Tally Solutions — the layer-above wedge
+
+Tally is the dominant accounting software in India. Every meaningful CAOS use case for the practitioner side and the SMB / mid-market in-house finance side lands as a Tally voucher write-back. The wedge is "layer above Tally" — non-disruptive, additive, distribution-rich.
+
+| Metric | Value | As of | Source |
+|---|---|---|---|
+| **Operating revenue** | **₹622.9 cr (FY24); ₹710 cr (FY25)** | FY25 | [Inc42 on Tally AI](https://inc42.com/features/how-tally-strikes-a-balance-between-enabling-ai-adoption-and-growth/) |
+| **Customers (claimed, India + global)** | **2.5–2.7 million businesses** | 2024-25 | [tallysolutions.com](https://tallysolutions.com/about-tally/), [Inc42](https://inc42.com/features/how-tally-strikes-a-balance-between-enabling-ai-adoption-and-growth/) |
+| TallyPrime share of revenue | 99% | FY25 | [Inc42](https://inc42.com/features/how-tally-strikes-a-balance-between-enabling-ai-adoption-and-growth/) |
+| **Partner network** | **28,000+** (≈140 Master + 18,000 Secondary) | 2024 | [tallysolutions.com](https://tallysolutions.com/about-tally/), [Markhub24](https://www.markhub24.com/post/tally-solutions-accounting-software-licensing-model-how-a-made-in-india-product-built-category-dom) |
+| Countries | 100+ | 2024 | [tallysolutions.com](https://tallysolutions.com/about-tally/) |
+| Employees | 1,092 | Aug 2025 | [Tracxn](https://tracxn.com/d/legal-entities/india/tally-solutions-private-limited/) |
+| Market share India (cited; verification pending) | "70-80%" / "80%+" | 2024 | [Business Standard](https://www.business-standard.com/companies/news/tally-expects-30-40-revenue-growth-in-fy25-to-expand-overseas-footprint-124050100572_1.html) |
+
+**The 28,000+ partner network is the largest distribution opportunity for CAOS.** Of these, 140 Master Partners are organised, can be onboarded as resellers in clusters, and serve corporate finance functions in addition to CA practices. The [GTM plan](/caos/gtm/) targets 20 Master Partners as the Phase 1 reseller pilot.
+
+<Aside type="caution" title="Older Tally claims to ignore">
+Older third-party blogs cite Tally's customer base at "10M users" or "14M users." Tally itself currently cites **2.5-2.7M** ([tallysolutions.com](https://tallysolutions.com/about-tally/), [Inc42 verified](https://inc42.com/features/how-tally-strikes-a-balance-between-enabling-ai-adoption-and-growth/)). Use the verified current number; treat older figures as unattributed.
+</Aside>
+
+## GSPs — GST Suvidha Providers
+
+GSPs are GSTN-empanelled technology providers that offer authenticated APIs into the GST system. **62 GSPs are empanelled across the 5 batches** ([Microvistatech](https://www.microvistatech.com/blog/gst-suvidha-providers-gsp-list-2025/)). The notable first-mover for Invoice Management System (IMS):
+
+| Provider | Notable status | Source |
+|---|---|---|
+| **Cygnet.One** | First ASP-GSP live with IMS (Invoice Management System) under GST regime | [CXOToday Oct 2024](https://cxotoday.com/press-release/cygnet-one-the-first-asp-gsp-platform-to-go-live-with-invoice-management-system-under-the-gst-regime/) |
+| **62 total GSPs** | Across 5 GSTN empanelment batches | [Microvistatech](https://www.microvistatech.com/blog/gst-suvidha-providers-gsp-list-2025/) |
+
+The CAOS strategy here is to be **ASP-first** (Application Service Provider — riding on top of an existing GSP's authenticated APIs) rather than pursuing direct GSP licensing. ASP-under-existing-GSP ships in 6-9 months; direct GSP licensing requires 12-18 months plus infrastructure investment).
+
+## ERIs — e-Return Intermediaries
+
+ERIs are CBDT-authorised entities for filing income tax returns on behalf of taxpayers. There are **~50+ named ERIs** (Type-1 and Type-2 split not publicly disclosed) ([ClearTax — ERI Income Tax](https://cleartax.in/s/e-return-intermediary-eri-income-tax)).
+
+Type 1 ERIs can use the income tax department's free utility to file returns. Type 2 ERIs can develop their own software using the ERI scheme APIs — a richer integration that allows automated bulk filing.
+
+| Metric | Value | Source |
+|---|---|---|
+| ERIs (named entities) | **"50+"** (Type-1 / Type-2 split not publicly disclosed) | [ClearTax — ERI Income Tax](https://cleartax.in/s/e-return-intermediary-eri-income-tax) |
+
+CAOS's [decision D7](/caos/decisions/d7-aa-gsp-eri-participation/) is to pursue Type 2 ERI status in Y3, giving CAOS authenticated bulk-ITR filing capability.
+
+## NBFC-AAs — Account Aggregators
+
+The Account Aggregator framework is the most mature DPI-grade consent-driven financial-data sharing infrastructure in India. **17 NBFC-AAs are operational**, supporting **1,157 total ecosystem participants** (FIPs + FIUs + crossovers) as of Mar 2026 ([Sahamati AAs page](https://sahamati.org.in/account-aggregators-in-india/), [Sahamati FIP-FIU page](https://sahamati.org.in/fip-fiu-in-account-aggregators-ecosystem/)).
+
+| Metric | Value | As of | Source |
+|---|---|---|---|
+| **NBFC-AAs (RBI-licensed)** | **17** | Mar 2026 | [Sahamati AAs page](https://sahamati.org.in/account-aggregators-in-india/) |
+| **AA ecosystem total participants** | **1,157** (155 FIPs Aug 2024 + 475 FIUs + crossovers) | Mar 2026 | [Sahamati FIP-FIU page](https://sahamati.org.in/fip-fiu-in-account-aggregators-ecosystem/) |
+| **AA cumulative consents fulfilled** | **43.11 cr (431.072 million)** | Mar 31, 2026 | [Sahamati dashboard](https://sahamati.org.in/aa-dashboard/) |
+| **AA monthly consents (Mar 2026)** | **22.31 million** | Mar 2026 | [Sahamati dashboard](https://sahamati.org.in/aa-dashboard/) |
+| AA daily consent rate (FY25 avg) | **2.84 lakh/day (vs 1.59 lakh FY24, +78.6% YoY)** | FY25 | [Business Standard / Sahamati](https://www.business-standard.com/finance/news/aa-ecosystem-consent-processing-up-78-in-fy25-shows-sahamati-data-125031301053_1.html) |
+| AA loans facilitated (FY25 alone) | **₹1.67 lakh cr / 1.89 cr loans** | FY25 | [Sahamati impact report](https://sahamati.org.in/the-credit-reimagined-account-aggregator-aa-impact-report-h2-fy25/) |
+
+CAOS's [Phase 4 fact graph](/caos/flywheel/phase-4-dpi-graph/) is built on AA consent-driven data flows. The strategy is to register as an FIU (Financial Information User — light registration) in Y2-3, partnering with existing AA TSPs (technology service providers) like CAMSFinServ and Anumati / Perfios rather than building TSP infrastructure from scratch.
+
+## DSC Certifying Authorities
+
+Digital Signature Certificates (DSCs) are the foundation of all government-portal filings. The Controller of Certifying Authorities (CCA) under MeitY licenses **~9 active DSC CAs**.
+
+| CA | Notable status | Verified data | Source |
+|---|---|---|---|
+| **eMudhra** | Largest CA in India by share | **~40% DSC market share; 3.08M DSCs issued FY24; ₹527.8 cr consolidated revenue FY25** | [ICRA rating rationale](https://www.icra.in/Rating/GetRationalReportFilePdf?id=128000), [Equitymaster](https://www.equitymaster.com/research-it/annual-results-analysis/EMUDH/EMUDHRA-2024-25-Annual-Report-Analysis/12159) |
+| **NSDL / Protean (NSDL e-Gov)** | Major CA + ERI / eSign provider | volumes not publicly disclosed | [99digitalsignature](https://www.99digitalsignature.com/digital-signature-certificate-authority-in-india.php) |
+| **Capricorn CA** | Major CA | volumes not publicly disclosed | [99digitalsignature](https://www.99digitalsignature.com/digital-signature-certificate-authority-in-india.php) |
+| **Sify** | Major CA | volumes not publicly disclosed | [99digitalsignature](https://www.99digitalsignature.com/digital-signature-certificate-authority-in-india.php) |
+| **Verasys** | Major CA | volumes not publicly disclosed | [99digitalsignature](https://www.99digitalsignature.com/digital-signature-certificate-authority-in-india.php) |
+| **(n)Code Solutions** | Major CA | volumes not publicly disclosed | [99digitalsignature](https://www.99digitalsignature.com/digital-signature-certificate-authority-in-india.php) |
+| **NIC (National Informatics Centre)** | Govt CA | volumes not publicly disclosed | [99digitalsignature](https://www.99digitalsignature.com/digital-signature-certificate-authority-in-india.php) |
+| **CDAC** | Govt CA | volumes not publicly disclosed | [99digitalsignature](https://www.99digitalsignature.com/digital-signature-certificate-authority-in-india.php) |
+| **IDRBT** | Govt CA (banking sector) | volumes not publicly disclosed | [99digitalsignature](https://www.99digitalsignature.com/digital-signature-certificate-authority-in-india.php) |
+
+CAOS's recommends becoming an **authorised DSC reseller within CAOS** (likely partnering with eMudhra given the 40% share + ICRA-rated balance sheet). Revenue share + DSC management UX moat for both the practising CA (holding clients' DSCs) and the in-house CS / Compliance Officer (holding directors' and authorised signatories' DSCs).
+
+## eSign providers
+
+Aadhaar eSign is the consent-driven alternative to DSC for individual signers. The two notable B2B-focused eSign providers:
+
+| Provider | Reach | Source |
+|---|---|---|
+| **Signzy** | 500+ customers | [signzy.com](https://www.signzy.com/) (vendor-disclosed) |
+| **Leegality** | 1,500+ companies (full eSign + eStamping); 5,000+ eSign-only | [leegality.com](https://www.leegality.com/) (vendor-disclosed) |
+
+eSign is integrated as a provider-abstracted layer — CAOS's [share-link infrastructure](/caos/product/atomic-primitives/) wraps Signzy / Leegality / NSDL eSign behind one API, allowing per-customer choice.
+
+## Corporate payment infrastructure
+
+The corporate-side payment infrastructure forms the **competitive context** for the [Phase 2 vendor-network flywheel](/caos/flywheel/phase-2-vendor-network/) and the [AP/AR use cases](/caos/product/use-cases/). CAOS is not a payments platform — but every corporate AP workflow lands in a payment file or a payment-API call.
+
+| Provider | Verified data | Source |
+|---|---|---|
+| **Razorpay** | Annualised TPV $150B (Feb 2024) → $180B+ (early 2025); targeting $400B by 2030 | [razorpay newsroom](https://razorpay.com/newsroom/razorpay-surpasses-150-billion-tpv-milestone-unveils-payment-gateway-3-0-forays-into-marketing-stack-with-engage-and-introduces-the-fintech-world-to-ai-assistant-ray/), [Business Standard](https://www.business-standard.com/companies/news/razorpay-marks-10-years-targets-about-400-billion-in-tpv-by-2030-125020900388_1.html) |
+| **RazorpayX** | 70% of India unicorns; 40,000+ payroll users; $30B+ payouts | [razorpay.com/x](https://razorpay.com/x/), [razorpay.com/payroll/founder](https://razorpay.com/payroll/founder/) |
+| **Cashfree** | $80B disbursal; 800K-1.2M businesses; ₹642.7 cr FY24 revenue | [cashfree.com](https://www.cashfree.com/), [Entrackr](https://entrackr.com/fintrackr/cashfree-posts-rs-643-cr-revenue-and-rs-133-cr-loss-in-fy24-7383538) |
+| **Perfios** | $263M raised (unicorn 2024); ₹558.8 cr FY24 revenue (+37%); 1.7B txns/yr; 8.2B data points | [Entrackr unicorn](https://entrackr.com/2024/03/perfios-turns-unicorn-with-80-mn-funding-from-teachers-venture/), [Tracxn](https://tracxn.com/d/companies/perfios/__iFQNUcEEOxr93FZ76A-oX2r_HlbfPDf69HAGJVhjkME) |
+| **M2P Fintech** | ₹382 cr FY24 revenue (per Tracxn industry trackers) | [Tracxn / industry data](https://tracxn.com/) |
+| **Decentro** | ₹177.4 cr FY24; ₹40,000 cr payment volume; 1,300+ enterprises | [Decentro blog 2025](https://decentro.tech/blog/decentro-growth-2025/) |
+| **EnKash** | $33.1M cumulative funding | [Tracxn](https://tracxn.com/d/companies/enkash/__S0TQlHWnvPb0xky9k9Byd1SwNZy00Q8UvuHzolbvPwQ) |
+| **Volopay** | $31.3M total ($29M Series A 2022) | [Inc42](https://inc42.com/buzz/singapore-rooted-fintech-volopay-marks-india-foray-after-raising-29-in-series-a-funding/) |
+| **Happay** | **Acquired by MakeMyTrip** Nov 2024 | [Happay blog](https://happay.com/blog/best-volopay-alternatives-competitors/) |
+
+These platforms serve overlapping but distinct buyers:
+
+- **Razorpay / Cashfree** — payment gateway + payroll + corporate payouts
+- **Perfios / M2P / Decentro** — fintech-infra plumbing for lender + neobank stack
+- **EnKash / Volopay / Happay** — corporate card + AP automation (closest competitive context for CAOS AP modules)
+
+CAOS integrates with these as payment-execution layers (NEFT / RTGS file generation, vendor payment trigger) but does not compete on payment processing. The wedge is the **AP intelligence above payment** (vendor onboarding, MSME 45-day, GSTR-2B reco) — none of which the payment infra players own at depth.
+
+## Other notable competitive context
+
+| Player | Verified data | Source |
+|---|---|---|
+| **Vyapar** | 1 cr+ customers; 27,000+ partners; ₹130 cr ARR; **$35.9M cumulative funding**; **acquired Suvit Nov 2025** | [TheWire-PR](https://m.thewire.in/article/ptiprnews/1-cr-businesses-27000-partners-and-growing-how-vyapar-is-powering-indias-msme-revolution), [Inc42 Vyapar profile](https://inc42.com/company/vyapar-app/), [Inc42 Suvit acquisition](https://inc42.com/buzz/vyapar-acquires-suvit-to-boost-ai-led-accounting-automation-for-msmes/) |
+| **Karbon Card / AI Accountant** | $30.2M cumulative; "3,000+ businesses" claimed; "30 cr txns" claimed | [Tracxn](https://tracxn.com/d/companies/karbon/__aE6QaDK2gEK48V07Z45bd2fZL5mTAEytFFln0-IeGmc), [aiaccountant.com](https://www.aiaccountant.com/about-us) |
+| **ClearTax (Clear)** | 1.5M+ customers; 1,270 employees; **$141M cumulative**; **100K+ tax practitioners + 4K+ enterprises + 5M+ taxpayers** (Salesforce case study) | [clear.in](https://www.clear.in/s/about-us), [Tracxn](https://tracxn.com/d/companies/clear/__aVJbzB19Ok2SPXb0e8tcM14Zuv-MK59DapMygxCykak), [Salesforce case study](https://www.salesforce.com/in/resources/customer-stories/clear/) |
+
+These are tracked in the [competitor landscape](/caos/competitors/landscape/) page. Key implication: **Vyapar's Suvit acquisition (Nov 2025)** signals serious investment in AI-led accounting automation for SMBs — putting Vyapar more squarely into the small-business AP intelligence space CAOS plays in.
+
+## Why these are stakeholders (and not just background)
+
+<CardGrid stagger>
+ <Card title="Integration partners" icon="setting">
+ Tally + GSPs + ERIs + AAs + DSC CAs + eSign providers are obligatory integration counterparties. CAOS's product surface is meaningfully constrained by what each partner ships. **Choosing the right partner per category is a strategic decision.**
+
+ See [the integration architecture](/caos/product/architecture/).
+ </Card>
+ <Card title="Distribution rails" icon="approve-check">
+ 28K+ Tally partners (140 Master + 18K Secondary) are the largest pre-built distribution channel in Indian accounting software. ICAI's 176 India branches + 51 overseas chapters complement this. The [Tally Master partner program](/caos/gtm/tally-partner-program/) targets 20 Master Partners as the Phase 1 reseller pilot.
+ </Card>
+ <Card title="Competitive context" icon="seti:powershell">
+ Vyapar (post-Suvit), ClearTax-Enterprise, IRIS, Avalara, EnKash / Volopay / Happay all play in adjacent or overlapping segments. The [competitor landscape](/caos/competitors/landscape/) tracks 26+ direct PMS competitors plus the enterprise threat layer this page surfaces.
+ </Card>
+ <Card title="Regulatory cost-of-entry" icon="document">
+ GSP / ERI Type 2 / FIU certifications are not just features — they are regulatory moats. ASP-first (under existing GSP) + FIU registration in Y2-3 + Type 2 ERI in Y3 builds the certification stack incrementally without bearing full GSP licensing cost upfront).
+ </Card>
+</CardGrid>
+
+## Cross-references
+
+- **Integration architecture** — see [product architecture](/caos/product/architecture/) for how CAOS speaks to Tally / GSPs / AAs / DSC CAs
+- **Tally Master partner program** — see [GTM Tally partner channel](/caos/gtm/tally-partner-program/)
+- **AA / GSP / ERI participation** — see [decision D7](/caos/decisions/d7-aa-gsp-eri-participation/)
+- **Competitor landscape** — see [competitors landscape](/caos/competitors/landscape/) and [enterprise threats](/caos/competitors/enterprise-threats/) for the full competitive context
+- **Phase 4 DPI fact graph** — see [DPI-powered fact graph](/caos/flywheel/phase-4-dpi-graph/) for how AA / GSP / ERI integrations compound into the institutional-graph monetisation

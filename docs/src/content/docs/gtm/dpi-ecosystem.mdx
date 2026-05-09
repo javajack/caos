@@ -1,0 +1,132 @@
+---
+title: "DPI ecosystem — AA / GSP / ERI partnerships"
+description: "Become an FIU + ASP-first (under existing GSP) in Year 2; Type 2 ERI in Year 3. Plus eMudhra DSC reseller path. The DPI ecosystem is both a regulatory moat (entry barrier for new entrants) and the substrate for Phase-4 fact-graph monetisation."
+sidebar:
+  order: 5
+---
+
+import { Aside, Card, CardGrid } from '@astrojs/starlight/components';
+
+India's Digital Public Infrastructure (DPI) — Account Aggregator framework, GST Suvidha Provider ecosystem, Income Tax e-Return Intermediary registry, DigiLocker, eSign, UDIN, and the eMudhra-led DSC certifying-authority network — is simultaneously the substrate that the Phase-4 fact-graph runs on AND the regulatory moat that prevents 2027-vintage competitors from showing up overnight. CAOS participates as a partner in Year 2 and as a registered entity in Year 3. This page covers the participation path for each ecosystem and the verified-data anchors that justify the timing.
+
+## The participation strategy
+
+<Aside type="tip" title="The choice">
+**Become an FIU + ASP-first (under existing GSP) in Year 2; Type 2 ERI in Year 3.** This is the recommendation from [Decision D7](/caos/decisions/d1-d7/). The reasoning: light registrations (FIU, ASP-under-GSP) cost weeks; full registrations (own GSP licence at ₹5-10 cr deposit, ERI Type 2 with ITD-approved infra) cost months. Sequence by ROI per regulatory dollar.
+</Aside>
+
+The ecosystem participation choice is not "all in" or "stay out." It is a sequenced layering — partner first, register later, build last.
+
+## Account Aggregator (AA) framework
+
+The verified state of India's AA framework as of March 2026:
+
+| Metric | Value | As of | Source |
+|---|---|---|---|
+| RBI-licensed NBFC-AAs operational | 17 | Mar 2026 | [Sahamati AAs page](https://sahamati.org.in/account-aggregators-in-india/) |
+| Total ecosystem participants | 1,157 | Mar 2026 | [Sahamati FIP-FIU page](https://sahamati.org.in/fip-fiu-in-account-aggregators-ecosystem/) |
+| FIPs (Financial Information Providers) | 155 (Aug 2024 snapshot) | Aug 2024 | [Sahamati 100M consents milestone](https://sahamati.org.in/media-article/indias-account-aggregator-framework-crosses-100-million-consents-in-three-years/) |
+| FIUs (Financial Information Users) | 475 (Aug 2024 snapshot) | Aug 2024 | (same) |
+| Cumulative accounts linked | 28.46 cr (284.565 million) | Mar 2026 | [Sahamati dashboard](https://sahamati.org.in/aa-dashboard/) |
+| Cumulative consents fulfilled | 43.11 cr (431.072 million) | Mar 2026 | (same) |
+| Monthly consents (Mar 2026) | **22.31 million** | Mar 2026 | (same) |
+| Monthly data delivery | 276.22 million | Mar 2026 | (same) |
+| Avg daily consents (FY25) | 2.84 lakh (vs 1.59 lakh FY24, **+78.6% YoY**) | FY25 | [Business Standard / Sahamati](https://www.business-standard.com/finance/news/aa-ecosystem-consent-processing-up-78-in-fy25-shows-sahamati-data-125031301053_1.html) |
+| Loans facilitated cumulative | ₹42,300 cr / 4.2M loans (end FY24) → ₹1.67 lakh cr / 1.89 cr loans (FY25 alone) | FY25 | [Sahamati impact report](https://sahamati.org.in/the-credit-reimagined-account-aggregator-aa-impact-report-h2-fy25/) |
+| Lending share of AA consents | ~74% (retail + MSME) | 2024 | [Sahamati AA Lending Report](https://sahamati.org.in/wp-content/uploads/2025/10/AA-Lending-Report-Abridged.pdf) |
+
+CAOS's path through the AA ecosystem:
+
+1. **Year 1 — passive consumer**. CAOS uses one of the 17 NBFC-AAs (likely OneMoney / Finvu / CAMSFinServ / Anumati-Perfios) via a Technology Service Provider (TSP) integration. No registration needed; CAOS is one of many downstream tools using the data.
+
+2. **Year 2 — FIU registration**. CAOS registers as a Financial Information User with one or more AAs. This makes CAOS a first-class consent-receiver and gives the brand AA-stack legitimacy. FIU registration is light (weeks, not months) and free at the AA level (each AA has its own onboarding).
+
+3. **Year 3 — TSP partnership for downstream redistribution**. CAOS can offer its own customers (audit firms, CFOs) AA-mediated bank-statement access *as a CAOS feature*, not just an integration. This requires partnering with a TSP (or building one) and signing data-redistribution agreements with AAs. The market is already proven: 22.3M monthly consents shows the rails work at scale.
+
+4. **Year 4+ — own AA?** Optional and probably not needed. Becoming an NBFC-AA requires ~₹2 cr net worth + RBI licence + ongoing compliance — only justified if CAOS needs *consent-orchestration* control beyond what TSPs offer. Most likely outcome: stay as FIU + TSP partner, never become an AA.
+
+The AA ecosystem is the data substrate for the [Phase-4 fact graph](/caos/flywheel/phase-4-dpi-graph/). Every CAOS enterprise customer with AA-connected bank accounts becomes an underwriting-ready node — banks/NBFCs/lenders pay for graph access, CAOS pays the AA per consent.
+
+## GST Suvidha Provider (GSP) ecosystem
+
+The verified state:
+
+| Metric | Value | As of | Source |
+|---|---|---|---|
+| GSPs empanelled (5th batch) | 62 | 2025 | [Microvistatech / GSTN batches](https://www.microvistatech.com/blog/gst-suvidha-providers-gsp-list-2025/) |
+| First-batch licences | 34 | 2017 | (same) |
+| Last batch additions (Nov 2019) | 10 | Nov 2019 | (same) |
+| Cygnet.One first ASP-GSP with IMS | First | Oct 12, 2024 | [CXOToday on Cygnet IMS](https://cxotoday.com/press-release/cygnet-one-the-first-asp-gsp-platform-to-go-live-with-invoice-management-system-under-the-gst-regime/) |
+| GSP licensing cost (industry estimate) | ₹5-10 cr deposit | Industry estimate | (no public official source) |
+
+CAOS's path:
+
+1. **Year 1-2 — ASP under existing GSP**. CAOS partners with a Tier-1 GSP (Cygnet, IRIS, Mastersindia, Webtel) as an Application Service Provider. The GSP holds the regulatory relationship; CAOS builds the application layer. Cygnet's "First ASP-GSP with IMS" template is the model — CAOS can do the same as a partner.
+
+2. **Year 3 — multi-GSP redundancy**. With volume to justify, CAOS maintains relationships with 2-3 GSPs for redundancy. If one GSP has API issues, traffic routes to another. This is operationally expensive but eliminates single-vendor risk.
+
+3. **Year 4+ — own GSP?** Likely yes once CAOS hits ~10K active enterprise customers using GST APIs. The ₹5-10 cr deposit becomes a rounding error against the ARR generated, and full GSP status removes the partner economics drag.
+
+## Income Tax e-Return Intermediary (ERI) ecosystem
+
+| Metric | Value | As of | Source |
+|---|---|---|---|
+| ERI Type 1 entities (estimate) | "50+ entities" | Jun 2024 | [ClearTax ERI](https://cleartax.in/s/e-return-intermediary-eri-income-tax) |
+| Type 1 vs Type 2 split | not publicly disclosed | — | [ClearTax ERI](https://cleartax.in/s/e-return-intermediary-eri-income-tax); [Income Tax Dept ERI page](https://www.incometax.gov.in/iec/foportal/help/eri/registration) (page often returns 403) |
+| Type 1 definition | Approved ITD compute infra + ISA/CISA cert | — | (same) |
+| Type 2 definition | Possesses own software application | — | (same) |
+| Type 2 doc requirement | Undertaking + Bank Guarantee + Audit Report | — | (same) |
+
+CAOS's path:
+
+1. **Year 1-2 — partner with existing ERI**. ClearTax is an ERI. So is TaxCloud. So are several smaller players. CAOS can integrate with their APIs.
+
+2. **Year 3 — Type 2 ERI registration**. With the Bank Guarantee + audit infrastructure in place (as part of SOC 2 Type II buildout for [audit firm partnerships](/caos/gtm/audit-firm-partnerships/)), Type 2 ERI is a 90-day filing process. CAOS then runs its own ITR filing pipeline, owns the relationship with CBDT, and removes the ERI-partner dependency for income tax filings.
+
+## eMudhra DSC reseller path
+
+eMudhra is the dominant Indian DSC certifying authority and a public company. The verified data:
+
+| Metric | Value | As of | Source |
+|---|---|---|---|
+| eMudhra DSC market share | ~40% (largest CA in India) | FY24 | [ICRA rating rationale](https://www.icra.in/Rating/GetRationalReportFilePdf?id=128000) |
+| DSCs issued | 3.08 million | FY24 | (same) |
+| Consolidated revenue | ₹527.8 cr | FY25 | [Equitymaster](https://www.equitymaster.com/research-it/annual-results-analysis/EMUDH/EMUDHRA-2024-25-Annual-Report-Analysis/12159) |
+| Trust services share of revenue | 28% | FY24 | [ICRA](https://www.icra.in/Rating/GetRationalReportFilePdf?id=128000) |
+| YoY DSC issuance growth | +4.7% | FY24 vs FY23 | (same) |
+| Other licensed CAs | NSDL/Protean, Capricorn, Sify, Verasys, (n)Code, NIC, CDAC, IDRBT (volumes not publicly disclosed) | Current | [99digitalsignature](https://www.99digitalsignature.com/digital-signature-certificate-authority-in-india.php) |
+
+CAOS's path:
+
+1. **Become an authorised eMudhra DSC reseller** (Year 1, easy): standard partnership; 5-15% margin per DSC sold; gives CAOS a bundled DSC purchase flow inside the product (CFO gets DSC + CAOS in one onboarding).
+
+2. **DSC management layer** (Year 1-2): even without reseller status, CAOS can offer DSC inventory management ("which director / authorised signatory across 50 subsidiaries holds which DSC, with expiry tracking and e-sign integration"). This is one of the an underclaimed surface area — eMudhra and competitors don't ship this; CAOS can.
+
+3. **e-Sign integration** (Year 1-2): partner with Signzy (500+ customers), Leegality (5,000+ businesses), or build direct integration with eMudhra's eSign API. The volume is real; UIDAI's Aadhaar-eSign infrastructure handles millions of signatures monthly.
+
+## Sequencing across DPI partnerships
+
+| Ecosystem | Year 1 | Year 2 | Year 3 | Year 4+ |
+|---|---|---|---|---|
+| AA framework | TSP-mediated consumer | FIU registered | TSP partner for redistribution | Optional own AA |
+| GSP / IRP | ASP under existing GSP | Multi-GSP redundancy | Multi-GSP + own IRP integration | Own GSP licence |
+| ERI | Partner with ClearTax/TaxCloud | Continue partnering | Type 2 ERI registration | Type 2 + Type 1 (rare) |
+| DigiLocker | Read-only consumer | Read-only + push for issued docs | Push for CAOS-generated docs | Issuer status |
+| eMudhra DSC | Reseller | Reseller + DSC inventory layer | Reseller + e-Sign API integration | Possible own CA (rare) |
+| eSign (Signzy / Leegality) | Partner | Partner | Build direct + maintain partner | Direct primary |
+
+## Why this is a moat, not just a feature
+
+<Aside type="tip" title="The regulatory moat compounds">
+A 2027-vintage competitor that wants to compete with CAOS on the same flywheel must also acquire FIU + ASP + ERI Type 2 + eMudhra reseller + eSign relationships. That takes 18-24 months minimum and requires regulatory acceptance that's not always given. **CAOS that starts these registrations in Year 1-3 has a 24-month moat by Year 4.**
+
+This is the single biggest reason DPI participation belongs in GTM, not just engineering. The participation IS the distribution.
+</Aside>
+
+Each registration also carries a brand-credibility halo. CAOS as "FIU-registered + Type 2 ERI + Cygnet GSP partner + eMudhra reseller" is a much harder sell to displace than CAOS as "yet another SaaS app." Enterprise procurement teams and CIOs evaluate vendor stacks; DPI participation is a checkbox they expect.
+
+## Connection to other channels
+
+DPI partnerships **multiply** the [audit firm channel](/caos/gtm/audit-firm-partnerships/) — audit firms increasingly want their tooling stack to be DPI-native (NFRA scrutiny is moving in that direction). They **strengthen** the [Tally Master partner pilot](/caos/gtm/tally-partners/) — Tally Master partners can sell CAOS as "the DPI-ready layer above Tally" rather than just an add-on. They **enable** the [vendor-network flywheel](/caos/flywheel/phase-2-vendor-network/) at scale because vendor verification becomes consent-driven via AA, not document-collection-driven.
+
+See [Sequencing](/caos/gtm/sequencing/) for how DPI partnerships time-align with the four flywheel phases over 60 months.

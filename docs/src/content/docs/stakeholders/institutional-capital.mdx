@@ -1,0 +1,123 @@
+---
+title: "Institutional capital — banks, NBFCs, lenders, investors"
+description: "1,157 AA framework participants, 17 NBFC-AAs, ~12,000 NBFCs, 90+ banks. AA cumulative consents 43.11 cr; monthly 22.31M (Mar 2026, +78.6% YoY). ₹1.67 lakh cr loans facilitated FY25 alone via AA. Why institutional capital is the Phase 4 buyer side of the fact graph."
+sidebar:
+  order: 7
+---
+
+import { Aside, Card, CardGrid } from '@astrojs/starlight/components';
+
+Institutional capital — banks, NBFCs, lenders, investors — sits at the top of the [composite flywheel](/caos/flywheel/composite/). They do not buy compliance software directly. They **consume the data the rest of the network produces** to underwrite loans, monitor covenants, do diligence, and price risk.
+
+The Account Aggregator framework has made this consumption legally observable and consent-mediated. The institutional capital pool is therefore the **Phase 4 buyer side of the fact graph** — they pay CAOS for graph access (subscription on the consumer side of the consent infrastructure), not for being a vendor.
+
+<Aside type="tip" title="Why &quot;not just being a vendor&quot;">
+The lender-as-stakeholder reading does not treat banks as buyers of CAOS SaaS. It treats banks as buyers of consent-mediated data flowing through CAOS-onboarded entities. Phase 4 monetisation is structurally similar to Plaid in the US — entity-side users get the platform free or cheap; institutional consumers pay for graph access; the consent flow is the legal substrate.)
+</Aside>
+
+## The Account Aggregator framework — verified scale
+
+The AA framework has crossed near-enterprise scale and continues to grow at 78.6% YoY. Every number below is current as of Mar 2026 reporting.
+
+| Metric | Value | As of | Source |
+|---|---|---|---|
+| **NBFC-AAs (RBI-licensed)** | **17** | Mar 2026 | [Sahamati AAs](https://sahamati.org.in/account-aggregators-in-india/) |
+| **AA total ecosystem participants** | **1,157** (155 FIPs Aug 2024 + 475 FIUs + crossovers) | Mar 2026 | [Sahamati FIP-FIU page](https://sahamati.org.in/fip-fiu-in-account-aggregators-ecosystem/) |
+| **AA cumulative accounts linked** | **28.46 cr (284.565 million)** | Mar 31, 2026 | [Sahamati dashboard](https://sahamati.org.in/aa-dashboard/) |
+| **AA cumulative consents fulfilled** | **43.11 cr (431.072 million)** | Mar 31, 2026 | [Sahamati dashboard](https://sahamati.org.in/aa-dashboard/) |
+| **AA monthly consents (Mar 2026)** | **22.31 million** | Mar 2026 | [Sahamati dashboard](https://sahamati.org.in/aa-dashboard/) |
+| AA monthly data delivery (Mar 2026) | 276.22 million data points | Mar 2026 | [Sahamati dashboard](https://sahamati.org.in/aa-dashboard/) |
+| **AA daily consent rate (FY25 avg)** | **2.84 lakh/day (vs 1.59 lakh FY24, +78.6% YoY)** | FY25 | [Business Standard / Sahamati](https://www.business-standard.com/finance/news/aa-ecosystem-consent-processing-up-78-in-fy25-shows-sahamati-data-125031301053_1.html) |
+| **AA loans facilitated cumulative** | ₹42,300 cr / 4.2M loans (end FY24) → **₹1.67 lakh cr / 1.89 cr loans (FY25 alone)** | FY25 | [Sahamati impact report](https://sahamati.org.in/the-credit-reimagined-account-aggregator-aa-impact-report-h2-fy25/) |
+
+The **78.6% YoY consent growth** and **39x growth in lending facilitated** between FY24 and FY25 mark the AA framework as one of the fastest-scaling pieces of public digital infrastructure globally — comparable to UPI's early adoption curve. The infrastructure is at the threshold where consent-mediated data flows become the default for credit decisioning, not an experiment.
+
+## The institutional consumer pool
+
+Beyond the AA framework participants, the broader institutional consumer pool that buys access to financial fact graphs:
+
+| Category | Approximate count | Note |
+|---|---|---|
+| **AA framework participants total** | **1,157** | [Sahamati FIP-FIU](https://sahamati.org.in/fip-fiu-in-account-aggregators-ecosystem/) |
+| RBI-licensed NBFCs | ~12,000 | Industry approximation |
+| Scheduled commercial banks | 90+ | Industry approximation |
+| SEBI-registered investment advisors | ~100+ large + thousands smaller | (specific verified counts pending) |
+| Big-6 audit firms | 6 | See [auditors page](/caos/stakeholders/auditors/) |
+| Mid-tier audit firms | ~20 organised | See [auditors page](/caos/stakeholders/auditors/) |
+| M&A diligence / transaction advisory firms | Several hundred | (specific counts not centrally tracked) |
+| **Plausible Phase 4 institutional consumer pool** | **~1,500-2,000 entities** | |
+
+## AA composition — lending dominates the consent flow
+
+The AA framework's consent flows are dominated by lending use cases. Roughly **74% of AA consents** are tied to retail and MSME lending decisions (Sahamati's reported share of lending vs other use cases varies; the dominant share is lending). The remaining 26% covers wealth management onboarding, insurance underwriting, and credit-monitoring services.
+
+| AA consent driver | Share of consents | Implication |
+|---|---|---|
+| **Retail + MSME lending** | ~74% | Phase 4 monetisation should focus on lender-side subscription to MSME / SME entity graph |
+| Wealth management onboarding | ~10-15% | Adjacent — AA infrastructure commonality with PMS / mutual fund onboarding |
+| Insurance underwriting | ~5-10% | Health insurance + commercial underwriting use cases |
+| Credit monitoring (consumer + commercial) | ~5-10% | Continuous data refresh post-loan-disbursal |
+
+## Why institutional capital matters to the flywheel
+
+<CardGrid stagger>
+ <Card title="Phase 4 buyer side" icon="rocket">
+ Lenders, investors, auditors, and advisors all want access to the entity fact graph for underwriting / diligence / assurance. CAOS becomes the **Plaid + Carta + ERP-snapshot** of Indian businesses — consent-mediated. Average graph-access subscription ₹50K-5L/month per institutional consumer = **₹200 cr - ₹2,000 cr ARR ceiling by Year 5+**.
+
+ See [Phase 4 DPI graph flywheel](/caos/flywheel/phase-4-dpi-graph/).
+ </Card>
+ <Card title="Pulls SME demand for credit" icon="approve-check">
+ SMEs that join CAOS see better loan terms because their data is consent-shareable. **Lender-side subscription funds free / cheap features for SME entities** — enabling adoption pulled by SME demand for credit, not just compliance. Three-sided value creation.
+ </Card>
+ <Card title="DPDP Act enforcement (May 2027) makes consent the legal default" icon="setting">
+ The DPDP Act enforcement deadline turns consent-driven sharing into the mandatory market posture. CAOS's design becomes default-mode for India. Competitors that lack consent-flow architecture must rebuild; CAOS is built for it from Day 1.
+ </Card>
+ <Card title="78.6% YoY growth means infrastructure scales ahead of demand" icon="document">
+ The AA framework is growing 78.6% YoY in consent volume — meaning the underlying infrastructure can absorb 10x more demand than it serves today. Institutional readiness is not the bottleneck; CAOS's task is to bring 5-10 lakh entities into the consent flow by Year 4-5 (~1-2% of consent-flowing entities).
+ </Card>
+</CardGrid>
+
+## Phase 4 monetisation math
+
+The [Phase 4 DPI fact graph](/caos/flywheel/phase-4-dpi-graph/) sizing math:
+
+| Phase 4 input | Modelled value | Source |
+|---|---|---|
+| AA growth trajectory | 1.59 lakh daily consents FY24 → 2.84 lakh FY25 = +78.6% YoY → projected 5-7 cr cumulative consents by 2027 | [Sahamati impact report](https://sahamati.org.in/the-credit-reimagined-account-aggregator-aa-impact-report-h2-fy25/) |
+| CAOS entity-side share | 5% of AA-consent-flowing entities = **5-10 lakh entities with consent infrastructure** | |
+| Consumer-side TAM | 1,157 AA participants + ~100 SEBI investment advisors + ~50 large NBFCs with retail-MSME books + Big-6 + 50 mid-tier audit firms = **1,500-2,000 institutional consumers** | |
+| Average graph-access subscription | ₹50K-5L/month per institutional consumer | |
+| **Resulting Phase 4 ARR ceiling** | **₹200 cr - ₹2,000 cr by Year 5+** | |
+| Lender-fee monetisation cross-check | If 1% of Sahamati's reported ₹1.67 lakh cr FY25 lending flowed through CAOS entities → ₹1,670 cr lending volume → **~₹17-50 cr in lender-side fees** | |
+
+## Background — broader Indian credit and capital market context
+
+Verified macro context for sizing the institutional-capital opportunity:
+
+| Metric | Value | As of | Source |
+|---|---|---|---|
+| Cos with FDI/ODI (RBI census) | 37,407 of 41,653 respondents | Mar 2024 | [Business Standard / RBI census](https://www.business-standard.com/finance/news/us-continues-to-be-largest-source-of-fdi-in-india-rbi-annual-census-124101100905_1.html) |
+| Indian OFDI | ₹3,25,631 cr / US$37.68 bn | 2024 | [IBEF](https://www.ibef.org/economy/indian-investments-abroad) |
+| ECB outstanding (total) | US$190.4 bn | Sep 2024 | [PIB / RBI](https://www.pib.gov.in/PressReleasePage.aspx?PRID=2096480) |
+| India fintech funding | $2.5B (2024, –19% YoY); $2.5B (2025, flat) | CY24/25 | [Inc42 fintech 2024](https://inc42.com/features/fintech-startups-face-19-funding-decline-in-2024-down-to-2-5-bn/), [Inc42 fintech 2025](https://inc42.com/features/fintech-funding-holds-steady-at-2-5-bn-in-2025-despite-sharp-drop-in-deals/) |
+| Indian SaaS H1 funding | $915M (+33% YoY) | H1 2024 | [Inc42 SaaS](https://inc42.com/buzz/indian-saas-startup-funding-sees-33-yoy-spike-in-h1-2024/) |
+
+## DigiLocker — the consumer-side trust adjacency
+
+DigiLocker is the consumer-side analogue to AA (document storage and verified-issuer access). Its scale gives a useful read on Indian comfort with consent-driven sharing:
+
+| Metric | Value | As of | Source |
+|---|---|---|---|
+| **DigiLocker registered users** | **62 cr+ (620 million)** | May 2026 | [DigiLocker home](https://www.digilocker.gov.in/) |
+| **DigiLocker documents issued** | **950 cr+ (9.5 billion)** | May 2026 | [DigiLocker home](https://www.digilocker.gov.in/) |
+| Active issuers | 1,936 | Mar 2025 | [NeGD-published research](https://negd.gov.in/wp-content/uploads/2025/10/Charru-Malhotra-DIgilocker-the-digital-Vault-of-India.pdf) |
+| Active requesters | 2,407 | Mar 2025 | [NeGD-published research](https://negd.gov.in/wp-content/uploads/2025/10/Charru-Malhotra-DIgilocker-the-digital-Vault-of-India.pdf) |
+
+DigiLocker's 62 cr users + 950 cr docs issued is the strongest signal that **consumer-side comfort with consent-driven document sharing already exists at scale** — the AA framework's consent flow leverages the same primitive comfort.
+
+## Cross-references
+
+- **Phase 4 flywheel** — see [DPI-powered fact graph](/caos/flywheel/phase-4-dpi-graph/) for sizing and pre-conditions
+- **AA / GSP / ERI participation decision** — see [decision D7](/caos/decisions/d7-aa-gsp-eri-participation/) for the FIU-first strategy
+- **Tech partners** — see [tech and service partners](/caos/stakeholders/tech-partners/) for the AA / GSP / ERI / DSC integration map
+- **Document flows** — see [the bank/treasury document family](/caos/stakeholders/document-flows/) for the documents that flow into lender diligence

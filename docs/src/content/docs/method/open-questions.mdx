@@ -1,0 +1,129 @@
+---
+title: "Research gap queue"
+description: "12 priority items requiring primary research (RTIs, commissioned surveys, founder interviews) plus 22 follow-on investigations. Estimated ₹3-5 lakh budget + 30-40 person-days for the next round. The honest list of what we still don't know."
+sidebar:
+  order: 5
+---
+
+import { Aside, Card, CardGrid } from '@astrojs/starlight/components';
+
+This page is the honest list of what the research **does not yet know** despite the verified-numbers atlas + 4-agent research pass that produced [the verified-numbers atlas](/caos/method/data-atlas/). Twelve priority items need primary research (RTIs to government bodies, commissioned surveys, vendor interviews) before being safely cited in pitch decks or product specs. Twenty-two further investigations from (/caos/method/data-atlas/) round out the queue.
+
+The queue exists for two audiences:
+
+1. **Internal** — the next research budget allocation. Estimated ₹3-5 lakh + 30-40 person-days to clear the critical tier.
+2. **External transparency** — readers who want to know what's solidly grounded vs what's still speculative. Linked from [the data atlas](/caos/method/data-atlas/) and [Research approach](/caos/method/data-atlas/).
+
+## The 12 priority gaps
+
+Each gap below could not be authoritatively sourced during the 4-agent research pass that produced the [data atlas](/caos/method/data-atlas/). Each, if verified, would tighten the flywheel sizing materially.
+
+| # | Gap | Why it matters | Best probable source | Effort estimate |
+|---|---|---|---|---|
+| G1 | **ICAI tech-adoption survey ("&lt;2% PMS")** | Single most-quoted figure from earlier research; load-bearing for "low-base TAM" pitch | Commissioned survey of 500 CA firms across firm-size bands; or RTI to ICAI Tech Committee for any internal data | 15-20 person-days + ₹1-2 lakh survey vendor cost |
+| G2 | **GSTPs total enrolled count** | Sizing of practitioner-adjacent segment | RTI to GSTN | 5 person-days (RTI prep + follow-up) |
+| G3 | **ERI Type 1 vs Type 2 split + named entities** | Sizing of competitor / partner pool for Phase-3 ERI registration | Direct CBDT request + RTI; cross-check ClearTax / TaxCloud public disclosures | 5 person-days |
+| G4 | **AA FIP/FIU sub-category split** (banks / NBFCs / MFs / insurance / GST-IT) | Sizing of institutional consumer side for Phase-4 fact graph monetisation | Sahamati API or direct outreach; alternatively, RTI to RBI | 8 person-days |
+| G5 | **Form 26AS / AIS / TIS access volumes** | Validating per-CA engagement volume for the [CA-Led flywheel](/caos/flywheel/phase-1-ca-led/) | Direct CBDT request; cross-check ITD Annual Report | 6 person-days |
+| G6 | **Sec 143(2) / 142(1) / 148 / 148A notice volumes** | Sizing notice-intake use case | RTI to CBDT | 6 person-days |
+| G7 | **MCA21 form-level breakdown** (AOC-4 vs MGT-7 vs DIR-3 KYC etc.) | Sizing per-form workflow ARR potential | RTI to MCA | 5 person-days |
+| G8 | **GST notice volume split** (DRC-01 vs ASMT-10 vs RFD-01 vs APL-01 etc.) | Sizing notice-intake by type and stage | RTI to CBIC | 6 person-days |
+| G9 | **Tally market share definitive** | Validates "layer above Tally" positioning | Tally Annual Report (private co — limited disclosure); or commissioned IDC / Gartner study | 8 person-days + ₹50K-1 lakh study cost |
+| G10 | **vCFO firm sizes and customer counts** (MyCFO, CFO Bridge, Mercurius, Crescendo Worldwide) | Sizing partner / competitor channel for [Audit Workspace bridge](/caos/flywheel/phase-3-audit-workspace/) | Direct outreach + interviews with top 10 vCFO firms | 12 person-days |
+| G11 | **MSME 45-day default rate post Sec 43B(h)** | Sizing 43B(h) pain → vendor master + AP intake use cases | RBI MSME report + [Aspire Financial Express](https://aspire.financialexpressb2b.com/) industry data; RTI to MoMSME | 8 person-days |
+| G12 | **Statutory audits per partner** (actual vs cap of 20) | Sizing audit workspace TAM at partner-engagement level | NFRA + ICAI Audit Quality Review reports + RTI to NFRA | 8 person-days |
+
+**Critical-tier total**: ~92-102 person-days + ₹2-4 lakh hard cost.
+
+## The 22 file-13 follow-on investigations (R1-R22)
+
+Customer-discovery interviews and Big-4 partnership conversations remain the open primary-research workstream.
+
+### Critical (do in next 30 days)
+
+| # | Investigation | Method | Output | Effort |
+|---|---|---|---|---|
+| R1 | Verify the 6 load-bearing figures from earlier research in [the data atlas](/caos/method/data-atlas/) | Surveys + secondary research + scrape public data | One-pager: "what we believed vs what we now know" | 5 person-days (2 days remain of primary research) |
+| R2 | Talk to 15 mid-market controllers (₹50-500 Cr cos) about top 5 finance-team use cases | Customer discovery interviews (45-60 min each) | Validated pain ranking + WTP ranges + buyer-titles | 10 person-days |
+| R3 | Talk to 5 Big-4 / mid-tier audit firm partners about Audit Workspace bridge | Qual interviews | Validated bridge thesis + willingness to partner + pilot offer | 5 person-days |
+| R4 | Map ClearTax-Enterprise / IRIS / Avalara India / Volopay / EnKash positioning vs CAOS proposed Business SKU | Comp deep-dive (websites + customer interviews + pricing) | Coverage matrix + price benchmark + differentiation map | 7 person-days (partially done in ) |
+| R5 | Validate the bridge UX: prototype the Audit Workspace flow with 2 CA firms + their 2 client finance teams | Paper prototype + clickable Figma + 2-week walkthrough | Validated workflow + initial feature spec | 10 person-days |
+| R6 | Architecture review of the [10 file-13 + 8 file-14 pre-investments](/caos/decisions/architectural-pre-investments/) against the 26 design-decisions | Internal session with CAOS team | Updated design decisions (002, 011, others) + architectural decision log | 3 person-days |
+
+### High (do in next 60 days)
+
+| # | Investigation | Method | Output | Effort |
+|---|---|---|---|---|
+| R7 | Map 50 Indian BRSR-mandated companies' actual data-collection workflow | Public disclosure + 5-10 conversations | BRSR Core MVP feature spec + WTP | 10 person-days |
+| R8 | Talk to 10 Virtual CFO firms about partnership / reseller model | Qual + commercial discussion | vCFO partner program design | 7 person-days |
+| R9 | Understand FIP / FIU / GSP / ERI Type 2 certification cost, time, and competitive moat | Regulator + practitioner interviews | Roadmap for each certification with timeline + cost | 8 person-days |
+| R10 | Quantify the MSME 45-day clock + Sec 43B(h) compliance pain across 30 mid-market cos | Surveys + interviews | MSME tracker MVP spec + WTP | 5 person-days |
+| R11 | Tally Partner Network corporate-side reach: how many partners serve corporate finance vs CA practice | Conversations with 20 Tally partners | Channel map + economics | 7 person-days |
+| R12 | Pricing test: one-page pricing proposal showed to 30 controllers; what do they react to | Conjoint-lite survey | Refined pricing model | 5 person-days |
+| R13 | Field interview: 8 in-house Company Secretaries on ROC event-filings and DSC pain | Qual | Compliance Officer feature spec | 5 person-days |
+| R14 | Survey 50 CAs: would they recommend CAOS to their corporate clients if revenue-share offered | Email survey | Validated CA-referral channel demand | 3 person-days |
+
+### Medium (do in next 90 days)
+
+| # | Investigation | Method | Output | Effort |
+|---|---|---|---|---|
+| R15 | Notice intake: scrape 100 anonymized GST/IT/MCA notices from public records; classify and extract | Engineering + legal | Notice taxonomy + extraction MVP feasibility | 12 person-days |
+| R16 | Bank statement format catalog: collect 5+ statements per Indian bank (top 30 banks); build parsing schemas | Engineering | Bank-stmt schema corpus | 15 person-days |
+| R17 | Foreign analog scan: deep-dive Karbon, Senta, Practice Engine, Caseware, Wolters Kluwer for the bridge model | Public + secondary | Feature gap map + India-context translation | 8 person-days |
+| R18 | India enterprise-finance-tech funding map: who's funded, what stages, total $ in last 3 years | Crunchbase + Tracxn + press | Competitive funding context for fundraise | 5 person-days |
+| R19 | Audit committee dashboard requirements at 20 listed companies | Public disclosures + interviews | Audit committee SKU spec | 8 person-days |
+| R20 | Tax-litigation workflow at 10 mid-market + 5 large companies | Interviews | Hearing-prep MVP spec | 8 person-days |
+| R21 | Shadow 3 statutory audits end-to-end (auditor + client side) for the bridge feature spec | Field observation | Audit Workspace detailed spec | 15 person-days |
+| R22 | Vendor onboarding workflow benchmark across 20 mid-market companies | Surveys + screen recordings | Vendor Onboarding MVP spec | 7 person-days |
+
+### Continuous monitoring
+
+| Topic | Watch list |
+|---|---|
+| Zoho Practice roadmap | Quarterly review of releases; especially India compliance pack, Tally connector, WhatsApp |
+| TaxOne / Vyapar PMS announcement | Press + product hunts (Vyapar acquired Suvit Nov 2025 — track integration milestones) |
+| Tally Solutions corporate variants | TallyEdge, TallyPrime corporate, Tally AP automation |
+| ICAI advertising reform implementation | April 2026 deadline; track CA inbound-marketing reactions |
+| DPDP Act enforcement | May 2027 deadline; track DPB rules + first enforcement actions |
+| GSTR-2B / 2A / e-invoice / GSTR-9 schema changes | GSTN council notifications |
+| MCA21 V3 (next-gen) rollout | Feature changes; integration opportunity |
+| Account Aggregator FIP / FIU adoption among banks | RBI dashboards; bank-wise readiness |
+| BRSR Core mandate expansion beyond top-1000 | SEBI consultation papers |
+| ERI Type 2 license updates from CBDT | Income Tax Dept circulars |
+
+## Estimated next-round budget
+
+<Aside type="tip" title="The ask">
+**Critical tier (G1-G12 + R1-R6)**: ~₹3-5 lakh + 90-120 person-days. Can be done in 8-10 calendar weeks with 2 researchers + ad-hoc engineering support.
+
+**Output**: a tightened version of the [data atlas](/caos/method/data-atlas/) with 90%+ of unverified claims primary-source-validated; a feature-prioritised a future product spec; a Big-4 partnership pilot offer; a pricing model validated with 30+ controllers.
+
+**Justification**: every ₹1 of next-round research budget removes ~₹1-2 lakh of risk from the Phase 0-3 build. Verifying G1 alone (the "&lt;2% PMS adoption" claim) determines whether the file-01 TAM was understated by 10x or by 30x — a ₹3,000 cr difference in board-pack defensibility.
+</Aside>
+
+## Outputs to produce alongside research
+
+The next round should also generate three durable artifacts:
+
+- A **fact-graph spreadsheet** — every claim in files 01-14 mapped to evidence quality (strong / medium / weak / anecdotal). Quarterly refresh.
+- A **persona map poster** — 1-pager per persona with day-in-life, pain, today's hack, our wedge, WTP. Useful for sales enablement.
+- A **bridge journey map** — shows the doc/notice/audit-query/JV crossing the CA-Finance team boundary; highlights where today's friction is. Useful for [Audit Workspace](/caos/flywheel/phase-3-audit-workspace/) feature spec.
+
+## What changes when each gap is closed
+
+A research gap closing changes a specific decision or claim:
+
+- **G1 closes** → [TAM sizing](/caos/market/tam-sizing/) loses the "&lt;2% PMS" callout entirely; addressable TAM becomes a verified range, not an estimate
+- **G2-G3 close** → [Practitioners stakeholder page](/caos/stakeholders/practitioners/) gets a tighter GSTP + ERI count
+- **G4 closes** → [DPI ecosystem](/caos/gtm/dpi-ecosystem/) gets concrete partnership target counts per category
+- **G5-G8 close** → [Workflow volumes](/caos/market/workflow-volumes/) becomes the canonical Indian compliance-volume reference
+- **G9 closes** → [Tally / ERP integration](/caos/product/tally-erp-integration/) loses the "70-80% market share (cited)" caveat
+- **G10 closes** → vCFO partner program goes from concept to spec
+- **G11 closes** → MSME 45-day use case priority gets re-ranked in [Use cases](/caos/product/use-cases/)
+- **G12 closes** → [Audit firm partnerships](/caos/gtm/audit-firm-partnerships/) gets engagement-level TAM
+- **R2-R3-R5 close** → product spec for [Audit Workspace](/caos/flywheel/phase-3-audit-workspace/) gets locked
+- **R10-R11-R14 close** → [GTM channel architecture](/caos/gtm/channel-architecture/) gets validated channel-mix economics
+
+## How to contribute
+
+If you have access to any of the data above (you work at ICAI / CBDT / GSTN / NFRA / a Big-4 firm / a vCFO firm / a Tally Master partner) and can validate or extend any of the items in this queue: please reach out via [LinkedIn](https://www.linkedin.com/in/rakeshwaghela) or [Topmate](https://topmate.io/rakeshwaghela). Contributions will be credited in [Research approach](/caos/method/data-atlas/).

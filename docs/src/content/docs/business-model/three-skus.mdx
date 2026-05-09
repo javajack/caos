@@ -1,0 +1,145 @@
+---
+title: "Three SKUs — Practice / Business / Enterprise"
+description: "One brand, three SKUs aligned to three buyers. CAOS for Practice (CAs and CA firms), CAOS for Business (Indian companies ₹50-500 cr), and CAOS Enterprise (₹500 cr+ groups, listed cos, MNCs) — each layered on the same atomic primitives, sold to a different decision-maker, priced on the unit that buyer actually budgets against."
+sidebar:
+  order: 1
+---
+
+import { Aside, Card, CardGrid } from '@astrojs/starlight/components';
+
+<Aside type="note" title="If you're …">
+- **A founder or investor** sizing the revenue mix: read this for the SKU mix, then jump to [unit economics](/caos/business-model/unit-economics/) and [revenue path](/caos/business-model/revenue-path/).
+- **A CFO or procurement lead** evaluating the platform: jump to the Business and Enterprise SKU sections below for the per-entity pricing and add-on architecture.
+- **A CA practitioner**: jump to the Practice SKU section for per-firm + per-staff seat pricing.
+- **An audit firm**: the Enterprise SKU includes the Audit Workspace bridge — that's the per-engagement licence terms you'd evaluate.
+</Aside>
+
+The original CAOS plan sized one SKU for one buyer — the [1,00,138 CA firms](https://thefinancestory.com/mid-sized-indian-ca-firms-employing-20-percent-audit-workforce). That SKU is correct for Phase 0-3 but caps total addressable revenue at the CA-only band. The verified-numbers re-pass identifies two more buyers running on the same [15 atomic primitives](/caos/product/atomic-primitives/): in-house finance teams in [18.17 lakh active MCA companies](https://www.newkerala.com/news/o/number-active-companies-registered-india-crosses-1817-lakh-jan-297) and Audit Workspace consumers in the [326 of 483 Big-6-audited Nifty 500 companies](http://www.primedatabasegroup.com/newsroom/BIG_6_CONTINUE_DOMINANCE_OF_INDIAN_AUDIT_LANDSCAPE_2024-25.pdf).
+
+The packaging answer is **one brand, three SKUs**, not three products and not three brands. The architectural overlap is 80%+; a dual-brand split would waste engineering reuse and confuse the marketing story; and **60.8% of the corporate buyer is, statistically, a CA herself** ([2,48,072 ICAI members in industry](https://finance.careers360.com/articles/icai-student-and-member-report-2025), ) — "CA-grade" reads as positive credibility transfer, not as a small-business toy. See [decision D2](/caos/decisions/d2-single-brand/) for the brand-strategy reasoning in full.
+
+<Aside type="tip" title="The single-SKU rule">
+A feature only earns multi-SKU placement if it serves at least one CA persona AND at least one finance-team persona — the architecture decision check, the one-line decision check for every new module proposed.
+</Aside>
+
+## SKU 1 — CAOS for Practice
+
+The CA wedge. The current Phase 0-3 product. Sold to the [1,59,557 COP holders](https://finance.careers360.com/articles/icai-student-and-member-report-2025) practising in the [1,00,138 ICAI-registered firms](https://thefinancestory.com/mid-sized-indian-ca-firms-employing-20-percent-audit-workforce) — 72.6% sole-prop, 21,750 two-to-three-partner firms, 3,563 four-to-five-partner firms, and the 2,129 six-plus-partner firms that employ 41,478 staff (22.6% of total firm workforce).
+
+**Core modules** (Phase 0-3 plan):
+
+| Module | Powers | Source primitive |
+|---|---|---|
+| Client management | CA's client master, CRM, scope tracking | P2, P12 |
+| Compliance calendar | 22-entity × ~100-deadline cascading matrix | P3 |
+| Document collection | OTP-gated portal + WhatsApp + email | P4, P10 |
+| Document intelligence (Tier 1) | 26AS, Form 16, bank statement, GSTR-9C, Tally TB | P1, P14 |
+| Tally export | Idempotent voucher write-back | P9 |
+| Billing | Engagement-based invoicing | P11 |
+| Comms | Email + WhatsApp + portal abstracted | P10 |
+| Client portal | OTP-gated public surface for client uploads | P4, P10, P11 |
+
+**Pricing:** per-firm + per-staff seat, **₹500-1,500/seat/month**, 5-seat minimum. This matches CA mental model — CA firms already think in headcount-per-staff for engagement profitability) and benchmark against [Tally per-license ₹18K/yr](https://tallysolutions.com/about-tally/) and [Vyapar ₹2K-3K/month tiers](https://vyaparapp.in/desktop-pricing) for adjacent software spend.
+
+**Add-ons:** WhatsApp messaging volume (per-1000 messages), document-AI extraction volume (per-1000 pages), portal storage (per-GB above default).
+
+**Onboarding:** ICAI membership ID + email + first-5-clients import. Demo data on by default. The first-5-clients flow is the magic-moment rehearsal for the [Phase 1 CA-Led flywheel](/caos/flywheel/phase-1-ca-led/) — if the CA cannot get the first invite-and-upload round-trip done in under 2 minutes, the loop is dead.
+
+## SKU 2 — CAOS for Business
+
+The mid-market wedge. Sold to Indian companies with revenue ₹50-500 crore — the lower-mid (revenue ₹50-200 cr, finance team 6-15) and upper-mid (revenue ₹200-500 cr, finance team 15-30) bands of the [ICP segmentation by company size](/caos/stakeholders/in-house-finance/). Total addressable: ~5,000-15,000 Indian companies; current ARPU spend on compliance software ₹2-10 lakh/year per company, fragmented across 6-12 vendors, none integrated.
+
+**Modules — 18 of the 25 finance-team use cases** "cheap to add" list — reuses existing primitives 1:1):
+
+| Module | Buyer persona | WTP/month | Primary primitives |
+|---|---|---|---|
+| Vendor Onboarding + KYC + MSME | F5 AP Manager / Procurement | ₹25K-1.5L | P1, P2, P8 |
+| GSTR-2B Reco Multi-GSTIN | F3 GST Lead | ₹25K-1L | P1, P7, P9 |
+| Notice Inbox (GST/IT/MCA/PF/ESI/Customs) | F10 Compliance Officer | ₹25K-1L | P6, P13 |
+| AP Workflow (3-way match exception) | F5 AP Manager | ₹30K-2L | P1, P2, P7, P8, P9 |
+| Bank Reco Multi-Bank | F9 Treasury | ₹20K-75K | P1, P7, P13 |
+| TDS Reco (26AS / AIS / 26Q) | F4 Direct Tax Lead | ₹20K-75K | P1, P7 |
+| MSME 45-day Tracker (Sec 43B(h)) | F5 AP / F2 Controller | ₹30K-1L | P2, P3, P11 |
+| Statutory Calendar — Corporate | F10 Compliance Officer | ₹15K-1L | P3 |
+| Audit PBC Workspace (Phase 3 entry-level) | F7 Statutory Audit Liaison | ₹20K-75K | P4, P5, P10, P11 |
+| Year-end balance confirmation campaigns | F7 Audit Liaison | ₹15K-50K seasonally | P4, P10 |
+| Sec 194Q tracking | F4 Direct Tax Lead | ₹15K-50K | P2, P7, P9 |
+| E-Invoice / IRN exception handling | F3 GST Lead | ₹15K-50K | P1, P7 |
+| Hearing prep pack assembly | F4 / Tax Litigation | ₹25K-1L | P5, P6 |
+| Intercompany reco + elimination working | F11 Group Consol Lead | ₹25K-1L | P7, P9 |
+| Related-party transaction tracking | F10 + Audit Committee | ₹15K-50K | P2, P5, P11 |
+| ROC/MCA event-based filings tracker | F10 Compliance Officer | ₹15K-50K | P3, P6 |
+| Advance tax computation + payment schedule | F4 Direct Tax Lead | ₹10K-30K | P9, P15 |
+| Fixed Asset Register vs IT Block reco | F2 Controller | ₹15K-40K | P7, P9 |
+
+**Pricing:** per-entity (CIN) base **₹15K-40K/month** + module add-ons à la carte (₹5-15K/module/month) + per-seat above 10 seats (₹500-1K/seat/month). This is the hybrid Indian finance teams actually buy — see [pricing architecture](/caos/business-model/pricing-architecture/) for why per-volume + per-entity beats per-seat in compliance products. Verified comparables: [ClearTax-Enterprise](https://www.clear.in/s/about-us) various; [Avalara India](https://www.avalara.com/in/en/index.html) per-transaction; [IRIS Business Services](https://www.irisbusiness.com/) per-entity per-module.
+
+**Onboarding:** company + GSTIN + first ledger upload; **30-day trial** with seeded sample data. Solutioning workshop offered above ₹2L/month contract value.
+
+## SKU 3 — CAOS Enterprise
+
+The lighthouse wedge. Sold to Indian groups with revenue ₹500 crore+, [BSE-5,936 + NSE-2,867 listed companies](https://blog.shoonya.com/how-many-companies-are-listed-in-nse-and-bse/), the [top 1,000 BRSR-mandated cos](https://www.sebi.gov.in/legal/circulars/jul-2023/brsr-core-framework-for-assurance-and-esg-disclosures-for-value-chain_73854.html), and Indian operations of MNCs. Includes everything in Practice + Business plus the [Phase 3 Audit Workspace bridge](/caos/flywheel/phase-3-audit-workspace/) and the heavyweight regulatory modules.
+
+**Enterprise-only modules:**
+
+| Module | Mandate / use case | Source data anchor |
+|---|---|---|
+| Audit Workspace (Big-6 + mid-tier integration) | Replace Caseware-on-auditor + Excel-on-client friction; share evidence locker | [326 of 483 Nifty 500 audited by Big-6](http://www.primedatabasegroup.com/newsroom/BIG_6_CONTINUE_DOMINANCE_OF_INDIAN_AUDIT_LANDSCAPE_2024-25.pdf); [NFRA's 94 disciplinary orders + 12 inspection reports](https://taxguru.in/company-law/action-nfra-prevent-audit-failure-regulatory-lapses.html) |
+| IFC (ICFR) controls evidence + testing log | Sec 134(5)(e) Companies Act 2013 mandate | F8 Internal Audit Manager WTP ₹30K-1.5L |
+| Group Consolidation Reco (intercompany + elimination) | IND-AS 110, multi-entity ICO matching | F11 WTP ₹50K-3L |
+| BRSR Core Data Collection + Plant data pulls | [SEBI top-1000 mandate; Core glide path 150→1,000 by FY27](https://greenplaces.com/regulation/sebi-business-responsbility-sustainability-report/) | BRSR Lead WTP ₹50K-2L |
+| Hearing Prep Pack assembly | Tax-litigation; IT/GST appellate | F4 / Litigation WTP ₹25K-1L |
+| TP Doc Pack (master file + local file + 3CEB) | Sec 92 IT Act | TP Lead WTP ₹50K-2L |
+| RPT Tracker (Sec 188 + IND-AS 24 + SEBI Reg 23) | Audit committee, listed-co disclosure | F10 + Audit Committee WTP ₹15K-50K |
+| ROC event-based filings (CHG, MGT-14, DIR-12) | MCA21 V3; [80.26 lakh forms in 10 months FY24-25](https://www.caclubindia.com/news/mca21-records-80-26-lakh-form-filings-in-fy-2024-25-24515.asp) | F10 Compliance Officer |
+| FEMA filings (FC-GPR, FLA, ECB-2, ODI) | RBI portals; [37,407 cos with FDI/ODI](https://www.business-standard.com/finance/news/us-continues-to-be-largest-source-of-fdi-in-india-rbi-annual-census-124101100905_1.html); [US$190.4 bn ECB outstanding](https://www.pib.gov.in/PressReleasePage.aspx?PRID=2096480) | F9 Treasury |
+
+**Pricing:** annual contract; per-entity slab — **₹25K/entity for first 5, ₹15K next 10, ₹10K thereafter**; volume entitlements (50K documents/year included); implementation fee **₹2-10 lakh** depending on integration scope.
+
+**Compliance package:** **SOC 2 Type II + ISO 27001 + DPDP DPA** + dedicated CSM + SLA + optional VPC isolation. The compliance-cost is the price of enterprise — ₹50-80 lakh upfront + ₹15-25 lakh/year ongoing. Without it, no Big-4 procurement clears the gate. See [unit economics](/caos/business-model/unit-economics/) for how this loads into per-deal margin.
+
+**Onboarding:** solutioning workshop + 4-12 week implementation. Hard rule: no on-prem under ₹2 cr/deal — pre-built VPC-isolated tenant for BFSI / PSU clients instead.
+
+## Comparison table — the three SKUs at a glance
+
+| Dimension | Practice | Business | Enterprise |
+|---|---|---|---|
+| **Buyer** | CA / CA firm partner | Controller / CFO | CFO + CIO + Audit Committee |
+| **Verified pool** | [1,00,138 firms](https://thefinancestory.com/mid-sized-indian-ca-firms-employing-20-percent-audit-workforce) (1.59L COP holders) | ~5K-15K cos in ₹50-500 cr revenue band | [5,936 BSE + 2,867 NSE](https://blog.shoonya.com/how-many-companies-are-listed-in-nse-and-bse/) listed; [top 1,000 BRSR](https://www.sebi.gov.in/legal/circulars/jul-2023/brsr-core-framework-for-assurance-and-esg-disclosures-for-value-chain_73854.html); MNCs |
+| **Pricing unit** | Per firm + per seat | Per entity (CIN) + per module + per seat above 10 | Per entity slab + volume entitlements + impl fee |
+| **Headline price** | ₹500-1,500/seat/month, 5-seat min | ₹15-40K/entity/month base + add-ons | ₹25K/entity (1-5) → ₹15K (6-15) → ₹10K (16+); ₹2-10L impl |
+| **Sales motion** | PLG self-serve + CA-referral | PLG-with-handhold + CA-referral + 2-3 direct reps | Field sales + SI partnership + audit-firm referral |
+| **Procurement cycle** | &lt;30 days | 30-90 days | 6-18 months |
+| **Compliance package** | OTP auth, RLS isolation | OTP auth, RLS, optional schema isolation | SOC 2 Type II + ISO 27001 + DPDP DPA + VPC option |
+| **Magic moment** | First doc upload via portal in &lt;2 min | Vendor invitation accepted + master verified | PBC list of 200 items lands as 200 tasks; auditor sees real-time status |
+| **Phase mapping** | [Phase 1 CA-Led](/caos/flywheel/phase-1-ca-led/) | [Phase 2 Vendor-Network](/caos/flywheel/phase-2-vendor-network/) | [Phase 3 Audit Workspace](/caos/flywheel/phase-3-audit-workspace/) + [Phase 4 DPI Graph](/caos/flywheel/phase-4-dpi-graph/) |
+| **Year-end ARR target** | Y1: ₹2-5 cr (1,000 firms) | Y2: ₹15-30 cr (200K paying enterprise) | Y3: ₹30-50 cr (250 listed + 600 mid-tier) |
+
+## Why three SKUs, not one
+
+The temptation is to ship a single tier-priced product and let buyers self-select. Three forces argue against that:
+
+1. **The pricing unit differs by buyer.** A CA firm budgets per-seat per-month against engagement profit-per-staff. An in-house finance team budgets per-entity per-month against the compliance-software budget line. An enterprise budgets per-engagement annually against advisory + assurance + tooling. A single price model fits one buyer well and the other two badly. (See [pricing architecture](/caos/business-model/pricing-architecture/) for why per-volume + per-entity beats per-seat for compliance products.)
+
+2. **The procurement gate differs by buyer.** A CA pays from a firm credit card on Day 1. A controller signs an MSA after 30-90 days. An enterprise CIO signs after a SOC 2 + ISO 27001 + security review that takes 6-18 months. Same product, three procurement paths — the SKU package shapes the path.
+
+3. **The magic moment differs by buyer.** Practice's magic moment is "client uploads a doc in under 2 minutes." Business's is "vendor onboarded in one click instead of one hour." Enterprise's is "200 PBC items land as 200 tasks and the auditor sees real-time status." Each magic moment needs its own onboarding flow, its own free-trial scope, its own success metric. Three SKUs is the cleanest carrier for three magic moments.
+
+## Why three SKUs, not three brands
+
+Two further forces argue that three SKUs under one brand beats three brands:
+
+1. **80%+ architectural overlap.** All three SKUs run on the same [15 atomic primitives](/caos/product/atomic-primitives/), the same document-intelligence pipeline, the same multi-entity data model. A dual or triple brand wastes the reuse signal — both internally (engineering team morale) and externally (buyer credibility about depth).
+
+2. **The CA → client referral is a free distribution channel** — and it only works under one brand. "Ask your CA for CAOS" / "Your CA recommended CAOS for Business" reads naturally; "Ask your CA for CAOS and then sign up for FinanceFabric" does not. The [CA-referral channel](/caos/gtm/ca-referral/) needs the same brand on both sides.
+
+The single-brand decision sits at [decision D2](/caos/decisions/d2-single-brand/). Revisit at ₹500 cr ARR.
+
+## What this section covers
+
+The remaining pages in this section build out the SKU framework with verified anchors and operating math:
+
+1. **Three SKUs** (this page) — Practice / Business / Enterprise with module catalogs and price bands.
+2. **[Pricing architecture](/caos/business-model/pricing-architecture/)** — why the hybrid per-entity + per-volume model is the one Indian finance teams actually buy, with verified comparables.
+3. **[Unit economics](/caos/business-model/unit-economics/)** — WTP bands by persona, CAC bands by channel, LTV math, gross margin assumptions, and the price of enterprise (SOC 2 + ISO 27001 + DPDP).
+4. **[Revenue path](/caos/business-model/revenue-path/)** — the phase-by-phase ARR projection with verified-data anchors and cross-checks against ClearTax / Vyapar / Razorpay public comparables.

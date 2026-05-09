@@ -1,0 +1,139 @@
+---
+title: "Counterparties — vendors and customers"
+description: "The 9.92 lakh e-invoice generators, 81.88 lakh registered recipients, and 1.51 cr GST taxpayer pool that connects every Indian business as either a vendor or a customer of every other. Why the Phase 2 vendor-network flywheel ignites here."
+sidebar:
+  order: 4
+---
+
+import { Aside, Card, CardGrid } from '@astrojs/starlight/components';
+
+Every Indian business is simultaneously a vendor to some businesses and a customer to others. The same **1.51 crore active GST taxpayers** ([GST@8 Report via A2Z Taxcorp](https://a2ztaxcorp.net/gst-8-years-report-released-gstn-highlights-record-revenue-compliance-milestones/)) appear on both sides of the invoice — and the **9.92 lakh e-invoice generators** plus **81.88 lakh registered e-invoice recipients** ([same source](https://a2ztaxcorp.net/gst-8-years-report-released-gstn-highlights-record-revenue-compliance-milestones/)) are the verified subset whose B2B flow is digitally observable today.
+
+Counterparties are the **cheapest** stakeholder class to onboard (no purchase decision, just a one-tap upload + GSTIN verification) and the **highest network-effect contributor** — every verified vendor profile becomes a free verification for every next enterprise that pays them. The [Phase 2 vendor-network flywheel](/caos/flywheel/phase-2-vendor-network/) is built on this property.
+
+<Aside type="tip" title="Why counterparties are stakeholders, not just background">
+explicitly elevates vendors (S11) and customers (S12) to stakeholder status. They are not buyers in Phase 1 — they are buyer's-counterparties. But by Phase 2 they become users (one-tap upload, balance confirmation reply); by Phase 3 some convert to direct paying users (small business CAOS SKU); by Phase 4 they are nodes in the consent-mediated fact graph that lenders pay to query.
+</Aside>
+
+## The vendor universe (S11) — verified populations
+
+| Metric | Value | As of | Source |
+|---|---|---|---|
+| **Active GST taxpayers (regular + composition + TDS)** | **1,53,56,323 (~1.51 cr)** | Apr-Jun 2025 | [GSTN GST@8 Report via A2Z Taxcorp](https://a2ztaxcorp.net/gst-8-years-report-released-gstn-highlights-record-revenue-compliance-milestones/), [PIB](https://www.pib.gov.in/PressNoteDetails.aspx?id=154789) |
+| Normal/regular taxpayers | 1.34 cr | Jun 2025 | [GSTN via A2Z Taxcorp](https://a2ztaxcorp.net/gst-8-years-report-released-gstn-highlights-record-revenue-compliance-milestones/) |
+| Composition scheme | 14.80 lakh | Jun 2025 | [GSTN via A2Z Taxcorp](https://a2ztaxcorp.net/gst-8-years-report-released-gstn-highlights-record-revenue-compliance-milestones/) |
+| TDS deductors registered | 3.71 lakh | Jun 2025 | [GSTN via A2Z Taxcorp](https://a2ztaxcorp.net/gst-8-years-report-released-gstn-highlights-record-revenue-compliance-milestones/) |
+| **E-invoice generators (active businesses)** | **9.92 lakh** | Jun 2025 | [GSTN via A2Z Taxcorp](https://a2ztaxcorp.net/gst-8-years-report-released-gstn-highlights-record-revenue-compliance-milestones/) |
+| **E-invoice recipients (registered)** | **81.88 lakh** | Jun 2025 | [GSTN via A2Z Taxcorp](https://a2ztaxcorp.net/gst-8-years-report-released-gstn-highlights-record-revenue-compliance-milestones/) |
+| E-way bill registered users | 55.23 lakh | Jun 2025 | [GSTN via A2Z Taxcorp](https://a2ztaxcorp.net/gst-8-years-report-released-gstn-highlights-record-revenue-compliance-milestones/) |
+| E-way bills monthly latest | 13.84 cr | Dec 2025 | [SAG Infotech](https://blog.saginfotech.com/gst-e-way-bill-generation-hits-second-highest-ever-jan-2026) |
+| **Udyam-registered MSMEs total** | **7.83 cr** | Feb 28, 2026 | [PIB](https://www.pib.gov.in/PressReleasePage.aspx?PRID=2246892), [IBEF](https://www.ibef.org/news/over-7-83-crore-enterprises-registered-on-udyam-platforms-indicating-strong-msme-formalisation-growth) |
+| Udyam Micro | ~6.5 cr | Jul 2025 | [Aspire FinancialExpress](https://aspire.financialexpressb2b.com/news/udyam-milestone-over-65-crore-msmes-now-registered-across-india) |
+| Udyam Small | ~4.76 lakh | Jul 2025 | [Aspire FinancialExpress](https://aspire.financialexpressb2b.com/news/udyam-milestone-over-65-crore-msmes-now-registered-across-india) |
+| Udyam Medium | ~35,682 | Jul 2025 | [Aspire FinancialExpress](https://aspire.financialexpressb2b.com/news/udyam-milestone-over-65-crore-msmes-now-registered-across-india) |
+| Udyam women-led | 3.07 cr | Feb 2026 | [Mangalorean / PIB](https://www.mangalorean.com/over-3-07-crore-women-led-enterprises-registered-on-udyam-till-feb-2026-govt/) |
+
+The **9.92 lakh e-invoice generators** are the most digitally engaged sub-pool — every B2B invoice they issue gets an IRN (Invoice Reference Number) from one of the 6 authorised Invoice Registration Portals (IRPs) and auto-flows to GSTR-1, GSTR-2A, GSTR-2B. That digital footprint is what makes vendor-side verification cheap: the GSTN already certifies the GSTIN, the IRN proves the invoice exists, the e-way bill confirms movement.
+
+## The customer universe (S12) — mirror side
+
+The customer side is the **same 1.51 cr GST taxpayer pool**, viewed from the other side of the invoice. There is no separate "customer registry" — every entity that buys from a vendor becomes their customer for that transaction.
+
+For B2B transactions, the customer (S12) is also a registered taxpayer (GSTIN). For B2C, the customer is an individual or unregistered entity (the "small B" of B2C in GST parlance). The 81.88 lakh e-invoice recipients are essentially the B2B customer universe that received a digitally-issued invoice — the same set as the vendor universe minus exporters and SEZ outliers.
+
+The customer-side workflows are the **mirror image** of the vendor-side workflows:
+
+| Vendor-side workflow (S11) | Customer-side workflow (S12) |
+|---|---|
+| Issue tax invoice / e-invoice | Receive tax invoice / e-invoice |
+| File GSTR-1 (auto-flows to customer's 2A/2B) | Receive auto-populated GSTR-2B from GSTN |
+| Issue credit note / debit note | Receive credit note / debit note |
+| Respond to balance confirmation | Issue balance confirmation request |
+| Receive payment + TDS deduction | Make payment + deduct TDS |
+| Send payment receipt | Receive payment receipt |
+| File GSTR-3B with own ITC + outward tax | File GSTR-3B with own ITC (using vendor's invoice as evidence) |
+
+The mirror property is what makes the [Phase 2 flywheel](/caos/flywheel/phase-2-vendor-network/) network-effect-rich: every transaction has two sides, and CAOS-mediating one side automatically gives partial visibility into the other.
+
+## The two regulatory wedges that force vendor-master discipline
+
+Two specific provisions in current Indian law make accurate vendor-master maintenance a **legally compelled budget line** for every Indian mid-market and large company. Together they explain why vendor onboarding + KYC + MSME validation is the single most-budgeted finance-team use case in Y2 of [the composite flywheel](/caos/flywheel/composite/).
+
+### Sec 194Q — TDS on purchases (active)
+
+Buyer of goods with turnover > ₹10 cr in preceding FY must deduct **0.1% TDS** when annual purchase from any single seller exceeds ₹50 lakh. The buyer must:
+
+- Maintain seller-wise running purchase totals across the year
+- Track the ₹50 lakh threshold per seller
+- Deduct 0.1% from invoice value above the threshold
+- Deposit TDS by 7th of next month
+- File quarterly TDS return (Form 26Q with section code 194Q)
+
+ERPs do not natively compute the ₹50L threshold per counterparty + reconcile against deducted amount. ([ClearTax — Section 194Q overview](https://cleartax.in/s/an-overview-on-section-194q-of-the-income-tax-act-1961-ita))
+
+### Sec 43B(h) — MSME 45-day payment clock (active)
+
+Inserted via Finance Act 2023, effective AY 2024-25. **Payments to Micro and Small enterprises beyond 45 days are disallowed as expense in the IT computation** until actually paid. Implications:
+
+- Buyer must classify every vendor's MSME status (Micro / Small / Medium / Non-MSME)
+- Track invoice ageing per MSME-Small vendor against the 45-day clock
+- Reverse-out the deduction in IT computation if unpaid past 45 days at year-end
+- Re-claim the deduction in the year of actual payment
+
+The classification source is the Udyam registry, but the 7.83 crore Udyam database is not natively integrated into ERPs. SAP has a flag but no watchlist; Tally has nothing structured; Oracle has it as a custom field. **No incumbent owns the vendor-master + MSME-classification + 45-day-watchlist combination.** This is the wedge for the AP Manager (F5) and the Direct Tax Lead (F4).
+
+### Sec 206C(1H) — REMOVED
+
+<Aside type="caution" title="Budget 2025 removed Sec 206C(1H)">
+File 13 use case #8 referenced Sec 206C(1H) (TCS on sales — seller-side mirror of 194Q for cross-charging discipline). **This was REMOVED from 1 April 2025 in the Union Budget 2025.** ([TaxGuru — TCS removed FAQ](https://taxguru.in/income-tax/tcs-sale-goods-removed-april-1-2025-faqs.html))
+
+Implication for the product: 206C(1H) is no longer a use case in the Top 25 ranking. Sec 194Q remains active and is the single TDS provision that requires vendor-master + counterparty-level accumulation.
+</Aside>
+
+## Why counterparties matter to the flywheel
+
+<CardGrid stagger>
+ <Card title="Phase 2 ignition" icon="rocket">
+ The Phase 2 vendor-network flywheel turns 50,000 client entities (from Phase 1) into a vendor-discovery engine. 50K × ~50 vendors avg = 25 lakh vendor-touches. After dedup at typical 30% network overlap: **~17 lakh unique validated vendor nodes** — comfortably within the 81.88 lakh e-invoice recipient universe.
+ </Card>
+ <Card title="Each verification compounds" icon="approve-check">
+ A vendor verified once (GSTIN active, MSME status, bank validated, KYC complete) is a free verification for every next enterprise that pays them. Network value scales superlinearly — see [Phase 2 flywheel math](/caos/flywheel/phase-2-vendor-network/).
+ </Card>
+ <Card title="Vendor onboarding has no incumbent" icon="setting">
+ SAP / Oracle / Tally have vendor-master tables; none has the onboarding flow + KYC + MSME + bank validation + sanctions screening combined. ClearTax-Enterprise has parts; Volopay / EnKash have parts; **no Indian platform owns the full flow today.** Greenfield wedge.
+ </Card>
+ <Card title="Vendor becomes buyer" icon="document">
+ Every CAOS-onboarded vendor sees the platform as the place where their enterprise customers transact with them. Within 90 days, ~3-5% of validated vendors convert to paying users for their own books (the vendor-side micro-SKU). This is the flywheel's self-funding mechanism.
+ </Card>
+</CardGrid>
+
+## The vendor onboarding pain (no incumbent owns it)
+
+Today's typical vendor onboarding workflow at a mid-market Indian company (₹50-500 Cr revenue):
+
+1. **Procurement requests new vendor** → emails Vendor Onboarding Form (PDF) to vendor
+2. **Vendor fills the form** → emails back with GSTIN copy, PAN copy, cancelled cheque, MSME certificate (if applicable), bank statement
+3. **Procurement-Finance reviews** → manually validates GSTIN on GSTN portal, PAN on income tax portal, MSME on Udyam portal, bank IFSC on bank portal
+4. **Compliance / legal does sanctions check** → manual check against UN, OFAC, MHA published lists
+5. **AP creates vendor master in ERP** → re-keys GSTIN, PAN, bank, address, GL mapping
+6. **Procurement issues PO** → vendor finally gets paid
+
+This typically takes **5-15 business days** with high data-entry error rate. CAOS's wedge is collapsing the loop to **30 minutes** with a single self-service link sent to the vendor — vendor uploads one set of docs, CAOS validates against all four portals, generates a vendor master entry with confidence scores, posts to the ERP via integration.
+
+The same flow generates the [counterparty master](/caos/product/atomic-primitives/) entry (P2 primitive) that powers:
+
+- GSTR-2B reconciliation against purchase register (use case #1, F3 GST Lead)
+- Sec 194Q running threshold tracking (use case #8, F4 Direct Tax Lead)
+- MSME 45-day watchlist (use case #3, F5 AP Manager + F4 Direct Tax Lead)
+- Year-end balance confirmation campaign (use case #7, F6 AR Manager + F7 Audit Liaison)
+- Vendor-side credit underwriting (Phase 4, S14 lender side)
+
+A single vendor onboarding flow feeds five downstream finance-team use cases. That is the [primitive-reuse principle](/caos/product/atomic-primitives/) operating at the data-model level.
+
+## Cross-references
+
+- **Phase 2 flywheel** — see [the vendor-network ignition](/caos/flywheel/phase-2-vendor-network/) for the math and pre-conditions
+- **AP Manager (F5)** — see [in-house finance personas](/caos/stakeholders/in-house-finance/) for the buyer
+- **Top 25 use cases** — see [vendor onboarding (#4) and MSME 45-day (#3)](/caos/product/use-cases/) for the use-case detail
+- **Counterparty master primitive** — see [P2 in atomic primitives](/caos/product/atomic-primitives/) for the data model
+- **Tech partners** — see [GSPs and IRPs](/caos/stakeholders/tech-partners/) for the integration substrate

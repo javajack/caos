@@ -1,0 +1,127 @@
+---
+title: "Source quality legend"
+description: "The 4-tier source ranking used throughout the site, with examples of each."
+sidebar:
+  order: 2
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+Every quantitative table on this site carries a **Confidence** column. That column uses one of four ratings — High, Med, Low, Unverified — derived from a deliberate, mechanical hierarchy of source authority. This page defines that hierarchy and gives examples of each rating from real tables on this site, so a reader can audit any number's pedigree in one click.
+
+The rating is not a judgement of *importance* — a Low-confidence number can still be load-bearing for the strategy. The rating is a judgement of *citability*: it tells the reader how confident an investor, partner, or auditor can be when re-quoting the number externally.
+
+<Aside type="caution" title="The rating travels with the cell, not the table">
+Most tables on this site mix High, Med, and Low confidence rows. Tally's 2.5M customers (Med) sits next to its 28K partner network (Med) and its claimed 70-80% market share (Low) — all in the same vendor row. Read the per-row rating, not the table-level one.
+</Aside>
+
+## The 4-tier hierarchy
+
+```
+High Direct govt / regulator / professional body publication
+ OR named press citing such with explicit URL
+ ↓
+Med Third-party aggregator citing primary source
+ (Tracxn, Inc42, The Finance Story, CAClubIndia, IBEF)
+ ↓
+Low Vendor self-disclosure
+ OR single uncorroborated press source
+ ↓
+Unverified Claim exists in CAOS original research or industry chatter
+ but no authoritative source found
+```
+
+## Tier definitions in detail
+
+### High — direct primary source
+
+A High-confidence number meets *one* of these tests:
+
+1. **Direct publication** by the government body, regulator, or professional body that owns the data — for example, PIB press releases, GSTN statistics dashboards, CBDT annual reports, MCA monthly information bulletins, ICAI Student & Member Reports, RBI bulletins, SEBI circulars, IBBI service-provider pages, NFRA disciplinary orders, EPFO press releases, Sahamati AA dashboards, DigiLocker home page metrics.
+2. **Named press citing such**, with the explicit URL to the primary disclosure preserved so a reader can follow the chain — for example, Business Standard quoting MCA's monthly bulletin, The Finance Story citing the ICAI Annual Report, PIB summarising a Budget announcement.
+
+**When to use:** Any cell where the number is load-bearing for sizing, TAM, or flywheel math. All Phase-by-phase targets in the [composite flywheel](/caos/flywheel/composite/) anchor on High-confidence numbers.
+
+**When to caveat:** Almost never. The only caveats applicable to High-confidence numbers are *as-of dates* (a March 2025 ICAI count is the truth as of March 2025, not today) and *definitional drift* (e.g. "Active GST taxpayers" includes regular + composition + TDS-deductors, which the source spells out).
+
+**Examples on this site:**
+
+| Claim | Source | Why High |
+|---|---|---|
+| 4,07,629 ICAI total members; 2,48,072 without COP (60.8%) | [Careers360 citing ICAI 2025 Report](https://finance.careers360.com/articles/icai-student-and-member-report-2025) | Named press citing the official ICAI report with explicit URL |
+| 1,53,56,323 active GST taxpayers (Jun 2025) | [PIB GST@8](https://www.pib.gov.in/PressNoteDetails.aspx?id=154789), [GSTN GST@8 via A2Z Taxcorp](https://a2ztaxcorp.net/gst-8-years-report-released-gstn-highlights-record-revenue-compliance-milestones/) | Direct PIB release; corroborating named-press citation |
+| 22.31 million AA monthly consents (Mar 2026) | [Sahamati dashboard](https://sahamati.org.in/aa-dashboard/) | Direct industry-body publication with live dashboard |
+| 7.83 crore Udyam-registered MSMEs (Feb 2026) | [PIB](https://www.pib.gov.in/PressReleasePage.aspx?PRID=2246892) | Direct PIB release |
+| 80.26 lakh MCA21 form filings in 10 months FY24-25 | [CAClubIndia citing MCA](https://www.caclubindia.com/news/mca21-records-80-26-lakh-form-filings-in-fy-2024-25-24515.asp) | Named press citing MCA disclosure |
+| 326 of 483 Nifty 500 audited by Big-6 (FY25) | [PrimeDatabase](http://www.primedatabasegroup.com/newsroom/BIG_6_CONTINUE_DOMINANCE_OF_INDIAN_AUDIT_LANDSCAPE_2024-25.pdf) | Industry-database publication with named methodology |
+
+### Med — credible aggregator citing primary
+
+A Med-confidence number sits one level down from the primary disclosure. It comes from a third-party aggregator that *names* its source but does not host the original. The aggregator's editorial standards are credible — Tracxn, Inc42, The Finance Story, CAClubIndia, IBEF, Equitymaster — but the citation chain has one extra hop.
+
+**When to use:** Sizing inputs where the primary source is paywalled, undisclosed, or inconvenient — for example, private-company revenue (Tally, Karbon, Vyapar), competitor funding rounds (Tracxn), or industry growth statistics (IMARC, IBEF).
+
+**When to caveat:** State the aggregator and the as-of date. Investor materials should distinguish "Tracxn cumulative funding" (Med) from "company-disclosed ARR" (Low without an audited disclosure).
+
+**Examples on this site:**
+
+| Claim | Source | Why Med |
+|---|---|---|
+| Tally Solutions ₹622.9 cr (FY24) / ₹710 cr (FY25) revenue | [Inc42](https://inc42.com/features/how-tally-strikes-a-balance-between-enabling-ai-adoption-and-growth/) | Inc42 has standing for vendor financials but it is not Tally's audited filing |
+| 28,000+ Tally partners | [tallysolutions.com](https://tallysolutions.com/about-tally/), [Markhub24](https://www.markhub24.com/post/tally-solutions-accounting-software-licensing-model-how-a-made-in-india-product-built-category-dom) | Vendor's own about-page (qualifies as Med, not Low, because Tally is the only authority on its own partner count) |
+| ICAI registered firms ~1,00,138 (Oct 2025) | [The Finance Story](https://thefinancestory.com/mid-sized-indian-ca-firms-employing-20-percent-audit-workforce) | Named publication citing ICAI; primary ICAI disclosure not directly online |
+| ICSI total members 75,000-79,000+ | [icsi.edu profile](https://www.icsi.edu/profile/), [Wikipedia ICSI](https://en.wikipedia.org/wiki/Institute_of_Company_Secretaries_of_India) | Range derived from cross-checking ICSI's own page with Wikipedia's last-updated count |
+| ClearTax 100,000+ tax practitioners + 4,000+ enterprises + 5M+ taxpayers | [Salesforce case study on ClearTax](https://www.salesforce.com/in/resources/customer-stories/clear/) | Customer-relationship case study; verifiable but vendor-mediated |
+| India accounting software TAM US$640M (2024) → US$1,417M (2033f), 9.2% CAGR | [IMARC](https://www.imarcgroup.com/india-accounting-software-market) | Reputable market-research aggregator; the underlying methodology is summarised, not raw |
+
+### Low — vendor self-disclosure or single weak press
+
+A Low-confidence number rests on *one* of these footings:
+
+1. **Vendor self-disclosure** — the company's own marketing copy, press release, or interview claim, with no third-party verification — for example, Vyapar's "1 cr customers" claim, Karbon's "3,000+ businesses" claim, vCFO firms' headcount claims.
+2. **A single press source** with no corroborating publication — a one-off Business Standard quote or a single Inc42 interview.
+
+**When to use:** When the number is genuinely useful for context but cannot be elevated. Most competitor funding figures, vCFO firm sizes, and product-claim metrics live here.
+
+**When to caveat:** Always. Investor and partner materials should mark Low-confidence claims explicitly as "vendor-claimed" or "single-source", and treat them as upper bounds. The [composite flywheel](/caos/flywheel/composite/) sizing math intentionally uses High/Med anchors on the *demand* side and treats Low-confidence supply-side numbers as ceilings.
+
+**Examples on this site:**
+
+| Claim | Source | Why Low |
+|---|---|---|
+| Vyapar "1 cr customers" / 27,000+ partners / ₹130 cr ARR | [TheWire-PR](https://m.thewire.in/article/ptiprnews/1-cr-businesses-27000-partners-and-growing-how-vyapar-is-powering-indias-msme-revolution), [Inc42](https://inc42.com/company/vyapar-app/) | Vendor PR + sole press; downloads and active-user split not disclosed |
+| Tally "70-80% market share" / "80%+ market share" India | [Business Standard](https://www.business-standard.com/companies/news/tally-expects-30-40-revenue-growth-in-fy25-to-expand-overseas-footprint-124050100572_1.html) | Single press citing Tally; no third-party measurement (no IDC, Gartner, or independent IDC India SME Software Tracker found) |
+| Karbon Card "3,000+ businesses" / "30 cr txns" | [Tracxn](https://tracxn.com/d/companies/karbon/__aE6QaDK2gEK48V07Z45bd2fZL5mTAEytFFln0-IeGmc), [aiaccountant.com](https://www.aiaccountant.com/about-us) | Vendor self-disclosure on company about-page; no audited equivalent |
+| 4.2 lakh+ GST notices (FY 2022-23, all types, CBIC) | [Durity citing CBIC](https://durity.com/en-in/blog/gst-notices-causes-and-solutions/) | Single source citing CBIC; no PIB / Lok Sabha question with the breakdown |
+| ERIs "50+ entities" with no Type 1/Type 2 split | [ClearTax ERI](https://cleartax.in/s/e-return-intermediary-eri-income-tax) | Single CBDT-aligned source; the named entity list and split are not on the incometaxindia.gov.in page |
+| TRPs "5,000+ trained / 120 centres" | [IndiaFilings TRP](https://www.indiafilings.com/learn/tax-return-preparer-scheme-complete-guide) | Single industry source; no CBDT-published current TRP count found |
+
+### Unverified — claim exists, no authoritative source
+
+An Unverified claim is one that appeared in earlier research or in industry chatter but for which **no authoritative source could be located** in the verification pass — even at the Low tier.
+
+**When to use:** Never as a load-bearing number. Only as an explicit "we cannot verify this" entry in [What we removed (and why)](/caos/method/data-atlas/). The claim is preserved for transparency; the number is not used downstream.
+
+**When to caveat:** Always with the framing "carried in industry but not verified to a primary source"
+
+**Examples on this site:**
+
+| Claim | Where it appeared | Verification status |
+|---|---|---|
+| &lt;2% PMS adoption among CA firms | earlier research, 04 (load-bearing) | No ICAI tech-adoption survey exists; numerator (vendor-claimed Jamku 1,700 / QwikCA 20K) is mush; denominator (~1L firms) is correct. this site says "low adoption" qualitatively. |
+| 30-40% of operational time on follow-ups | earlier research, 04 | No source; anecdotal. this site says "significant" qualitatively. |
+| WhatsApp 3-5x faster than email | earlier research | No source; asserted. this site says "noticeably faster" qualitatively. |
+| 60-70% software adoption via peer recommendation | earlier research | No survey of newly-acquired customers found across any of the 5+ PMS vendors. this site says "peer recommendation is significant" qualitatively. |
+| Solo CA earning ₹15 lakh/year average | earlier research | ICAI publishes only "Minimum Recommended Fees"; no member-income survey found. this site uses the band only directionally. |
+| MOU "5K-10K registrations" per ICAI partnership | earlier research | No precedent data from any of 6+ ICAI-MOU vendors (SimplifyPractice, Papilio, Vidur, Zoho, etc.) located. this site flags as continuous monitoring. |
+| GSTPs total enrolled count | industry assumption | GSTN exposes a "Locate a GSTP" search but no aggregate count. RTI required. |
+
+## Read the rating, then read the cell
+
+Three rules of thumb for using ratings on this site:
+
+1. **High → quote freely.** A High-confidence number is investor-ready; an external pitch can cite it without disclaimer.
+2. **Med → name the aggregator.** "Per Inc42, Tally FY25 revenue ₹710 cr" — not "Tally FY25 revenue ₹710 cr". The hop is small but transparency is large.
+3. **Low / Unverified → never load-bear.** Use Low to set ceilings or contextualise; never to size a TAM, set a target, or anchor a phase trigger. Unverified claims should not appear in pitch materials at all.
+
+The [data atlas](/caos/method/data-atlas/) is the ground truth. Every cell is rated. The rating is not decorative — it is the contract this site makes with the reader.

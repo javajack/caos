@@ -1,0 +1,106 @@
+---
+title: "Sequencing — the 60-month path"
+description: "Combined view of the 24-month go-to-market and the 60-month flywheel formation. Five phases, six channels, ten hard rules. The single visual table that says when each lever fires."
+sidebar:
+  order: 6
+---
+
+import { Aside, Card, CardGrid } from '@astrojs/starlight/components';
+
+This page is the single integrated view of CAOS's 60-month sequencing — combining the [four flywheel phases](/caos/flywheel/composite/) with the [six GTM channels](/caos/gtm/channel-architecture/) into one timeline. It exists so a board, an investor, or a new operations hire can see in 90 seconds when each lever fires, what depends on what, and what kills the sequence if violated.
+
+## The five phases at a glance
+
+| Phase | Window | Flywheel loop | ARR target | Headcount | Channels active |
+|---|---|---|---|---|---|
+| 0 | M1-M6 | Foundation (no revenue loop yet) | ₹0-30 lakh | ~12 | Direct CA-referral pilot (5 firms); Tally pilot (3 partners); ICAI branch outreach |
+| 1 | M7-M12 | [CA-Led Practitioner Network](/caos/flywheel/phase-1-ca-led/) | ₹2-5 cr | ~25 | + Tally Master pilot scaled to 20 partners; + ICAI MOU branch-level (West region first); + AA framework consumer (TSP-mediated) |
+| 2 | M13-M24 | + [Vendor-Network Fact Graph](/caos/flywheel/phase-2-vendor-network/) | ₹15-30 cr | ~50 | + Mid-tier audit firm pilot (3-5 firms); + FIU registered; + ASP under existing GSP; + eMudhra DSC reseller |
+| 3 | M25-M36 | + [Audit Workspace Bridge](/caos/flywheel/phase-3-audit-workspace/) | ₹30-50 cr | ~90 | + Big-4 audit firm conversations; + Type 2 ERI; + multi-GSP redundancy; + lender partnerships (5 lenders); + SOC 2 Type II; + ISO 27001 |
+| 4 | M37-M60 | + [DPI Fact Graph](/caos/flywheel/phase-4-dpi-graph/) | ₹50-150 cr (Y4) → ₹150-500 cr (Y5) | ~200 | + Big-4 standardised on platform; + 2,000+ Tally Master partners; + 50+ lender deals; + own GSP (optional); + DPDP-compliance is default-mode |
+
+## The 60-month sequencing table
+
+The combined view of phase × channel × milestone:
+
+| Quarter | Flywheel | Channel — CA-referral | Channel — Tally Master | Channel — Audit firms | Channel — DPI ecosystem | Channel — Direct enterprise | Channel — ICAI MOU |
+|---|---|---|---|---|---|---|---|
+| Y1-Q1 | Phase 1 ignition | 5-firm pilot signed | 3 Master partners | — | TSP integration begins | — | Branch-level outreach starts |
+| Y1-Q2 | Phase 1 builds | 50 firms onboarded | 8 Masters / 120 deals | — | AA TSP live | — | West region MOU drafted |
+| Y1-Q3 | Phase 1 builds | 250 firms | 14 Masters / 280 deals | — | First AA-fed bank reco shipped | — | West MOU signed |
+| Y1-Q4 | Phase 1 hits goal (1,000 firms) | 1,000 CA firms × ~50 entities | 20 Masters / 600 deals | — | FIU registration begins | First 10 direct mid-market trials | West MOU rollout; South begins |
+| Y2-Q1 | Phase 2 begins | Continues | 30 Masters | First mid-tier audit firm signed | FIU registered; ASP under GSP live | 25 direct trials; 5 paying | South MOU signed |
+| Y2-Q2 | Vendor network builds | Continues | 35 Masters | Pilot audit closes successfully | Multi-GSP partnerships drafted | 50 paying mid-market logos | North MOU starts |
+| Y2-Q3 | Vendor network builds | Continues | 40 Masters | 2nd + 3rd mid-tier signed | DigiLocker push integration | 100 paying logos | — |
+| Y2-Q4 | Phase 2 goal (~17 lakh vendors) | Continues | 50 Masters | 5 mid-tier firms / 50 engagements | Multi-GSP live; eMudhra reseller live | 200 paying mid-market logos | All-India MOU coverage |
+| Y3-Q1 | Phase 3 begins | Continues | 60 Masters | First Big-4 conversation | Type 2 ERI filing begins | First 5 enterprise lighthouse | — |
+| Y3-Q2 | Audit workspace builds | Continues | 70 Masters | 50 audits live | Type 2 ERI granted | SOC 2 Type II audit starts | — |
+| Y3-Q3 | Audit workspace builds | Continues | 90 Masters | 100 audits | First 5 lender partnerships drafted | SOC 2 Type II passed | — |
+| Y3-Q4 | Phase 3 goal (250 listed-co engagements) | Continues | 120 Masters | 250 listed clients via 5 mid-tier | 5 lender partnerships live | ISO 27001 certified | — |
+| Y4-Q1+ | Phase 4 begins | Continues | 200 Masters | First 2 Big-4 conversations | DPI-graph monetisation begins | Big-4 enterprise deals | — |
+| Y4-Y5 | Phase 4 compounds | Continues | 500-2,000 Masters | All Big-4 + all mid-tier active | DPI-graph at scale | Enterprise SaaS at ₹15L+/month avg | — |
+
+## The ten hard rules
+
+These exist to prevent the most common failure modes and are non-negotiable.
+
+<Aside type="danger" title="Hard rules — non-negotiable">
+1. **CA wedge first**. Until 1,000 paying CA firms or ₹3 cr ARR (whichever earlier), no more than 20% of engineering capacity on enterprise-only features. All shared primitives count as CA features.
+2. **Never replace the ERP**. Always plug into Tally / SAP / Oracle / Zoho / NetSuite / BUSY. Position as "the messy edges." Build first-class connectors.
+3. **Don't sell direct to a CA's existing client without the CA knowing**. Build a CA-referral compensation engine (15-20% rev share). Make CAs feel they own the customer relationship.
+4. **Don't sell direct to an audit firm's corporate client without the audit firm knowing**. Same principle as #3, applied to the audit channel.
+5. **Don't dual-brand prematurely**. Single brand (CAOS) until ₹500 cr ARR.
+6. **Don't promise on-prem unless single deal > ₹2 cr/year**. Pre-build VPC-isolated tenant for BFSI / PSU clients instead.
+7. **Don't accept enterprise RFPs that require &lt;60-day procurement turnaround**. Walk away from procurement processes designed around incumbents.
+8. **Pricing must be transparent**. Publish all SKUs and add-on prices on the website. No "enterprise: contact sales" black box — Indian buyers hate it.
+9. **DPI participation is a regulatory commitment, not a feature**. Once registered as FIU / ERI / GSP partner, the obligations are real (data audit trails, consent UX, breach notification). Don't take registrations lightly.
+10. **No vanity metrics**. Track ARR + active paying logos + cohort retention + flywheel-attributed acquisitions. Skip "trial signups," "page views," "social mentions" in board packs.
+</Aside>
+
+## What kills the sequence
+
+Three failure modes that break the 60-month plan and require strategic reset, not just adjustment:
+
+<Aside type="caution" title="Sequence-breakers">
+- **CA wedge fails to ignite by Month 12**. If &lt;500 CA firms onboarded by M12, Phase 2 vendor network has no mass to build on. Mitigation: aggressive ICAI MOU + branch outreach + 5K free starter seats for new CAs ([file 12 lever](/caos/method/data-atlas/)). Fallback: pivot to direct-to-business if CA channel fails — but ARPU is 10x harder to justify without CA's cost-of-acquisition.
+- **Audit firm channel rejection in Year 2**. If 0 of 3-5 mid-tier firms convert from pilot to per-engagement license by M24, Phase 3 doesn't start. Mitigation: position CAOS as the *client-facing* layer that integrates *into* their existing tools (Caseware, internal IP), not as a replacement. Lighthouse with 1 mid-tier first (Grant Thornton or BDO) before approaching others.
+- **Zoho ships Practice + Books + Compliance bundle free for 3 years**. This is the [INSIGHT 7 risk from file 08](/caos/competitors/enterprise-threats/) applied to the full flywheel. Mitigation: race to lock in 100+ enterprise + 5 audit firms before Zoho's Indian compliance pack ships. Audit Workspace + DPI graph access + vendor network are all things Zoho doesn't currently have.
+</Aside>
+
+For the full failure-mode + counterfactual analysis, see [Five failure modes](/caos/risks/failure-modes/) and [Counterfactual scenarios](/caos/risks/counterfactual/).
+
+## What sequencing means for hiring
+
+The flywheel sequencing dictates the hiring sequence. The biggest mistake CAOS could make is hiring an enterprise sales leader in Year 1 — they'd have nothing to sell against (no Audit Workspace, no SOC 2, no enterprise SKU maturity). They'd burn ₹40-80 lakh/year and grind for 12 months before producing one logo.
+
+The right hiring order:
+
+| Phase | Roles to hire |
+|---|---|
+| Phase 0 (M1-M6) | 2 founding engineers; 1 product designer; 1 CA-network operator (ex-CA, well-connected at branch level) |
+| Phase 1 (M7-M12) | +6 engineers; +1 PM; +1 partner-channel manager (ex-Tally / ex-ClearTax channel); +2 CA-success managers |
+| Phase 2 (M13-M24) | +10 engineers; +2 PMs; +1 mid-tier-audit-firm partnership lead; +3 SDRs for direct mid-market; +1 DPI / regulatory ops manager |
+| Phase 3 (M25-M36) | +15 engineers; +1 enterprise sales leader; +3 enterprise AEs; +1 SOC 2 / security lead; +1 customer success leader; +1 lender-partnership manager |
+| Phase 4 (M37-M60) | +30+ engineers; +scale enterprise sales motion; +international expansion (foreign sub support per [Decision D6](/caos/decisions/d1-d7/)) |
+
+## Hiring the channel partner ops layer
+
+The single most underestimated hire in the plan is the **partner-channel operations manager** at M9-M12 (Phase 1 transition). This person owns deal registration, partner certification, MDF allocation, partner portal, quarterly business reviews. Without them, the Tally Master pilot stalls because partners can't track commissions and pipeline. The role typically pays ₹25-40 lakh/year for someone with 5+ years at Tally / ClearTax / Zoho channel teams.
+
+## Connection to architecture
+
+The sequencing is only credible if the [10+8 architectural pre-investments](/caos/decisions/architectural-pre-investments/) ship in Phase 0-3. Specifically:
+
+- **Phase 0 must ship**: Person decoupled, entity as canonical noun, currency column reserved, doctype namespace reservations, public REST API contract drafted, webhook infrastructure
+- **Phase 1 must ship**: Notice intake doctype + manual triage, multi-entity grouping primitive, vendor master schema
+- **Phase 2 must ship**: AA TSP/FIU integration architecture, eMudhra/NSDL DSC integration, MSME 45-day watchlist
+- **Phase 3 must ship**: NFRA-compliant audit working-paper schema, public-graph query API with consent-flow
+- **Phase 4 must ship**: ESG/BRSR Core taxonomy module, DEDICATED tenant model
+
+If any of these slip, the corresponding phase's GTM motion stalls. This is why the architectural pre-investments are no-regret and Phase-0-locked.
+
+## Single-page board summary
+
+If the board wants the 60-month plan in 100 words: **CA-led practitioner network drives Year 1 (1,000 firms × 50 entities = 50K attachments via three parallel channels — direct CA-referral, Tally Master partner pilot, ICAI branch MOUs). Year 2 layers vendor-network on top (17 lakh validated vendor nodes via the same firms' AP flows; AA + GSP partnerships go live; first mid-tier audit firm signed). Year 3 adds the audit-workspace bridge (5 mid-tier firms × 50 listed clients = 250 enterprise CFOs onboarded via the audit channel; SOC 2 + ISO; first lender partnerships; Type 2 ERI). Year 4-5 the DPI-powered fact graph compounds (Big-4 standardised; 5-10 lakh entities with active DPI flows; ₹150-500 cr ARR potential; lender-side monetisation).**
+
+See [Decisions D1-D7](/caos/decisions/d1-d7/) for the strategic choices that justify each phase, and [Architectural pre-investments](/caos/decisions/architectural-pre-investments/) for the engineering work that must happen now to enable the sequence.

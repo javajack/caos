@@ -1,0 +1,263 @@
+---
+title: "In-house finance teams — 11 personas"
+description: "The 11 canonical personas inside an Indian company's finance department, plus 7 less-central but real ones. For each: what they own, today's hack, primary primitives needed, top use case, WTP/month band."
+sidebar:
+  order: 3
+---
+
+import { Aside, Card, CardGrid } from '@astrojs/starlight/components';
+
+A mid-market Indian company has **4-7 of these personas** present; a large enterprise has **all 11+**. They sit inside a single corporate buyer (one CIN, often N GSTINs and M branches) and they share the [15 atomic primitives](/caos/product/atomic-primitives/) with the practitioner side — but the **buyer mental model**, the **pricing logic**, and the **integration surface** differ in three important ways:
+
+1. **Per-entity, not per-client.** Indian finance teams budget compliance software per legal entity (one CIN = one cost centre). Per-seat pricing makes them ration access, which is the worst kind of ration in a compliance product where the auditor / GST officer / senior leader needs read access on demand. Read more in [the three SKUs page](/caos/business-model/three-skus/).
+2. **Plug into the ERP, never replace it.** SAP, Oracle, Tally, Zoho Books, NetSuite, BUSY are the GL of record. CAOS is "the messy edges" — vendor onboarding, GSTR-2B reco, notice intake, BRS, BRSR, audit PBC — that the ERP doesn't own.
+3. **The buyer is genetically a CA.** 2,48,072 ICAI members work in industry (60.8% of ICAI). The CFO and Controller share regulatory upbringing with the practising CA. See the [bridge persona page](/caos/stakeholders/bridge-persona/) for the implications.
+
+<Aside type="tip" title="Why 11 + 7 = 18 personas">
+catalogues 11 canonical personas (F1-F11) that cover ~90% of the finance-team workflow surface. also flags 7 "less central but real" personas (BRSR/ESG, Procurement-Finance, Tax Litigation, TP Lead, SOX/IFC, Plant Finance, Receivables Collection) that show up in mid-large enterprises and listed companies. The Business SKU prices for the canonical 11; the Enterprise SKU adds the 7.
+</Aside>
+
+## The 11 canonical personas
+
+### F1 — CFO / Finance Head
+
+| Field | Value |
+|---|---|
+| **What they own** | Trustworthy single source of compliance status across all entities; sponsors compliance software purchases; signs off on auditor PBC; chairs Audit Committee meetings |
+| **Today's hack** | Email + Excel + monthly board pack from Controller; "are we ok with GST notices?" answered by CFO chasing GST Lead; no real-time view |
+| **Primary primitives** | P3 (calendar), P5 (evidence locker), P11 (audit trail), P14 (semi-structured form extraction) |
+| **Top use case** | Single-pane compliance dashboard across N entities × M GSTINs × K branches |
+| **WTP/month band** | ₹25K-1L (rarely buys directly; controller and tax lead drive the purchase) |
+
+### F2 — Financial Controller
+
+The highest-ROI persona for the [Business SKU](/caos/business-model/three-skus/). Controllers own monthly close, statutory schedule generation, and the audit working-paper handover — three workflows where CAOS primitives compress effort 5-10x.
+
+| Field | Value |
+|---|---|
+| **What they own** | Monthly close, statutory schedule generation (Schedule III + IND-AS notes), AOC-4 / financials prep, audit liaison, FAR vs IT-block reconciliation |
+| **Today's hack** | Excel for everything; Tally TB exported; manual schedule prep; quarter-end fire-drill |
+| **Primary primitives** | P1 (ingest), P7 (reconciliation), P8 (maker-checker), P9 (mapping memory), P15 (schedule generator) |
+| **Top use case** | Close acceleration: T+10 monthly close vs typical T+25; auto-generated schedules from TB |
+| **WTP/month band** | ₹40K-1.5L (highest ROI persona) |
+
+### F3 — GST / Indirect Tax Lead
+
+| Field | Value |
+|---|---|
+| **What they own** | GSTR-1 / 3B / 9 / 9C, multi-GSTIN reconciliation against purchase register, ITC optimisation, e-invoice exception handling, RCM, GST notice handling |
+| **Today's hack** | ClearTax or in-house Excel; multi-GSTIN reco breaks past 10 GSTINs; notice handling via email + WhatsApp |
+| **Primary primitives** | P1 (ingest), P7 (reconciliation), P9 (mapping memory), P13 (portal scraper) |
+| **Top use case** | GSTR-2B vs purchase register reco at scale (multi-GSTIN), with auto-link suggestions and ITC-loss alerts |
+| **WTP/month band** | ₹15K-75K |
+
+### F4 — Direct Tax Lead
+
+| Field | Value |
+|---|---|
+| **What they own** | TDS returns (24Q/26Q/27Q), TCS (27EQ), 26AS / AIS / TIS reconciliation, advance tax, IT assessments, 194Q tracking, hearing prep |
+| **Today's hack** | Saral / Computax / Genius for TDS; manual 26AS reco; Excel for advance tax; bound paper hearing packs |
+| **Primary primitives** | P1 (ingest), P7 (reconciliation), P9 (mapping memory), P13 (portal scraper) |
+| **Top use case** | TDS reco: 26AS / AIS / Form 16A vs books vs Form 26Q tied together (no tool ties all four today) |
+| **WTP/month band** | ₹20K-1L |
+
+### F5 — AP Manager
+
+| Field | Value |
+|---|---|
+| **What they own** | Vendor onboarding, KYC, MSME-status validation, 3-way match (PO + GRN + Invoice), MSME 45-day clock under [Sec 43B(h)](/caos/stakeholders/counterparties/), payment release |
+| **Today's hack** | SAP/Oracle for the 3-way match; Excel for vendor master; manual MSME tracking; ERPs flag but no watchlist |
+| **Primary primitives** | P1 (ingest), P2 (counterparty master), P7 (reco), P8 (maker-checker), P9 (mapping memory) |
+| **Top use case** | Vendor onboarding + KYC + MSME + bank validation in one flow; MSME 45-day watchlist as a first-class entity |
+| **WTP/month band** | ₹30K-2L |
+
+### F6 — AR Manager
+
+| Field | Value |
+|---|---|
+| **What they own** | Customer billing oversight, ageing, year-end balance confirmation campaigns, collections, dispute resolution |
+| **Today's hack** | ERP for billing; mail-merge + courier for 500-2K balance confirms; Excel for ageing |
+| **Primary primitives** | P2 (counterparty master), P7 (reco), P10 (channel-routed comms) |
+| **Top use case** | Year-end balance confirmation campaign — automated, channel-routed (email + WhatsApp + portal), with status tracking |
+| **WTP/month band** | ₹15K-75K |
+
+### F7 — Statutory Audit Liaison
+
+The bridge persona to the [Audit Workspace](/caos/flywheel/phase-3-audit-workspace/). The Liaison sits between in-house finance and the Big-6 / mid-tier auditor; shipping PBC items, replying to queries, attaching support — all today via email + Drive + Excel.
+
+| Field | Value |
+|---|---|
+| **What they own** | Audit PBC (Provided By Client) ship-list, query log, working-paper handover, audit-committee pack inputs |
+| **Today's hack** | Caseware on auditor side + Excel chaos on client side; same doc requested 3x; massive friction |
+| **Primary primitives** | P4 (request workflow), P5 (evidence locker), P10 (channel comms), P11 (audit trail) |
+| **Top use case** | Shared workspace where auditor's PBC list lands as 200 tasks on liaison's CAOS; replies in CAOS; status visible to both sides in real-time |
+| **WTP/month band** | ₹20K-75K |
+
+### F8 — Internal Audit Manager
+
+| Field | Value |
+|---|---|
+| **What they own** | IFC (ICFR) controls testing under sec 134(5)(e), risk-based audit plan, sample evidence collection, finding-closure tracking, branch / plant fieldwork |
+| **Today's hack** | Excel for controls test logs; SharePoint for evidence; manual closure follow-up |
+| **Primary primitives** | P4 (request workflow), P5 (evidence locker), P8 (maker-checker), P11 (audit trail) |
+| **Top use case** | IFC controls evidence + testing log with closure tracking; sample-based fieldwork via WhatsApp from branches |
+| **WTP/month band** | ₹25K-1.5L |
+
+### F9 — Treasury Manager
+
+| Field | Value |
+|---|---|
+| **What they own** | Multi-bank operations (10-50 accounts typical), bank reconciliation, FEMA filings (FC-GPR, FLA, ECB-2, ODI), FX exposure management, foreign remittances (Form 15CA/15CB) |
+| **Today's hack** | SAP BRS for one bank; manual import for others; FEMA forms via PDF + Excel; CA-driven 15CB |
+| **Primary primitives** | P1 (ingest), P7 (reconciliation), P13 (portal scraper), P15 (schedule generator) |
+| **Top use case** | Multi-bank reconciliation across 10-50 accounts with statement parsing per bank format; FEMA calendar + form generation |
+| **WTP/month band** | ₹20K-2L |
+
+### F10 — Compliance Officer / In-house CS
+
+For Indian companies with paid-up capital ≥ ₹10 cr (a subset of the 18.17 lakh active companies), Sec 203 of the Companies Act mandates a whole-time CS. This persona overlaps with [practising CS](/caos/stakeholders/practitioners/) but reports inside the company.
+
+| Field | Value |
+|---|---|
+| **What they own** | MCA21 event filings (CHG, MGT-14, DIR-12), DSC management across directors and authorised signatories, secretarial calendar, board pack, statutory registers, RPT (Sec 188 + IND-AS 24 + SEBI Reg 23) |
+| **Today's hack** | Manual MCA reminder tracking; physical DSC token management; RPT register lives in 3 places |
+| **Primary primitives** | P3 (calendar), P5 (evidence locker), P6 (notice lifecycle), P11 (audit trail), P13 (portal scraper) |
+| **Top use case** | Notice intake from GST/IT/MCA/PF/ESI/Customs portals → triage → reply, in one inbox |
+| **WTP/month band** | ₹15K-1L |
+
+### F11 — Subsidiary / Group Consol Lead
+
+For Indian groups with N parent + M subsidiaries (37,407 of 41,653 RBI-census respondents have FDI/ODI as of Mar 2024 — see [Business Standard / RBI census](https://www.business-standard.com/finance/news/us-continues-to-be-largest-source-of-fdi-in-india-rbi-annual-census-124101100905_1.html)). HFM is overkill at ₹500 Cr revenue; Excel breaks; CAOS fills the gap.
+
+| Field | Value |
+|---|---|
+| **What they own** | Intercompany reconciliation and elimination, group consolidation under IND-AS 110, IND-AS notes, foreign-sub data collection, transfer pricing data feed |
+| **Today's hack** | Excel for intercompany reco; HFM only at large groups; manual elimination working |
+| **Primary primitives** | P7 (reconciliation), P9 (mapping memory), P12 (multi-entity model) |
+| **Top use case** | Intercompany reconciliation + elimination working across N entities; auto-link of intercompany pairs |
+| **WTP/month band** | ₹50K-3L |
+
+## The 11 personas at a glance
+
+| # | Persona | Primary primitives | Top use case | WTP/month |
+|---|---|---|---|---|
+| F1 | CFO / Finance Head | P3, P5, P11, P14 | Single-pane compliance dashboard | ₹25K-1L |
+| F2 | Financial Controller | P1, P7, P8, P9, P15 | Close acceleration + schedule generation | **₹40K-1.5L** |
+| F3 | GST / Indirect Tax Lead | P1, P7, P9, P13 | GSTR-2B reco multi-GSTIN | ₹15K-75K |
+| F4 | Direct Tax Lead | P1, P7, P9, P13 | TDS reco (26AS/AIS/Form 16A vs books) | ₹20K-1L |
+| F5 | AP Manager | P1, P2, P7, P8, P9 | Vendor onboarding + MSME 45-day | ₹30K-2L |
+| F6 | AR Manager | P2, P7, P10 | Year-end balance confirmation | ₹15K-75K |
+| F7 | Statutory Audit Liaison | P4, P5, P10, P11 | Audit PBC + query log | ₹20K-75K |
+| F8 | Internal Audit Manager | P4, P5, P8, P11 | IFC controls evidence + testing | ₹25K-1.5L |
+| F9 | Treasury Manager | P1, P7, P13, P15 | Multi-bank BRS + FEMA filings | ₹20K-2L |
+| F10 | Compliance Officer / In-house CS | P3, P6, P11, P13 | Notice intake aggregator | ₹15K-1L |
+| F11 | Subsidiary / Group Consol Lead | P7, P9, P12 | Intercompany reco + consol | **₹50K-3L** |
+
+Source:. WTP bands cross-checked against verified Big-6 audit fees (₹70L-1 cr per listed audit) — implying ₹15K-2L SaaS is well within budget shadow.
+
+## The 7 less-central but real personas
+
+These show up at mid-large enterprises and especially at listed companies. The Business SKU does not price for them by default; the Enterprise SKU adds them as modules.
+
+### BRSR / ESG Lead
+
+| Field | Value |
+|---|---|
+| **What they own** | BRSR Core data collection from plants, ESG narrative, SEBI BRSR filing, third-party assurance liaison (post-FY23-24) |
+| **Mandate** | Top 1,000 listed by mcap; BRSR Core glide path 150 (FY23-24) → 250 (FY24-25) → 500 (FY25-26) → 1,000 (FY26-27) ([SEBI BRSR Core circular](https://www.sebi.gov.in/legal/circulars/jul-2023/brsr-core-framework-for-assurance-and-esg-disclosures-for-value-chain_73854.html), [DataTracks](https://datatracks.com/in/blog/top-1000-listed-companies-to-file-esg-reports-with-sebi/)) |
+| **Top use case** | BRSR Core data collection from plants + assurance evidence locker |
+| **WTP/month band** | ₹50K-2L |
+
+### Procurement-Finance / Vendor Onboarding Lead
+
+| Field | Value |
+|---|---|
+| **What they own** | Vendor onboarding workflow (often shared with F5 AP), supplier relationship lifecycle, vendor due diligence |
+| **Top use case** | Vendor master swamp cleanup — KYC, MSME, bank validation, sanctions screening, all in one flow |
+| **WTP/month band** | ₹15K-50K |
+
+### Tax Litigation Manager
+
+| Field | Value |
+|---|---|
+| **What they own** | IT and GST appeals across CIT(A) / ITAT / GSTAT / High Court, hearing prep, case-law research, counsel coordination |
+| **Today's hack** | Bound paper hearing packs; assistants build PDFs manually; case-law research via TaxGuru / Taxmann |
+| **Top use case** | Hearing prep pack assembly (reply + annexures + case laws + orders) — auto-bundled per appeal stage |
+| **WTP/month band** | ₹30K-1.5L |
+
+### Transfer Pricing Lead
+
+| Field | Value |
+|---|---|
+| **What they own** | TP master file + local file + 3CEB pack, intercompany agreement library, comparables refresh, CbCR filing |
+| **Today's hack** | Outsourced to TP firm (KPMG, EY, Deloitte, Nangia, Walker Chandiok); annual fire-drill with finance providing data |
+| **Top use case** | Continuous data feed from books + agreements + comparables; TP firm's workspace inside finance team's CAOS |
+| **WTP/month band** | ₹50K-2L |
+
+### SOX / IFC Controls Owner
+
+| Field | Value |
+|---|---|
+| **What they own** | SOX-equivalent controls testing for Indian-listed-and-US-cross-listed cos, IFC ICFR documentation under sec 134(5)(e), control deficiency closure |
+| **Today's hack** | Excel control matrices; manual sample evidence collection; quarterly status meetings |
+| **Top use case** | Controls test log with sample evidence + closure tracking + management remediation memo |
+| **WTP/month band** | ₹25K-75K |
+
+### Plant / Factory Finance
+
+| Field | Value |
+|---|---|
+| **What they own** | Plant-level books, inventory accounting liaison, branch ledger, expense management, contract labour billing |
+| **Today's hack** | Local accountant + Tally instance per plant; monthly upload to head office |
+| **Top use case** | BRSR data collection from plant; branch ledger consolidation; expense reimbursement OCR |
+| **WTP/month band** | ₹5K-15K per plant |
+
+### Receivables Collection
+
+| Field | Value |
+|---|---|
+| **What they own** | Customer collections, ageing analysis, dunning, dispute escalation |
+| **Today's hack** | Spreadsheet-driven; manual phone calls; CRM if at all |
+| **Top use case** | Per-customer collections / debtor chase via channel-routed comms (email + WhatsApp + portal) |
+| **WTP/month band** | ₹15K-50K |
+
+## ICP segmentation by company size (Indian context)
+
+This is the most important table for [pricing](/caos/business-model/three-skus/). The personas above appear at different counts and different WTP bands depending on company size:
+
+| Size band | Revenue | Finance team size | Buyer | Top 5 use cases | Realistic monthly contract |
+|---|---|---|---|---|---|
+| Micro | &lt;₹10 Cr | 0-1 | Owner / their CA | GSTR-2B reco, MSME tracker, notice intake, TDS reco, BRS | ₹1-3K (often via CA bundled) |
+| Small | ₹10-50 Cr | 2-5 | Owner / CA / first controller | Same + vendor onboarding, audit PBC | ₹3-10K |
+| **Lower mid** | **₹50-200 Cr** | 6-15 | Controller (CFO sponsor) | GSTR-2B multi-GSTIN, vendor master, notice inbox, TDS reco, audit workspace | **₹50K-1.5L** |
+| **Upper mid** | **₹200-500 Cr** | 15-30 | CFO + Controller | Above + IFC, ICO reco, RPT, ROC event filings, FEMA | **₹1-3L** |
+| Lower large | ₹500-2000 Cr | 30-60 | CFO + procurement | Notice aggregator, BRSR, hearing prep, TP doc, group consol | ₹3-15L |
+| Large | ₹2000+ Cr | 60-200 | CFO + CIO + procurement (12-18 mo cycle) | All of above + on-prem, SOC 2, dedicated tenant | ₹15-75L (₹2-10 Cr/yr) |
+| Listed top-1000 | varies | varies | CFO + CS + IR | BRSR Core, SEBI Reg 30/33, RPT (Reg 23), insider trading code, audit committee pack | ₹5-50L on top of base |
+
+Source:. The **sweet spot is lower-mid + upper-mid**: roughly 5,000-15,000 Indian companies, current spend on compliance software ₹2-10L/year per company, fragmented across 6-12 vendors, none integrated — a TAM in the ₹2,500-15,000 Cr/year range, an order of magnitude larger than the original CA-only TAM.
+
+## Cross-references
+
+<CardGrid>
+ <Card title="Top 25 use cases" icon="puzzle">
+ The 25 ranked finance-team use cases — by combined score of pain × frequency × WTP × adjacency to existing CAOS primitives × competitive whitespace.
+
+ See [the top 25 use cases page](/caos/product/use-cases/).
+ </Card>
+ <Card title="The bridge persona" icon="rocket">
+ Why the buyer is genetically the same person as the practising CA — 60.8% of ICAI works in industry. Compresses enterprise sales cycles.
+
+ See [the bridge persona page](/caos/stakeholders/bridge-persona/).
+ </Card>
+ <Card title="Three SKUs" icon="document">
+ How CAOS for Practice / Business / Enterprise prices for these personas. Per-entity base + per-volume AI extraction + generous seat default.
+
+ See [the three SKUs page](/caos/business-model/three-skus/).
+ </Card>
+ <Card title="Vendor onboarding" icon="seti:plan">
+ The single AP-side use case that bridges into Phase 2's vendor-network flywheel.
+
+ See [counterparties](/caos/stakeholders/counterparties/).
+ </Card>
+</CardGrid>

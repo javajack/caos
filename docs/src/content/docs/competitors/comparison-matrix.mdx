@@ -1,0 +1,186 @@
+---
+title: "Comparison matrix"
+description: "30+ capabilities × 26 CA-PMS competitors + 5 enterprise tier — coverage map showing where the field is strongest and where it's empty."
+sidebar:
+  order: 2
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+This is the master coverage map: **33 capabilities** mapped against **26 CA-PMS competitors + 5 enterprise-tier competitors**. Cells use `Y` (full coverage), `~` (partial / weak), and blank (none). The point of this page is not to score products against each other — that's done on the [per-product deep-dives](/caos/competitors/landscape/) — it is to show **where the entire field is empty**.
+
+<Aside type="tip" title="How to read this matrix">
+Read it column-down to evaluate one competitor's coverage. Read it row-across to evaluate how absent any one capability is from the entire field. The empty rows are the [white-space](/caos/competitors/feature-gaps/). The first 8-10 capabilities (CRM, calendar, tasks, time/billing, DMS) are saturated; everything past that thins out fast.
+</Aside>
+
+## The 33 capabilities mapped
+
+Capabilities are grouped into 6 functional clusters: practice operations, document intelligence, compliance & filing, accounting & AP, audit-grade workflow, and enterprise / cross-border. For every cell that says `Y`, the source is a vendor disclosure on the [per-product deep-dive](/caos/competitors/landscape/) (not external assertion).
+
+### Cluster 1 — Practice operations (saturated)
+
+| # | Capability | SimplifyPractice | Jamku | QwikCA | Practive | MyTask | Turia | Papilio | CADashboard | Zoho Practice | PracticeGuru | Karbon HQ |
+|---|---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| 1 | Client / contact CRM | Y | Y | Y | Y | ~ | Y | Y | Y | Y | Y | Y |
+| 2 | Compliance calendar | Y | Y | Y | ~ | Y | ~ | ~ | ~ | | ~ | ~ |
+| 3 | Task / workflow engine | Y | Y | Y | ~ | Y | Y | Y | Y | Y | | Y |
+| 4 | Time / billing | Y | Y | Y | Y | Y | Y | Y | Y | Y | ~ | Y |
+| 5 | Document mgmt (DMS) | Y | ~ | Y | Y | ~ | Y | ~ | ~ | Y | | Y |
+| 6 | Mobile app | Y | Y | Y | Y | Y | Y | | | Y | | Y |
+| 7 | Multi-firm | ~ | ~ | ~ | | | ~ | | ~ | Y | | Y |
+| 8 | Multi-branch | ~ | ~ | ~ | | | ~ | | ~ | Y | | Y |
+| 9 | White-label | | | | Y | | | | | | | |
+| 10 | WhatsApp | | | | Y | | | | | | | |
+| 11 | Client portal | ~ | ~ | Y | Y | | | ~ | | Y | | Y |
+
+### Cluster 2 — Document intelligence (thinning)
+
+| # | Capability | VouchrIT | Digital Doc Sys | Accomation | AI Accountant | TaxOne | Vidur | Vaive AI | Bizalys |
+|---|---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| 12 | Document OCR / AI extraction | Y | Y | Y | Y | Y | | | |
+| 13 | Bank reconciliation (statement → ledger) | Y | Y | Y | Y | ~ | | | |
+| 14 | GST 2A / 2B reconciliation | Y | ~ | ~ | ~ | Y | | | ~ |
+| 15 | Tally connector (write-back) | Y | Y | Y | Y | Y | | | |
+| 16 | Voucher posting | Y | Y | Y | Y | Y | | | |
+
+### Cluster 3 — Compliance & filing (uneven)
+
+| # | Capability | ComplyRelax | Finexo | Bizalys | Masters India | TaxOne | Cygnet.One (ent) | IRIS (ent) |
+|---|---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| 17 | Notice handling (intake → triage → reply) | ~ | | | | | | ~ |
+| 18 | Litigation tracker (CIT(A) → ITAT → HC → SC) | | | | | | | |
+| 19 | ROC / MCA filings | Y | | Y | | | | |
+| 20 | TDS workflow + return filing | | ~ | ~ | ~ | Y | | Y |
+| 21 | e-invoicing / IRN generation | | | ~ | Y | Y | Y | Y |
+| 22 | GSTN GSP-grade API | | | | Y | ~ | Y | Y |
+| 23 | DSC inventory mgmt | | | | | | | |
+
+### Cluster 4 — Accounting & AP (concentrated in non-PMS players)
+
+| # | Capability | WebLedger | TheMunim | BookKeeper | Accomation | Volopay (ent) | Happay (ent) | EnKash (ent) |
+|---|---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| 24 | Inventory | | Y | Y | | | | |
+| 25 | Payroll / PF / ESI | ~ | ~ | | | | | |
+| 26 | Fixed assets register | | | | | | | |
+| 27 | AA / UPI ingestion | | | | | ~ | ~ | ~ |
+| 28 | Corporate cards + AP automation | | | | | Y | Y | Y |
+
+### Cluster 5 — Audit-grade workflow (the empty cluster)
+
+| # | Capability | All 26 CA-PMS | TeamMate (ent) | MetricStream (ent) |
+|---|---|:-:|:-:|:-:|
+| 29 | Audit working-paper management | | Y | Y |
+| 30 | Sample-based testing automation | | Y | ~ |
+| 31 | IFC testing & control documentation | | ~ | Y |
+| 32 | Manager review queues + sign-off trails | | Y | Y |
+
+### Cluster 6 — Enterprise / cross-border / specialty
+
+| # | Capability | All 26 CA-PMS | IRIS (ent) | MetricStream (ent) | Avalara India (ent) |
+|---|---|:-:|:-:|:-:|:-:|
+| 33a | IND-AS / Schedule III financials | | ~ | | |
+| 33b | XBRL filing | | Y | | |
+| 33c | BRSR / ESG reporting | | Y | ~ | |
+| 33d | FEMA workflow | | | | |
+| 33e | Transfer pricing documentation | | | | |
+
+For FEMA: only Bizalys among the 26 CA-PMS players claims FEMA workflow coverage, and even there it is partial.
+
+## Compressed master view — the absent rows
+
+The 6 clusters compress into one master view of which capabilities are present in **any** of the 31 vendors (26 CA-PMS + 5 enterprise: ClearTax-Enterprise, IRIS, Avalara, Volopay, MetricStream). A cell of `0/31` means **no vendor in the field ships it**.
+
+| Capability | CA-PMS coverage (of 26) | Enterprise coverage (of 5) | Field total (of 31) |
+|---|---:|---:|---:|
+| Client / contact CRM | 26 | 5 | 31 |
+| Compliance calendar | 18 | 3 | 21 |
+| Task / workflow | 22 | 3 | 25 |
+| Time / billing | 25 | 2 | 27 |
+| DMS | 16 | 4 | 20 |
+| Mobile app | 17 | 2 | 19 |
+| Multi-firm | 8 | 5 | 13 |
+| Multi-branch | 9 | 5 | 14 |
+| White-label | 1 | 0 | 1 |
+| WhatsApp | 3 | 0 | 3 |
+| Client portal | 11 | 4 | 15 |
+| Doc OCR / AI extraction | 9 | 4 | 13 |
+| Bank reconciliation | 7 | 3 | 10 |
+| **GST 2A / 2B reconciliation (multi-GSTIN)** | 5 | 4 | 9 |
+| Tally connector | 9 | 1 | 10 |
+| Voucher posting | 7 | 1 | 8 |
+| **Notice handling** | 1 (Vaive partial) | 1 (IRIS partial) | 2 |
+| **Litigation tracker** | 0 | 0 | **0** |
+| ROC / MCA | 3 | 1 | 4 |
+| TDS workflow | 4 | 3 | 7 |
+| e-invoicing / IRN | 3 | 5 | 8 |
+| GSTN GSP API | 2 | 5 | 7 |
+| **DSC inventory mgmt** | 1 (QwikCA partial) | 0 | 1 |
+| Inventory | 4 | 0 | 4 |
+| Payroll / PF / ESI | 2 | 0 | 2 |
+| **Fixed assets register** | 0 | 0 | **0** |
+| AA / UPI ingestion | 0 | 3 | 3 |
+| Corporate cards + AP | 0 | 5 | 5 |
+| **Audit working-paper mgmt** | 0 | 1 (TeamMate) | 1 |
+| **Sample-based testing automation** | 0 | 1 | 1 |
+| **IFC testing & control documentation** | 0 | 1 | 1 |
+| **Manager review queues + sign-off trails** | 0 | 1 | 1 |
+| **IND-AS / Schedule III financials with disclosures** | 0 | 1 (IRIS partial) | 1 |
+| **XBRL filing** | 0 | 1 | 1 |
+| **BRSR / ESG** | 0 | 2 | 2 |
+| **FEMA workflow** | 1 (Bizalys partial) | 0 | 1 |
+| **Transfer pricing documentation** | 0 | 0 | **0** |
+
+## What this view reveals
+
+<Aside type="caution" title="The empty rows are the moat">
+Three capabilities show **0/31 coverage** — litigation tracker, fixed assets register, transfer pricing documentation. Eight more show **1/31** — DSC inventory, audit working-paper management, sample-based testing, IFC, manager review, IND-AS Schedule III, XBRL, FEMA. These are the highest-leverage white-space targets for the [composite flywheel](/caos/flywheel/composite/).
+</Aside>
+
+### Observation 1 — practice operations is fully saturated
+
+Client CRM, time/billing, task management, DMS, and mobile app are at 19-31/31 coverage. **Trying to win on these capabilities is impossible** — the field has 26 functioning products. The Phase 1 wedge has to win on a different dimension (WhatsApp-AI handoff, document intelligence wired into workflow, OTP-portal client experience), not on raw practice-ops feature parity.
+
+### Observation 2 — document intelligence is concentrated, not absent
+
+Doc OCR + Tally write-back has 9-13/31 coverage. **The differentiator is the integration with workflow**, not the OCR itself. VouchrIT and Digital Doc Sys exist as point solutions; what's missing is OCR feeding directly into the compliance calendar + reconciliation engine + notice inbox.
+
+### Observation 3 — compliance is uneven, not unified
+
+GST has 7-9/31 coverage. ROC has 3-4/31. TDS has 4-7/31. **No single product covers the full Indian compliance surface**. Even Bizalys (claimed 600+ workflow templates) is patchy. Masters India + Cygnet.One own the GSP-grade infrastructure but don't bridge into CA workflow.
+
+### Observation 4 — audit-grade workflow is **functionally empty for CA-PMS**
+
+The 5 audit-grade rows (audit working-papers, sample testing, IFC, manager review, IND-AS Schedule III) are all `0/26` for CA-PMS players. TeamMate (Wolters Kluwer) and MetricStream cover the enterprise side, but neither bridges to the Indian CA's tax-audit + 3CA/3CB + UDIN-bearing workflow. **This is the [Phase 3 Audit Workspace](/caos/flywheel/composite/) wedge** — the candidate flywheel that has zero direct competitor.
+
+### Observation 5 — notice handling is a one-vendor field
+
+Notice intake → triage → reply → outcome shows up only in Vaive AI (litigation co-pilot, partial coverage of GST notices). Litigation tracker is `0/31`. The [4.2 lakh+ GST notices issued FY22-23 alone](https://a2ztaxcorp.net/gst-8-years-report-released-gstn-highlights-record-revenue-compliance-milestones/), plus the IT department's 11.5 cr PAN deactivations creating downstream notice volume, is a **largely-unaddressed pain spectrum**.
+
+### Observation 6 — corporate-card + AP is owned by the enterprise tier, not CA-PMS
+
+Volopay, EnKash, Happay (now MakeMyTrip-owned) and Avalara cover this cluster well. **Zero CA-PMS player ships corporate-card or AP automation natively**. This is the [Phase 2 vendor-network](/caos/flywheel/composite/) wedge — vendor onboarding + master + reconciliation + payment is the right place to bridge the CA + enterprise sides.
+
+### Observation 7 — cross-border and specialty (FEMA, TP, IND-AS, BRSR, XBRL) are essentially missing
+
+Only IRIS Business Services covers BRSR / XBRL / IND-AS at any depth, and IRIS is enterprise-only. **No CA-PMS product** ships these. Yet [SEBI's BRSR Core mandate hits top 250 listed cos by FY26 and top 1,000 by FY27](http://www.primedatabasegroup.com/newsroom/BIG_6_CONTINUE_DOMINANCE_OF_INDIAN_AUDIT_LANDSCAPE_2024-25.pdf) — and the auditor is the Big-6 + mid-tier, who need a workspace that talks to the in-house team. This is the [Phase 5+ specialty expansion](/caos/flywheel/composite/) zone.
+
+## Where the matrix sends the product roadmap
+
+| Insight from matrix | Implication |
+|---|---|
+| Practice ops saturated | Don't compete on parity. Win on document intelligence × WhatsApp × OTP-portal handoff. |
+| Doc-intel concentrated | OCR alone is not the moat — the integration into calendar + reco + notice is. Build OCR as a Phase 1 primitive, not a feature. |
+| Notice-handling near-empty | Notice Inbox is a Phase 2 wedge. Vaive AI is the only co-pilot; CAOS can ship the full lifecycle (intake → reply → outcome). |
+| Audit-grade `0/26` for CA-PMS | Phase 3 Audit Workspace bridge is greenfield. NFRA's [94 disciplinary orders + 12 inspection reports](https://taxguru.in/company-law/action-nfra-prevent-audit-failure-regulatory-lapses.html) creates tooling-grade demand. |
+| Vendor-network / AP owned by enterprise tier | Phase 2 vendor-network is the bridge wedge. Combine CA-side trust + enterprise-side AP automation. |
+| BRSR / XBRL / FEMA / TP `0-1/31` | Phase 5+ specialty expansion. Each one is a 6-12 month build with no direct CA-PMS competitor. |
+| Corporate-card + AP `0/26` for CA-PMS | Don't compete with Volopay / EnKash on cards. Integrate as a partner; own the workflow layer above. |
+
+## Cross-references
+
+- The [Feature-gap analysis](/caos/competitors/feature-gaps/) sorts the empty rows above by absence + pain spectrum and links each gap to the responsible flywheel phase.
+- The [Enterprise threats](/caos/competitors/enterprise-threats/) page details the 8 enterprise-tier vendors that own the 5 columns added in this matrix.
+- The [Competitive landscape](/caos/competitors/landscape/) reframes the 26+5 field through the flywheel lens.
+- The composite flywheel that this matrix sizes against is at [/caos/flywheel/composite/](/caos/flywheel/composite/).
+- The 14-stakeholder atlas grouping the buyer side of the matrix is at [/caos/stakeholders/overview/](/caos/stakeholders/overview/).
+- The flywheel risks (failure modes, counterfactual scenarios) are at [/caos/risks/failure-modes/](/caos/risks/failure-modes/).
